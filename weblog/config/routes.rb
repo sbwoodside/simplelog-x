@@ -19,6 +19,8 @@
 # MA 02110-1301 USA.
 #++
 
+
+# TODO: This needs a serious overhaul to DRY it up with Rails 2 techniques
 ActionController::Routing::Routes.draw do |map|
 
   tokens = /archives|older|past/

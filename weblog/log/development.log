@@ -13971,3 +13971,773 @@ Rendered includes/_main_nav (0.00013)
 Rendered includes/_footer (0.00024)
 Rendered includes/_right_rail (0.00013)
 Completed in 0.46062 (2 reqs/sec) | Rendering: 0.03357 (7%) | DB: 0.41628 (90%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+/!\ FAILSAFE /!\  Mon Jun 09 00:15:45 -0400 2008
+  Status: 500 Internal Server Error
+  Can't connect to MySQL server on '127.0.0.1' (61)
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `real_connect'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `connect'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:165:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `mysql_connection'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1080:in `columns'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1088:in `columns_hash'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session/active_record_store.rb:105:in `setup_sessid_compatibility!'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session/active_record_store.rb:79:in `find_by_session_id'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session/active_record_store.rb:284:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1198:in `silence'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session/active_record_store.rb:284:in `initialize'
+    /opt/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /opt/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/cgi_ext/session.rb:39:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/cgi_process.rb:130:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/cgi_process.rb:130:in `session'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/cgi_process.rb:166:in `stale_session_check!'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/cgi_process.rb:114:in `session'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1131:in `assign_shortcuts_without_flash'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/flash.rb:167:in `assign_shortcuts'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:518:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    ./script/server:3
+/!\ FAILSAFE /!\  Mon Jun 09 00:15:49 -0400 2008
+  Status: 500 Internal Server Error
+  Can't connect to MySQL server on '127.0.0.1' (61)
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `real_connect'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:471:in `connect'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:165:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/mysql_adapter.rb:88:in `mysql_connection'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:291:in `connection='
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:259:in `retrieve_connection'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2438:in `quoted_table_name'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1353:in `construct_finder_sql'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1233:in `find_every'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1227:in `find_initial'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:502:in `find'
+    /Users/simon/sandbox/swc/weblog/app/models/preference.rb:36:in `get_setting'
+    /Users/simon/sandbox/swc/weblog/app/controllers/post_controller.rb:36
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:104:in `require_or_load'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:248:in `load_missing_constant'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:453:in `const_missing'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:465:in `const_missing'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/inflector.rb:257:in `constantize'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1426:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    ./script/server:3
+
+
+Processing ApplicationController#list (for 127.0.0.1 at 2008-06-09 00:16:45) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+
+
+LoadError (Expected /Users/simon/sandbox/swc/weblog/app/controllers/post_controller.rb to define PostController):
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:249:in `load_missing_constant'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:453:in `const_missing'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:465:in `const_missing'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/inflector.rb:257:in `constantize'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1426:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    ./script/server:3
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.037614)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPreference Load (0.045568)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'slogan') LIMIT 1[0m
+  [4;36;1mPreference Columns (0.059626)[0m   [0;1mSHOW FIELDS FROM `preferences`[0m
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:17:04) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;35;1mSQL (0.038702)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;36;1mPreference Load (0.038112)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'show_author_of_post') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.048509)[0m   [0mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;36;1mPreference Load (0.039008)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'offset') LIMIT 1[0m
+  [4;35;1mPreference Load (0.039236)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'items_on_index') LIMIT 1[0m
+  [4;36;1mPost Load (0.277800)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:17:04') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;35;1mPost Columns (0.086112)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPreference Load (0.048231)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'archive_token') LIMIT 1[0m
+  [4;35;1mPreference Load (0.044023)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'domain') LIMIT 1[0m
+  [4;36;1mAuthor Columns (0.059282)[0m   [0;1mSHOW FIELDS FROM `authors`[0m
+  [4;35;1mAuthor Load (0.039210)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mPreference Load (0.039339)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'date_format') LIMIT 1[0m
+  [4;35;1mPreference Load (0.038291)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'time_format') LIMIT 1[0m
+  [4;36;1mPreference Load (0.038646)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'commenting_on') LIMIT 1[0m
+  [4;35;1mComment Load (0.046846)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.056723)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038243)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.66428)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.040891)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.056108)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038550)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.13825)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.041284)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057642)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039236)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14137)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.045144)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057316)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039689)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.14970)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.042264)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057724)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038227)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14180)
+  [4;36;1mPreference Load (0.047137)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'site_name') LIMIT 1[0m
+  [4;35;1mPreference Load (0.039019)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'encoding') LIMIT 1[0m
+  [4;36;1mPreference Load (0.040104)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'site_primary_author') LIMIT 1[0m
+  [4;35;1mPreference Load (0.039713)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'site_description') LIMIT 1[0m
+  [4;36;1mPreference Load (0.040396)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'icbm') LIMIT 1[0m
+  [4;35;1mPreference Load (0.039304)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'esbn') LIMIT 1[0m
+  [4;36;1mPreference Load (0.039600)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'issn') LIMIT 1[0m
+  [4;35;1mPreference Load (0.041724)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'rss_url') LIMIT 1[0m
+Rendered includes/_masthead (0.00117)
+Rendered includes/_main_nav (0.00107)
+Rendered includes/_footer (0.00088)
+Rendered includes/_right_rail (0.00068)
+  [4;36;1mPreference Load (0.042570)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'mint_dir') LIMIT 1[0m
+Completed in 2.10691 (0 reqs/sec) | Rendering: 0.16175 (7%) | DB: 2.08276 (98%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:17:06) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.192192)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:17:06') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.042279)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;35;1mPreference Load (0.041224)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'error_page_title') LIMIT 1[0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00009)
+Rendered includes/_main_nav (0.00007)
+Rendered includes/_footer (0.00007)
+Rendered includes/_right_rail (0.00025)
+Completed in 0.28389 (3 reqs/sec) | Rendering: 0.00378 (1%) | DB: 0.27570 (97%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+  [4;36;1mSQL (0.037147)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPreference Load (0.041781)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'slogan') LIMIT 1[0m
+  [4;36;1mPreference Columns (0.089056)[0m   [0;1mSHOW FIELDS FROM `preferences`[0m
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:17:50) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;35;1mSQL (0.040048)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;36;1mPreference Load (0.039977)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'show_author_of_post') LIMIT 1[0m
+  [4;35;1mAuthor Load (0.039956)[0m   [0mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;36;1mPreference Load (0.038825)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'offset') LIMIT 1[0m
+  [4;35;1mPreference Load (0.039975)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'items_on_index') LIMIT 1[0m
+  [4;36;1mPost Load (0.233607)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:17:50') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;35;1mPost Columns (0.063758)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPreference Load (0.039546)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'archive_token') LIMIT 1[0m
+  [4;35;1mPreference Load (0.038772)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'domain') LIMIT 1[0m
+  [4;36;1mAuthor Columns (0.059209)[0m   [0;1mSHOW FIELDS FROM `authors`[0m
+  [4;35;1mAuthor Load (0.039967)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mPreference Load (0.038387)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'date_format') LIMIT 1[0m
+  [4;35;1mPreference Load (0.038844)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'time_format') LIMIT 1[0m
+  [4;36;1mPreference Load (0.039570)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'commenting_on') LIMIT 1[0m
+  [4;35;1mComment Load (0.043083)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.056936)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039660)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.62936)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043050)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058639)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.040608)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.14699)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043409)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058772)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039011)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14618)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.041571)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057435)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.040257)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.14646)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.042508)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058658)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038640)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14615)
+  [4;36;1mPreference Load (0.039354)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'site_name') LIMIT 1[0m
+  [4;35;1mPreference Load (0.038546)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'encoding') LIMIT 1[0m
+  [4;36;1mPreference Load (0.038856)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'site_primary_author') LIMIT 1[0m
+  [4;35;1mPreference Load (0.038679)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'site_description') LIMIT 1[0m
+  [4;36;1mPreference Load (0.039643)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'icbm') LIMIT 1[0m
+  [4;35;1mPreference Load (0.039053)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'esbn') LIMIT 1[0m
+  [4;36;1mPreference Load (0.038964)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'issn') LIMIT 1[0m
+  [4;35;1mPreference Load (0.039485)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'rss_url') LIMIT 1[0m
+Rendered includes/_masthead (0.00208)
+Rendered includes/_main_nav (0.00169)
+Rendered includes/_footer (0.00138)
+Rendered includes/_right_rail (0.00113)
+  [4;36;1mPreference Load (0.041022)[0m   [0;1mSELECT * FROM `preferences` WHERE (name = 'mint_dir') LIMIT 1[0m
+Completed in 2.07194 (0 reqs/sec) | Rendering: 0.17959 (8%) | DB: 2.01426 (97%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:17:52) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.152344)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:17:52') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.039712)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;35;1mPreference Load (0.039393)[0m   [0mSELECT * FROM `preferences` WHERE (name = 'error_page_title') LIMIT 1[0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00012)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00011)
+Rendered includes/_right_rail (0.00011)
+Completed in 0.24272 (4 reqs/sec) | Rendering: 0.00493 (2%) | DB: 0.23145 (95%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:22:30) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;36;1mSQL (0.040084)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;35;1mAuthor Load (0.040293)[0m   [0mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;36;1mPost Load (0.272612)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:22:30') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;35;1mAuthor Load (0.039478)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042322)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056855)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.040186)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.26158)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042970)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.058547)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038010)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.14532)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.041721)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056767)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038993)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14226)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.041427)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.057468)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038831)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.14663)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042894)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.057818)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038076)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14465)
+Rendered includes/_masthead (0.00012)
+Rendered includes/_main_nav (0.00010)
+Rendered includes/_footer (0.00010)
+Rendered includes/_right_rail (0.00009)
+Completed in 1.20398 (0 reqs/sec) | Rendering: 0.11606 (9%) | DB: 1.08535 (90%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:22:32) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.179026)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:22:32') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.041029)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00011)
+Rendered includes/_main_nav (0.00014)
+Rendered includes/_footer (0.00014)
+Rendered includes/_right_rail (0.00012)
+Completed in 0.22939 (4 reqs/sec) | Rendering: 0.00680 (2%) | DB: 0.22006 (95%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:22:47) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;35;1mSQL (0.039086)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;36;1mAuthor Load (0.040014)[0m   [0;1mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;35;1mPost Load (0.271164)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:22:47') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;36;1mAuthor Load (0.041045)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043205)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057867)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039873)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.26133)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043002)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058120)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039614)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.14670)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.042820)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058815)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.040919)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14996)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043549)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058171)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039023)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.20157)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043017)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057889)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039736)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14668)
+Rendered includes/_masthead (0.00012)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00010)
+Rendered includes/_right_rail (0.00011)
+Completed in 1.26576 (0 reqs/sec) | Rendering: 0.16629 (13%) | DB: 1.09693 (86%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:22:48) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;36;1mPost Load (0.151766)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:22:48') ORDER BY created_at desc LIMIT 5[0m
+  [4;35;1mSQL (0.039325)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00013)
+Rendered includes/_main_nav (0.00017)
+Rendered includes/_footer (0.00013)
+Rendered includes/_right_rail (0.00012)
+Completed in 0.20024 (4 reqs/sec) | Rendering: 0.00692 (3%) | DB: 0.19109 (95%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:22:50) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;36;1mSQL (0.039670)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;35;1mAuthor Load (0.040647)[0m   [0mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;36;1mPost Load (0.303547)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:22:50') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;35;1mAuthor Load (0.040703)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042919)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.057893)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039489)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.25892)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042336)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056873)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039651)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.14396)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.041583)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056664)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038616)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14140)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.041322)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056699)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039023)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.14465)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042417)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.058138)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039705)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14699)
+Rendered includes/_masthead (0.00012)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00010)
+Rendered includes/_right_rail (0.00010)
+Completed in 1.22752 (0 reqs/sec) | Rendering: 0.10717 (8%) | DB: 1.11789 (91%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:22:52) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.155711)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:22:52') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.040879)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00013)
+Rendered includes/_main_nav (0.00015)
+Rendered includes/_footer (0.00018)
+Rendered includes/_right_rail (0.00012)
+Completed in 0.20540 (4 reqs/sec) | Rendering: 0.00627 (3%) | DB: 0.19659 (95%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:23:19) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["favicon.ico"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.293033)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:23:19') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.039416)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00015)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00012)
+Rendered includes/_right_rail (0.00011)
+Completed in 0.33844 (2 reqs/sec) | Rendering: 0.00376 (1%) | DB: 0.33245 (98%) | 200 OK [http://localhost/favicon.ico]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:23:21) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["favicon.ico"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.245289)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:23:21') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.040025)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00012)
+Rendered includes/_main_nav (0.00011)
+Rendered includes/_footer (0.00011)
+Rendered includes/_right_rail (0.00011)
+Completed in 0.28979 (3 reqs/sec) | Rendering: 0.00293 (1%) | DB: 0.28531 (98%) | 200 OK [http://localhost/favicon.ico]
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:23:30) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;35;1mSQL (0.041953)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;36;1mAuthor Load (0.039892)[0m   [0;1mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;35;1mPost Load (0.241315)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:23:30') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;36;1mAuthor Load (0.040738)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.042547)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.051170)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039720)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.25899)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043248)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057193)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038718)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.14427)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.042522)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058051)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039453)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14518)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043518)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057747)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038271)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.14694)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043019)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.056994)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038889)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14482)
+Rendered includes/_masthead (0.00011)
+Rendered includes/_main_nav (0.00010)
+Rendered includes/_footer (0.00010)
+Rendered includes/_right_rail (0.00009)
+Completed in 1.17207 (0 reqs/sec) | Rendering: 0.11396 (9%) | DB: 1.05496 (90%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:23:32) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;36;1mPost Load (0.159466)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:23:32') ORDER BY created_at desc LIMIT 5[0m
+  [4;35;1mSQL (0.040530)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00013)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00012)
+Rendered includes/_right_rail (0.00010)
+Completed in 0.20913 (4 reqs/sec) | Rendering: 0.00561 (2%) | DB: 0.20000 (95%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:23:53) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;36;1mSQL (0.041042)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;35;1mAuthor Load (0.040985)[0m   [0mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;36;1mPost Load (0.280075)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:23:53') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;35;1mAuthor Load (0.040784)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042054)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.051000)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038405)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.24884)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042248)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056451)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038117)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.14164)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042182)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056851)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039013)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14335)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042390)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.057190)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039026)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.14644)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042700)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.057943)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039313)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14749)
+Rendered includes/_masthead (0.00014)
+Rendered includes/_main_nav (0.00015)
+Rendered includes/_footer (0.00011)
+Rendered includes/_right_rail (0.00011)
+Completed in 1.19964 (0 reqs/sec) | Rendering: 0.10913 (9%) | DB: 1.08777 (90%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:23:55) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.212728)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:23:55') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.042415)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00012)
+Rendered includes/_main_nav (0.00011)
+Rendered includes/_footer (0.00011)
+Rendered includes/_right_rail (0.00019)
+Completed in 0.31011 (3 reqs/sec) | Rendering: 0.05203 (16%) | DB: 0.25514 (82%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:24:00) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;35;1mSQL (0.041008)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;36;1mAuthor Load (0.039861)[0m   [0;1mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;35;1mPost Load (0.256201)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:24:00') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;36;1mAuthor Load (0.039782)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.064262)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057536)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039392)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.27825)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.043147)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.075485)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.039245)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.16297)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.066801)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.058700)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.058535)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.18885)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.042817)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.093038)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (1.033448)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (1.17744)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;35;1mComment Load (0.049995)[0m   [0mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;36;1mJoin Table Columns (0.057173)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.038351)[0m   [0mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.15183)
+Rendered includes/_masthead (0.00014)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00011)
+Rendered includes/_right_rail (0.00011)
+Completed in 2.30599 (0 reqs/sec) | Rendering: 0.10823 (4%) | DB: 2.19478 (95%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:24:02) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;36;1mPost Load (0.249807)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:24:02') ORDER BY created_at desc LIMIT 5[0m
+  [4;35;1mSQL (0.039890)[0m   [0mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00015)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00011)
+Rendered includes/_right_rail (0.00010)
+Completed in 0.29840 (3 reqs/sec) | Rendering: 0.00611 (2%) | DB: 0.28970 (97%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]
+
+
+Processing PostController#list (for 127.0.0.1 at 2008-06-09 00:24:30) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"action"=>"list", "controller"=>"post"}
+  [4;36;1mSQL (0.039498)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+  [4;35;1mAuthor Load (0.039978)[0m   [0mSELECT * FROM `authors` ORDER BY name asc[0m
+  [4;36;1mPost Load (0.306262)[0m   [0;1mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:24:30') ORDER BY created_at desc LIMIT 5[0m
+Rendering template within layouts/site
+Rendering index
+  [4;35;1mAuthor Load (0.039505)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.042127)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 795 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.057957)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039046)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 795 ) [0m
+Rendered posts/_item (0.26060)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.043200)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 794 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.058272)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039598)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 794 ) [0m
+Rendered posts/_item (0.14631)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.043131)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 449 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056262)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039091)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 449 ) [0m
+Rendered posts/_item (0.14358)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.041310)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 450 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.056637)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.038115)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 450 ) [0m
+Rendered posts/_item (0.14297)
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `authors` WHERE (`authors`.`id` = 2) [0m
+  [4;36;1mComment Load (0.043420)[0m   [0;1mSELECT * FROM `comments` WHERE (comments.post_id = 451 AND (is_approved = 1)) [0m
+  [4;35;1mJoin Table Columns (0.057475)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.039821)[0m   [0;1mSELECT * FROM `tags` INNER JOIN posts_tags ON tags.id = posts_tags.tag_id WHERE (posts_tags.post_id = 451 ) [0m
+Rendered posts/_item (0.14713)
+Rendered includes/_masthead (0.00012)
+Rendered includes/_main_nav (0.00012)
+Rendered includes/_footer (0.00010)
+Rendered includes/_right_rail (0.00009)
+Completed in 1.23456 (0 reqs/sec) | Rendering: 0.11118 (9%) | DB: 1.12070 (90%) | 200 OK [http://localhost/weblog/]
+
+
+Processing ApplicationController#handle_unknown_request (for 127.0.0.1 at 2008-06-09 00:24:32) [GET]
+  Session ID: 2c9f3d10c2bc3c4cfca27d890532ca13
+  Parameters: {"anything"=>["weblog", "images", "2006", "police_squad.png"], "action"=>"handle_unknown_request", "controller"=>"application"}
+  [4;35;1mPost Load (0.161969)[0m   [0mSELECT * FROM `posts` WHERE (is_active = 1 and created_at <= '2008-06-09 00:24:32') ORDER BY created_at desc LIMIT 5[0m
+  [4;36;1mSQL (0.040558)[0m   [0;1mSELECT tags.id AS id, tags.name AS name, COUNT(*) AS count FROM posts_tags, posts, tags WHERE posts_tags.tag_id = tags.id 
+ AND posts_tags.post_id = posts.id GROUP BY tags.id,tags.name HAVING count > 0 ORDER BY name asc [0m
+Rendering template within layouts/site
+Rendering errors/unknown_request
+Rendered includes/_masthead (0.00014)
+Rendered includes/_main_nav (0.00011)
+Rendered includes/_footer (0.00011)
+Rendered includes/_right_rail (0.00011)
+Completed in 0.21313 (4 reqs/sec) | Rendering: 0.00868 (4%) | DB: 0.20253 (95%) | 200 OK [http://localhost/weblog/images/2006/police_squad.png]

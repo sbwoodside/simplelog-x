@@ -7,8 +7,7 @@
     <meta name="robots" content="index,follow"/>
     <meta name="mssmarttagspreventparsing" content="true"/>
     <%= Site.default_meta_tags %> <%= Site.icbm_meta_tag %> <%= Site.esbn_meta_tag %> <%= Site.issn_meta_tag %>
-    <%= auto_discovery_link_tag :rss, Site.rss_url, :title => 'Primary Feed with Everything' %>
-    <%= auto_discovery_link_tag :rss, Site.posts_rss_url, :title => 'Just the Blog Posts' %>
+    <%= auto_discovery_link_tag :rss, Site.posts_rss_url, :title => 'Simon Says' %>
     <link type="text/css" title="WatStart" rel="Stylesheet" media="screen" href="/stylesheets/inside.css"/>
     <%= javascript_include_tag 'site' %>
     <%= javascript_include_tag 'prototype' %> <%= javascript_include_tag 'effects' %> <%= javascript_include_tag 'lightbox' %>
