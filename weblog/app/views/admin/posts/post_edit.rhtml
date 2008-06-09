@@ -1,0 +1,21 @@
+<%= render :partial => 'admin/posts/subnav', :locals => {:np => false, :ep => true} %>
+<div id="header">
+  <h1>Editing post</h1>
+  <h2>Required fields in <b>bold</b>.</h2>
+  <br/>
+  <% if flash[:notice] %><div class="green flash"><b>Success:</b> <%= flash[:notice] %></div><% end -%>
+</div>
+<table class="super" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="super_left" valign="top" class="no_pad">
+      <% form_tag(Site.full_url + '/admin/posts/update/' + @post.id.to_s, :id => 'post_form') do %>
+        <%= render :partial => 'admin/posts/post_form' %>
+        <div class="submit_area">
+          <%= submit_tag 'Update this post', :class => 'submit wymupdate' %>
+          or <%= link_to 'cancel and return to post list', Site.full_url + '/admin/posts' %>
+        </div>
+      <% end -%>
+    </td>
+  </tr>
+</table>
+<br/>

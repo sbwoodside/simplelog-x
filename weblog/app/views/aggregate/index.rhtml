@@ -1,0 +1,14 @@
+<h1>Who's been blogging what?</h1>
+
+<p>
+  This is an aggregation of local bloggers in Waterloo.
+  Currently this includes:
+  <% for feed in Aggregate.find(:all) %>
+    <span>
+      <a href="<%= feed.web_url %>"><%= feed.blog_name %></a>
+      (by <%= feed.author_name %>)
+    </span>
+  <% end %>
+</p>
+
+<%= render :partial => 'aggregate/list', :locals => { :stories => @stories } %>

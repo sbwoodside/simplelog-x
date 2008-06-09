@@ -1,0 +1,23 @@
+/* CSS for the portal page. 
+   Include only this CSS */
+
+@import url('/stylesheets/shared.css');
+
+div#container {
+	font: normal 12px/15px "News Gothic MT", "News Gothic", Arial, Helvetica, Sans-serif;
+  background: url('/images/background/portal.png') no-repeat top center;
+}
+
+
+div#footer { position: relative; top: 530px; }
+
+div#feature-1 { position:absolute; left:18px; top:346px; width:229px; height:116px; }
+div#feature-2 { position:absolute; left:259px; top:346px; width:229px; height:116px; }
+div#feature-3 { position:absolute; left:500px; top:346px; width:229px; height:116px; }
+div#summary-1 { position:absolute; left:35px; top:491px; width:309px; height:185px; overflow: hidden; }
+div#summary-2 { position:absolute; left:402px; top:491px; width:312px; height:182px; }
+
+
+div.summary-box { position:relative; }
+/*div.summary-box p { margin: 0; padding: 0; } */
+

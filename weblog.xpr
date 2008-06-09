@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="weblog.xpr">
+        <folder path="weblog/app/"/>
+        <folder path="weblog/config/"/>
+        <folder path="weblog/db/"/>
+        <folder path="weblog/doc/"/>
+        <folder path="weblog/lib/"/>
+        <folder path="weblog/public/javascripts/"/>
+        <folder path="weblog/public/stylesheets/"/>
+        <folder path="weblog/test/"/>
+        <file name="weblog/README"/>
+        <file name="weblog/README%20FIRST"/>
+    </projectTree>
+</project>

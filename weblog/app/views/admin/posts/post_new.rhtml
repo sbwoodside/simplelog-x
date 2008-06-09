@@ -1,0 +1,18 @@
+<%= render :partial => 'admin/posts/subnav', :locals => {:np => true, :ep => false} %>
+<div id="header">
+  <h1>New post</h1>
+  <h2>Required fields in <b>bold</b>.</h2><br/>
+</div>
+<table class="super" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="super_left" valign="top" class="no_pad">
+      <% form_tag(Site.full_url + '/admin/posts/create', :id => 'post_form') do %>
+        <%= render :partial => 'admin/posts/post_form' %>
+        <div class="submit_area">
+          <%= submit_tag 'Create new post', :class => 'submit wymupdate' %> or <%= link_to 'cancel and return to post list', Site.full_url + '/admin/posts' %>
+        </div>
+      <% end -%>
+    </td>
+  </tr>
+</table>
+<br/>

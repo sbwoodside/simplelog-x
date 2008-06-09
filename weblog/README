@@ -1,0 +1,10 @@
+Semacode Web Site
+
+For production: use capistrano:
+  cap deploy
+It will use ports 12000, 12001, 12002
+
+For testing: from semacode.com/trunk:
+  ruby ./script/server -p 3012
+
+  httperf --hog --server semacode.com --num-conn 100 --ra 10 --timeout 5

@@ -1,0 +1,25 @@
+<% lastday = -1 %>
+<% if stories && defined? stories %>
+  <ul id="aggregate-list">
+    <% for item in stories %>
+      <% mydate = item.date_published
+         if mydate.yday != lastday
+     %><h2><%= mydate.strftime('%A') %></h2><%
+     lastday = mydate.yday
+   end
+      %>
+      <li>
+        <%= item.authors %> blogged
+        "<a href="<%= item.urls.first %>"><%= item.title %></a>"
+      </li>
+      <%
+    end
+    %>
+  </ul>
+<% else %>
+<script type="text/javascript" src="http://www.google.com/reader/ui/publisher-en.js"></script>
+<script type="text/javascript" src="http://www.google.com/reader/public/javascript/user/13863035086103558446/label/waterloo?n=10&callback=GRC_p(%7Bc%3A%22-%22%2Ct%3A%22%22%2Cs%3A%22false%22%2Cb%3A%22false%22%7D)%3Bnew%20GRC"></script>
+<!--  <ul id="aggregate-list">
+    <li>There are no feed items available.</li>
+  </ul>-->
+<% end %>
