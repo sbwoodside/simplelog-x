@@ -1,0 +1,21 @@
+/*****************************************/
+/*                                       */
+/* Mobile-specific styles                */
+/*                                       */
+/*****************************************/
+
+@import "common.css";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.nomobile,
+div#bannerbox,
+div#sidebarbox,
+div#nocsstitlebox {
+  display: none;
+}
+
+h1, h2 { margin-left: 0em; }

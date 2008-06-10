@@ -9,7 +9,7 @@
  ***************************/
 div#container { background: url('/images/background/inside.png') no-repeat top center; }
 div#content { position:absolute; left:219px; top:212px; width:505px; }
-div#right-rail { position:absolute; left: 765px; top:235px; width:160px; }
+div#right-rail { position:absolute; left: 765px; top:235px; width:160px; background:white; }
 div#footer { text-align: left; }
 
 
@@ -54,7 +54,10 @@ div.accordion_content p { margin-top: 15px; }
 /*
  * Posts and comments
  ***************************/
-.item_details {
+div.item_content pre {
+  overflow:scroll;
+}
+div.item_details {
   float:left;
   width:170px;
   margin-left:-180px;
