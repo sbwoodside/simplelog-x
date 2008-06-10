@@ -24,7 +24,15 @@
           <%= render :partial => 'includes/footer' %>
         </div>
       </div>
-      <%= render :partial => 'includes/right_rail' %>
+      <div id="right-rail">
+        <p>This is the Simon Says weblog -- by Simon Woodside.</p>
+        <p>
+          <a href="/archives" title="Archives">Browse the weblog archives</a>
+        </p>
+        <p>Subscribe to the <%= Site.rss_feed_link %> or the <%= Site.comments_feed_link %>.</p>
+        <p>Tags:</p>
+        <%= Site.list_tags_linked(@tags) %>	
+      </div>
     </div>
     <%= Site.mint_tag %>
     <%= Site.ga_tag %>
