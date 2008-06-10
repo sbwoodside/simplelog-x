@@ -1,0 +1,914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Simon Woodside | Saxite manual</title>
+<meta name="author" lang="en" content="Simon Woodside" xml:lang="en" />
+<meta name="description" lang="en" content="Simon Woodside's personal home page." xml:lang="en" />
+<link rel="Stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+<link rel="Stylesheet" href="/css/print.css" type="text/css" media="print" />
+<link rel="Stylesheet" href="/css/mobile.css" type="text/css" media="handheld" />
+</head>
+<body>
+<div id="nocsstitlebox">
+<b>Simon Woodside | Saxite manual</b>
+<br />
+<b><a href="#content">Skip to content</a> &gt;</b>
+</div>
+<div id="wrapper">
+<div id="sidebarbox">
+<div id="sidebarbox_inner">
+<div id="bannerbox">
+<a href="/">
+<img src="/images/swclogo.gif" alt="SWC logo" style="border:none;" />
+</a>
+</div>
+<div id="sitemenu">
+<div class="sitemenuitem">
+<a href="/weblog">Simon Says</a>
+</div>
+<div class="sitemenuitem">
+<a href="/dev">Development</a>
+</div>
+<div class="sitemenuitem">
+<a href="/content">Content</a>
+</div>
+<div class="sitemenuitem">
+<a href="/about">About</a>
+</div>
+<br />
+<div class="sitemenuitem">
+<a href="mailto:sbwoodside@yahoo.com?subject=SimonWoodside.com">email</a>
+</div>
+</div>
+<form method="get" action="http://www.google.com/search">
+<div id="searchbox">
+<input type="hidden" name="sitesearch" value="simonwoodside.com" />
+<input type="text" name="q" maxlength="255" value="Search the site..." onblur="if(this.value=='') this.value='Search the site...';" onfocus="if(this.value=='Search the site...') this.value='';" />
+</div>
+</form>
+<div id="related">
+<div>
+<b>
+              Recent posts related to
+              <a href="/weblog/tag/dev/siteware">dev/siteware</a>:
+            </b>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2006/11/17">New features on the blog: pagination, save to digg, del.icio.us</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2006/10/21">Some fun with Saxite, a logo, my first "font"</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2006/09/06">Even better tag browser!</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/10/27">New tag browser</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/07/09">mobile CSS</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/07/08">It's tags after all</a>
+</div>
+</div>
+</div>
+</div>
+<div id="content">
+<div id="navi">
+<div id="pathbar"><span class="pathbaritem"><a href="/">Home</a></span> &gt; <span class="pathbaritem"><a href="/dev">Software dev</a></span> &gt; <span class="pathbaritem"><a href="/dev/xml">XML</a></span> &gt; <span class="pathbaritem"><a href="/dev/xml/saxite">Saxite</a></span> &gt; <span class="pathbaritem"><a href="/dev/xml/saxite/docs">Docs</a></span> &gt; <span class="pathbaritem"></span></div>
+<div id="submenu">
+<span class="submenuitem">
+<a href="/dev/xml/saxite/docs/manual">Manual</a>
+</span>
+</div>
+</div>
+<div id="content_inner">
+<div id="titlebox">
+<h1 class="body_title">Saxite manual</h1>
+</div>
+<div class="myserif">
+<div class="book" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h1 class="title"><a id="id2376887"></a>Saxite manual</h1>
+</div>
+<div>
+<h2 class="subtitle">Documentation for version 0.4.2</h2>
+</div>
+<div>
+<div class="author">
+<h3 class="author"><span class="firstname">S </span> <span class="surname">Woodside</span></h3>
+<code class="email">&lt;<a class="email" href="mailto:sbwoodside@yahoo.com">sbwoodside@yahoo.com</a>&gt;</code>
+</div>
+</div>
+</div>
+<hr />
+</div>
+<div class="toc">
+<p>
+<b>Table of Contents</b>
+</p>
+<dl>
+<dt>
+<span class="chapter">
+<a href="#preface">PREFACE</a>
+</span>
+</dt>
+<dt>
+<span class="chapter">
+<a href="#philosophy">PHILOSOPHY</a>
+</span>
+</dt>
+<dt>
+<span class="chapter">
+<a href="#installing">INSTALLING</a>
+</span>
+</dt>
+<dt>
+<span class="chapter">
+<a href="#usage">USAGE</a>
+</span>
+</dt>
+<dt>
+<span class="chapter">
+<a href="#description">DESCRIPTION</a>
+</span>
+</dt>
+<dt>
+<span class="chapter">
+<a href="#features">FEATURES</a>
+</span>
+</dt>
+<dt>
+<span class="chapter">
+<a href="#saxite_dialect">SAXITE XML DIALECT</a>
+</span>
+</dt>
+<dt>
+<span class="chapter">
+<a href="#id2382132">OTHER XML DIALECTS</a>
+</span>
+</dt>
+</dl>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="preface"></a>PREFACE</h2>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="introduction"></a>Introduction</h2>
+</div>
+</div>
+</div>
+<p>
+        Saxite is an open-source, XSLT &amp; XML based site framework that
+        is compatible with AxKit.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="this_document"></a>This document</h2>
+</div>
+</div>
+</div>
+<p>
+        This document describes how to install,
+        and (a bit) how to use Saxite.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="assumptions"></a>Assumptions</h2>
+</div>
+</div>
+</div>
+<p>
+        You've already installed AxKit and have a basic understanding of what it does
+        and how it works.
+      </p>
+<p>
+        You know your way around a unix system and can handle basic apache configuration.
+        (Note, someday I hope that won't be required as much.)
+      </p>
+<p>
+        You know and understand XML.
+      </p>
+<p>
+        You know and love XSLT (OK, not really required, but it's a plus :-)
+      </p>
+</div>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="philosophy"></a>PHILOSOPHY</h2>
+</div>
+</div>
+</div>
+<p>
+      one xml file per page,
+      
+      the filesystem is the database (for content),
+      the site map builds itself,
+      don't reinvent the wheel (e.g. use apache config for redirects, rewriting, etc., use javascript for async/interactive, use CSS for display, use XHTML for content),
+      
+      everything XSLT,
+      everything static cached,
+      
+      leave log-in features for later,
+      
+      use namespaces where needed,
+      
+      separate saxite and user XSLT as clearly / cleanly as possible,
+      
+      simple but flexible,
+      
+      no need to "compile" the site ever,
+      
+      pipeline definition is embedded into the document (again, it builds itself),
+    </p>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="installing"></a>INSTALLING</h2>
+</div>
+</div>
+</div>
+<p>
+      You can install the shared files anywhere you like,
+      as long as they can be accessed by apache.
+      Just copy the files to the location you want,
+      there is no additional installation step for the shared files.
+    </p>
+<p>
+      Next create a link from your www root directory to the shared directory.
+      Let's say you installed the shared folder in
+      <code class="filename">SHARED-DIR</code> and your www directory is
+      <code class="filename">/home/www/mysite</code>. Then do this:
+    </p>
+<pre class="programlisting">
+<code class="prompt">% </code><strong class="userinput"><code>cd /home/www/mysite</code></strong>
+<code class="prompt">% </code><strong class="userinput"><code>ln -s SHARED-DIR shared</code></strong>
+    </pre>
+<p>
+      Next if you want to use Docbook XML files,
+      you need to install Docbook-XSL on your system,
+      so that it can be accessed in this
+      (<code class="filename">SHARED-DIR/xsl</code>)
+      directory as the <code class="filename">docbook</code> directory.
+    </p>
+<p>
+      Most systems have a docbook package which you can use.
+      Install that, and then create a symbolic link to it in the
+      <code class="filename">SHARED-DIR/xsl</code> directory like this:
+    </p>
+<pre class="programlisting">
+<code class="prompt">% </code><strong class="userinput"><code>sudo apt-get install docbook-xsl</code></strong>
+<code class="prompt">% </code><strong class="userinput"><code>ln -s /installed/docbook/directory SHARED-DIR/xsl/docbook</code></strong>
+    </pre>
+<p>
+      (replace <code class="filename">/installed/docbook/directory</code> with e.g.
+      <code class="filename">/usr/share/xml/docbook/stylesheet/nwalsh</code> (on debian) or
+      <code class="filename">/sw/share/xml/xsl/docbook-xsl</code> (OS X/fink)
+      or whatever it got installed into.)
+    </p>
+<p>
+      The idea is that after you're done, you can do this:
+    </p>
+<pre class="programlisting">
+<code class="prompt">% </code><strong class="userinput"><code>more SHARED-DIR/xsl/docbook/xhtml/docbook.xsl</code></strong>
+    </pre>
+<p>
+      In your www site directory you should
+      copy one of the example sites and customize it to your needs.
+      These files have to be in the right places:
+    </p>
+<div class="itemizedlist">
+<ul type="disc">
+<li>
+<p>
+          <code class="filename">mysite/.htaccess</code> — essential for making AxKit work properly
+        </p>
+</li>
+<li>
+<p>
+          <code class="filename">mysite/dir.xml</code> — this must be present and have <code class="code">id="root"</code>
+        </p>
+</li>
+<li>
+<p>
+          <code class="filename">mysite/xsl/site.xsl</code> — builds your HTML from the sax:pages
+        </p>
+</li>
+</ul>
+</div>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="usage"></a>USAGE</h2>
+</div>
+</div>
+</div>
+<p>
+      Because of a flaw in the current version of AxKit,
+      saxinclude doesn't notice when the included file has been changed.
+      So you have to "touch" (set as modified) the including file.
+      <code class="filename">SHARED-DIR/bin/touchall</code> 
+      is a shell script that will help you do that.
+    </p>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="id2401331"></a>Separation of content, structure, and style</h2>
+</div>
+</div>
+</div>
+<p>
+        Saxite operates on a principle that content, structure and style
+        should be separate as much as possible. And it does pretty well towards that end.
+        The content is formatted in XML, with as little structural and styling
+        information as possible.
+        You can write your content in any XML-based content language you like
+        provided there's a module available to convert it to a sax:page &amp; XHTML.
+        Formats like DocBook XML go to great lengths to define just
+        semantic information.
+      </p>
+<p>
+        Structure comes into play in the XSLT transformation process. 
+        XSLT is the XSL Transformation language, or rather,
+        the XML Stylesheet Language Transformations.
+        Basically it's a language for transforming XML into XML,
+        but what it's really good at is rearranging the content data
+        into a new shape that you want.
+        So, with XSLT you can easily move around content blocks, copy them,
+        build tables of contents, process includes, and so on and so forth.
+        You build the structure of your page at this stage in the pipeline
+      </p>
+<p>
+        The final stage is styling for look and feel which is done with CSS.
+        CSS is a pretty easy language to learn and there's plenty of information
+        around about how to use it.
+        The example is completely styled with CSS (no table layouts).
+      </p>
+<p>
+        As a postscript, <span class="emphasis"><em>JavaScript</em></span> is coming into play
+        now as a way to create asynchronous interactivity on web platforms.
+        While Saxite currently doesn't include any JS, it would / will
+        fit right into the pipeline scheme as well.
+        In fact, it might be an ideal way to make Saxite more interactive
+        without sacrificing too much server-side performance and scalability.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="id2401392"></a>xml-stylesheet directives</h2>
+</div>
+</div>
+</div>
+<p>
+        Each page you make needs to be processed by some XSLT stylesheets
+        before it can be delivered as HTML to the user.
+        The technique that Saxite uses is xml-stylesheet directives 
+        that go at the top of the XML file, just after the XML declaration.
+        It should look something like this.
+      </p>
+<pre class="programlisting">
+        <span class="markup">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/sax.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/xsl/site.xsl"?&gt;
+        </span>
+      </pre>
+<p>
+        This will cause AxKit to create a 3-stage pipeline.
+        The first stage is just the source XML.
+        The next stage is processed by sax.xsl, which converts the sax-page
+        format into XHTML.
+        The final stage is site.xsl, which adds your website structure
+        and converts the XHTML into regular HTML.
+      </p>
+<p>
+        Of course, if your original content is in another format,
+        such as DocBook, you should add another stage(s) first, which would
+        convert the original format into the sax-page dialect.
+        In the case of DocBook you actually need two initial stages.
+      </p>
+<pre class="programlisting">
+        <span class="markup">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/docbook.xsl" ?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/docbook2page.xsl" ?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/sax.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/xsl/site.xsl"?&gt;
+        </span>
+      </pre>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="id2401459"></a>Customizing your site</h2>
+</div>
+</div>
+</div>
+<p>
+        Although you can start off from the example site, you should customize
+        the look and feel to suit your needs.
+        You can customize for new content types by writing XSLT to transform
+        them into sax:pages.
+        You can customize the overall structure / layout of the site
+        by modifying the <code class="filename">site.xsl</code> XSLT stylesheet.
+        And, you can modify the look and feel and structure
+        using CSS (Cascading Style Sheets).
+      </p>
+<p>
+        Normally it should not be necessary to modify sax.xsl
+        and the other sax-whatever.xsl files.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="id2401490"></a>Writing &amp; modifying <code class="filename">site.xsl</code></h2>
+</div>
+</div>
+</div>
+<p>
+        Since we're assuming you already know how to write XSLT, you should
+        have a look at site.xsl since this is where most of your modifications
+        should go.
+        By catching the incoming sax:page in the root template, you can
+        then control the order in which components appear on the screen,
+        such as the site's menu, submenus, sidebars and the main content.
+      </p>
+<p>
+        Change anything in site.xsl to obtain the effects you want.
+        Since it's the last stage in the pipeline, you can do anything here
+        without messing up the internal mechanics of Saxite.
+      </p>
+</div>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="description"></a>DESCRIPTION</h2>
+</div>
+</div>
+</div>
+<p>
+      Saxite allows you to build sort of branching XSLT pipelines.
+      So, you write XML files in any of the supported formats
+      (currently XHTML, Docbook XML, and the locally-defined SaxBlog and Alexandra forms)
+      as your content, and then process them through a series of
+      XSLT stylesheets that are provided until they come out the end
+      as fully built HTML pages with the look and feel of your site.
+    </p>
+<p>
+      In addition you can add into any of your content sax:includes,
+      which allows you to create branching pipelines, or like XSLT processing trees.
+      This allows you to re-use your content and XSLT code very efficiently
+      in multiple contexts.
+    </p>
+<p>
+      Since it's based on AxKit,
+      you get the benefit of really good caching and scalability.
+      AxKit automatically caches all of the pages into a static cache
+      when they are built/rebuilt,
+      which means that your site can easily handle bursts of traffic.
+    </p>
+<p>
+      Saxite is designed to be totally modular, so that you can add,
+      remove features easily.
+      For example, if you can extract just the weblog XSLT and
+      integrate it into another XSLT toolchain.
+      You can also add XSLT as long as they output saxite-compatible XML
+      (i.e. with a sax:page root).
+    </p>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="features"></a>FEATURES</h2>
+</div>
+</div>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="navi"></a>Navigation system</h2>
+</div>
+</div>
+</div>
+<p>
+        Saxite includes a "navi" system which provides two important
+        features for users to navigate around the site:
+        breadcrumbs and sub-menus.
+      </p>
+<p>
+        The breadcrumbs are hierarchical
+        (they follow the structure of the site, not the user's navigation path)
+        and are constructed automatically from data that you write into
+        the index.html pages in each subdirectory of your site.
+      </p>
+<p>
+        Sub-menus are also generated from menus that you write into your
+        index.html files.
+        The submenus are formed from <code class="code">sax:menu</code>
+        sections which can either be part of the meta-data for a page,
+        or part of the content. 
+        Either way, they are used to automatically insert a "section menu"
+        on each page where Saxite can determine that there should be one.
+        (It's done by searching up through the parent directories until
+        it finds a submenu or hits the root).
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="id2401624"></a>Weblog</h2>
+</div>
+</div>
+</div>
+<p>
+        Saxite includes a fully-featured weblog system.
+        The only major drawback is that you can only add entries
+        (at the moment) by editing the weblog XML file directly.
+      </p>
+<p>
+        
+      </p>
+</div>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="saxite_dialect"></a>SAXITE XML DIALECT</h2>
+</div>
+</div>
+</div>
+<p>
+      The purpose of a Saxite page (a sax:page)
+      is to contain all of the key content and metadata that you need
+      for a single web page, 
+      including an "index" page that is the default for a given directory.
+      So, it has to contain the HTML head and body data,
+      and any metadata about the directory, 
+      such as the submenu that should be used in that directory,
+      etc.
+    </p>
+<p>
+      In addition, a Saxite page allows you to do some things that
+      are useful for a website but that HTML doesn't have built-in,
+      such as:
+      inserting data loaded from another page, site, or whatever;
+      and inserting menus for subsections of the site.
+      Saxite provides a powerful "include" mechanism which is 
+      extensible, so that you can insert content for example from flickr,
+      or from another weblog, in a very short/simple bit of markup.
+    </p>
+<p>
+      The advantage of a customized markup for defining menus is that it
+      allows Saxite to automatically build up a complete view of the site's 
+      layout and automatically insert a navigation system.
+      Also, it allows you to use XSLT and CSS to give your navigation
+      system a consistent look and feel.
+    </p>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="stylesheet_declaration"></a>Stylesheet declarations</h2>
+</div>
+</div>
+</div>
+<p>
+        Stylesheet declarations controls what XSLT filters each page, 
+        and in what order.
+        They should be just below the xml declaration.
+      </p>
+<p>
+        A regular <code class="code">sax:page</code> has two declarations
+        (shown here with the xml declaration as well):
+      </p>
+<pre class="programlisting">
+        <span class="markup">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/sax.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/xsl/site.xsl"?&gt;
+&lt;sax:page&gt; .... &lt;/sax:page&gt;
+        </span>
+      </pre>
+<p>
+        AxKit has other ways to define what stylesheets filter each
+        page, but this is the best way.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="id2401734"></a>Saxite dialect namespace</h2>
+</div>
+</div>
+</div>
+<p>
+        The namespace to use for elements of the saxite dialect is 
+        <code class="uri">http://simonwoodside.com/simon-axkit</code>.
+        By convention the prefix is <code class="code">sax</code>.
+      </p>
+<p>
+        XHTML elements should use no namespace.
+        Inside sax:head and sax:body
+        you can intersperse XHTML with appropriate saxite elements
+        (such as sax:include) as much as you want.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="sax_page"></a>sax:page</h2>
+</div>
+</div>
+</div>
+<p>
+        Every document must be in a <code class="code">sax:page</code> format at least at two
+        stages in the pipeline, just before it hits sax.xsl and just after.
+        <code class="filename">sax.xsl</code> will then convert it from an
+        "unprocessed" sax:page into a "processed" sax:page.
+        The processed page is then handed off to your <code class="filename">site.xsl</code>
+        which must output XHTML.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="sax_dir"></a>sax:dir</h2>
+</div>
+</div>
+</div>
+<p>
+        The sax:dir section is optional.
+        This is a meta-data section where you provide information
+        that's used to build the breadcrumbs and the submenus
+        for the page and for pages in the child directories.
+      </p>
+<p>
+        <code class="code">sax:title</code> is the title that is used in the breadcrumbs.
+        Usually it should be shorter than the full page title might be.
+      </p>
+<p>
+        <code class="code">sax:path</code> (optional) provides the full path to this page as you
+        want it to be used in the breadcrumb links.
+        If you leave it out the breadcrumb listing for this page will not be clickable.
+      </p>
+<p>
+        <code class="code">sax:menu</code> (optional) if you provide a sax:menu here,
+        it will be used as the submenu for this page and for child pages
+        as well if they don't define their own sax:menus.
+        NB: you can define the sax:menu in the content instead, and it will
+        act as both meta-data and content.
+        If you define it in the content, don't put it here.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="sax_head"></a>sax:head</h2>
+</div>
+</div>
+</div>
+<p>
+        The sax:head section is optional.
+        It can contain one or more sax:title elements which are used
+        to build the HTML title and possible h1 or whatever on the page.
+        It can also contain any number of normal XHTML head elements,
+        e.g. meta tags, special CSS includes, etc.,
+        which are copied into the HTML head in the output.
+      </p>
+</div>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="sax_body"></a>sax:body</h2>
+</div>
+</div>
+</div>
+<p>
+        There must be a sax:body.
+        It contains any kind of XHTML that's valid inside an HTML body element.
+        It can also contain a number of other special saxite tags ...
+        listed below.
+      </p>
+<div class="sect2" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a id="id2381999"></a>sax:include</h3>
+</div>
+</div>
+</div>
+<p>
+          The sax:include element is used to perform a server side include.
+          You put in the URL and URL query parameters for some web-addressable
+          content, and it will insert it inline into the page,
+          in the place where the sax:include was.
+          Most commonly you will use it to include content that's generated
+          by Saxite, e.g., to include a list of the latest posts from the weblog.
+          But you can also use it to include other content from other sites
+          as well.
+          The included content MUST be XML.
+        </p>
+<p>
+          You can do recursive sax:includes, so that content that you
+          sax:include can also have a sax:include in it, and they will all
+          be fully expanded before they are delivered to the user.
+        </p>
+<p>
+          <code class="code">sax:url</code> contains the URL to load the content from.
+          It must be either a relative URL (just a path),
+          in which case it's loaded from the same server,
+          or a fully URL, with http:// and everything.
+        </p>
+<p>
+          <code class="code">sax:query</code> (optional) contains the URL parameters
+          for the include.
+          This can be useful when the URL you are calling has an API
+          that's manipulated using URL parameters. It's pretty common.
+        </p>
+</div>
+<div class="sect2" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a id="id2382051"></a>Special sax:includes</h3>
+</div>
+</div>
+</div>
+<p>
+          Saxite includes are extensible by adding special
+          "classes" to the /shared/xsl/saxinc directory.
+          Each one has it's own slightly different API,
+          although they all use sax:url or sax:query or both.
+        </p>
+<p>
+          For example a saxinc is included called feed.xsl
+          which allows you to include a feed such as RSS from some site.
+          In order to use it, you would use sax:include with 
+          <code class="code">class="feed"</code>
+          and Saxite will automatically process that include
+          with the special feed code.
+        </p>
+</div>
+<div class="sect2" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a id="id2382080"></a>sax:menu</h3>
+</div>
+</div>
+</div>
+<p>
+          You should only have one of these in any given page body.
+        </p>
+<p>
+          The sax:menu is a standard way of creating a menu of options
+          on a page, such as a list of sub-pages that you can go to.
+          It creates a menu which is dual-purpose.
+          First, it appears on the page in the content as UI,
+          and second, it's re-used for the navi system for submenus
+          and so on.
+        </p>
+<p>
+          <code class="code">sax:item</code> - put in any number of these.
+          The allowed children are <code class="code">img</code>
+          and <code class="code">a</code>, which are both the XHTML tags
+          of the same name and should be used like them.
+          You can leave out the img if you like, but the anchor/link
+          is required.
+          Also, there is an attribute <code class="code">shortname</code>
+          on the sax:item, which is required if you want the menu item
+          to appear in the navi system.
+        </p>
+</div>
+</div>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="id2382132"></a>OTHER XML DIALECTS</h2>
+</div>
+</div>
+</div>
+<p>
+      You can also use documents in other dialects in Saxite sites.
+    </p>
+<p>
+      In general, you should create a new XSLT stylesheet that processes
+      your own dialect first, and then produces XHTML wrapped in a
+      <code class="code">sax:page</code> wrapper.
+      Here's an example.
+    </p>
+<pre class="programlisting">
+      <span class="markup">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/my/style/sheet.xsl" ?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/sax.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/xsl/site.xsl"?&gt;
+&lt;mydialectroot&gt;
+  &lt;foo&gt;
+    bar
+  &lt;/foo&gt;
+&lt;/mydialectroot&gt;
+      </span>
+    </pre>
+<div class="sect1" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a id="id2382170"></a>Built-in dialects</h2>
+</div>
+</div>
+</div>
+<p>
+        XHTML is built-in to sax:page.
+        You don't need to do anything to use XHTML (just wrap it in a sax:page/sax:body).
+      </p>
+<p>
+        DocBook XML is also included.
+        You can use DocBook by using two extra stylesheet declarations.
+        The first one is just the regular docbook (to xhtml) stylesheet.
+        The second one wraps that in a sax:page.
+        Here's an example:
+      </p>
+<pre class="programlisting">
+        <span class="markup">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/docbook.xsl" ?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/docbook2page.xsl" ?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/shared/xsl/sax.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="/xsl/site.xsl"?&gt;
+&lt;!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+            "http://www.docbook.org/xml/4.4/docbookx.dtd"&gt;
+&lt;book&gt;
+  &lt;bookinfo&gt;
+    etc...
+        </span>
+      </pre>
+</div>
+</div>
+</div>
+</div>
+<div class="noprint">
+<p class="subtle">
+<a href="?show_source=YES">[Show DocBook XML source]</a>
+</p>
+</div>
+<div style="clear:both;"></div>
+<div id="footerbox" style="font-family:sans-serif;">
+<p>Copyright © 
+        1996-2007 Simon Woodside. If no license is noted, rights are reserved.</p>
+<p><a href="http://validator.w3.org/check/referer">Valid XHTML 1.0 strict?</a>
+        Made with 
+        <a href="http://www.axkit.org/">AxKit</a>
+        and
+        <a href="http://simonwoodside.com/dev/xml/saxite">Saxite</a>.
+      </p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

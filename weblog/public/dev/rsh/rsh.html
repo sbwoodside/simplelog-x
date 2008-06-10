@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+   <TITLE>Simon Woodside - Riven Sound Hack</TITLE>
+<!-- Changed by: Simon, 27-Jul-1998 -->
+</HEAD>
+<BODY bgcolor="#000000" text="#cccccc" link="#cccc99" vlink="#999966" alink="#cccc99">
+
+
+<font face="verdana,helvetica,arial" size="1">
+<a target="_top" href="/">main page</a>
+</font>
+
+<hr/>
+
+<CENTER><IMG ALIGN="MIDDLE" SRC="riven.gif" ALT="Riven"/>
+<H1 ALIGN="CENTER"><I>RivenSoundHack Official Home Page</I> </H1>
+</CENTER>
+
+<CENTER>
+<HR/></CENTER>
+
+<FONT COLOR="#FF0000">
+<P>October 22, 1999:</P>
+<P>
+I'm afraid to say that it looks like this project is dead. I haven't done
+any work on it in quite some time. Anyone who wants to use my code and
+continue the work I'm happy to have you do that.  Gabe Bauman has done
+some good work at 
+<a target="_top" href="http://www.mhk.vancouverpages.nu/">his MHK page</a>
+so check that out too.</P>
+ 
+<P>April 9, 1999: 
+</P>
+  
+<P>I'm still working on RSH (really slowly).  Right now I've managed to get a valid
+WAVE header along with the sound output, but it sounds really distorted.  I'm now 
+very confused about what type of ADPCM they are really using.  From the MHK files it
+looks like MS ADPCM, but that doesn't work in the WAVEs.  I'm working with the 
+creator of SoundHack, Tom Erbe, to figure it out, since his program plays the sounds
+really well.  If you want a version, email me. 
+</P>
+
+<P>December 1, 1998: 
+</P>
+
+<P>The current version of RivenSoundHack is Alpha 2
+(developer).</P>
+</FONT>
+ Download at the bottom of this page.  
+
+<HR/>
+
+<H3>Release Notes</H3>
+
+<UL>
+<LI>  This version is actually useful!  It allows you to choose a
+resource and save it.  Unfortunately, it only works in Windows under
+Visual J++ :-( 
+</LI>
+<LI> RivenSoundHack is written in Java!  Yeah!  Why, you ask?  Well,
+mainly because I want to learn Java (and OOD) but also because that way
+those pesky PC users will be able to use RSH as well.  
+</LI>
+<LI> RivenSoundHack is public domain.  Source code is included in the
+download package.  Let me know if you get the urge to tinker and want to
+have stuff included with the next release (eg. a better UI, allow users to
+modify the sounds in the MHKs..).  
+</LI>
+</UL>
+
+<HR/>
+
+<H3>Overview</H3>
+
+<P>
+This program relates to the awesome game <A HREF="http://www.riven.com/">Riven</A> (The Sequel to 
+<A HREF="http://www.myst.com/">MYST</A>) by
+<A HREF="http://www.cyan.com/">Cyan</A>.
+</P>
+
+<P>
+ The purpose of this program is to listen to the great music in Riven at any time on the
+ computer.  The music is stored in the .MHK files found in the Data directory on the
+ hard drive where Riven has been installed.  Specifically, it is stored in the files
+ named X_sounds.MHK (where X is some letter).
+</P>
+ 
+<P>
+ In addition, the music is also compressed with ADPCM 4-1 pulse-code
+ modulation compression which is a pain in the butt (although it's a sweet
+ compression system) and means I have to create a header and tack it on
+the the front of the files.  The music is compressed in the WAVE
+(Microsoft) ADPCM format. 
+</P>
+<P>
+ On the mac, "SoundHack" by Tom Erbe is capable of playing ADPCM
+compressed files without a header, which is the only way to do it right
+now.. On the PC there doesn't sem to be any program 
+capable of fudging the headers, but as soon as I get the headers
+working any Windows program will be able to play it.
+</P>
+
+<P><HR/>
+</P>
+  
+<H3>DOWNLOAD RivenSoundHack Alpha 2 (developer)</H3>
+
+<P> The 2nd developer release of RSH is now available.
+<A HREF="rsh.zip">Download</A> it.  Unfortunately this release uses
+the Windows WFC windowing classes and is thus dependent on Windows.
+It runs under Visual J++, other configurations are unknown.
+</P>
+  
+<P> The first developer release of RSH is available.  <A
+HREF="alpha_1_dev_rel.zip">Download</A> it.  
+</P>
+  
+<CENTER><P>
+<HR/><A HREF="/">Back</A> to the Home Page of Simon Woodside. 
+<HR/>
+</P>
+</CENTER>
+
+  <P>Last modified Nov 21, 1998</P>
+  
+<P>Simon Woodside's email address is <A HREF="mailto:sbwoodside@undergrad.math.uwaterloo.ca">sbwoodside@undergrad.math.uwaterloo.ca
+</A>.
+</P>
+  
+<CENTER>
+<a
+href="http://member.linkexchange.com/cgi-bin/fc/fastcounter-login?678454" 
+target="_top">
+<img border="0"
+src="http://fastcounter.linkexchange.com/fastcounter?678454+1356915" /></a>
+<br/>
+<font face="arial" size="1">
+<a href="http://www.fastcounter.com/fc-join"
+target="_top">FastCounter by LinkExchange</a></font><br/>
+</CENTER>
+
+
+
+
+</BODY>
+</HTML>

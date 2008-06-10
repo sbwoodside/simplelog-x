@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Simon Woodside | Alexandra open-source Relax NG to HTML forms and back again FAQ</title>
+<meta name="author" lang="en" content="Simon Woodside" xml:lang="en" />
+<meta name="description" lang="en" content="Simon Woodside's personal home page." xml:lang="en" />
+<link rel="Stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+<link rel="Stylesheet" href="/css/print.css" type="text/css" media="print" />
+<link rel="Stylesheet" href="/css/mobile.css" type="text/css" media="handheld" />
+</head>
+<body>
+<div id="nocsstitlebox">
+<b>Simon Woodside | Alexandra open-source Relax NG to HTML forms and back again FAQ</b>
+<br />
+<b><a href="#content">Skip to content</a> &gt;</b>
+</div>
+<div id="wrapper">
+<div id="sidebarbox">
+<div id="sidebarbox_inner">
+<div id="bannerbox">
+<a href="/">
+<img src="/images/swclogo.gif" alt="SWC logo" style="border:none;" />
+</a>
+</div>
+<div id="sitemenu">
+<div class="sitemenuitem">
+<a href="/weblog">Simon Says</a>
+</div>
+<div class="sitemenuitem">
+<a href="/dev">Development</a>
+</div>
+<div class="sitemenuitem">
+<a href="/content">Content</a>
+</div>
+<div class="sitemenuitem">
+<a href="/about">About</a>
+</div>
+<br />
+<div class="sitemenuitem">
+<a href="mailto:sbwoodside@yahoo.com?subject=SimonWoodside.com">email</a>
+</div>
+</div>
+<form method="get" action="http://www.google.com/search">
+<div id="searchbox">
+<input type="hidden" name="sitesearch" value="simonwoodside.com" />
+<input type="text" name="q" maxlength="255" value="Search the site..." onblur="if(this.value=='') this.value='Search the site...';" onfocus="if(this.value=='Search the site...') this.value='';" />
+</div>
+</form>
+<div id="related">
+<div>
+<b>
+              Recent posts related to
+              <a href="/weblog/tag/dev/xml">dev/xml</a>:
+            </b>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2004/11/09">RDF explained in a way that makes sense to XML people</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2004/07/04">XSLT code to create XML output from XML in an &lt;xsl:variable&gt;</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2004/06/16">speed up big xslt data sets</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2003/10/03">Taking the pulse of XML editing</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2003/10/01">Alexandra thoughts</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2003/07/05">DocBook: What's not to like???</a>
+</div>
+</div>
+</div>
+</div>
+<div id="content">
+<div id="navi">
+<div id="pathbar"><span class="pathbaritem"><a href="/">Home</a></span> &gt; <span class="pathbaritem"><a href="/dev">Software dev</a></span> &gt; <span class="pathbaritem"><a href="/dev/xml">XML</a></span> &gt; <span class="pathbaritem"></span></div>
+<div id="submenu">
+<span class="submenuitem">
+<a href="/dev/xml/saxite">Saxite</a>
+</span>
+<span class="submenuitem">
+<a href="/dev/axkit">AxKit</a>
+</span>
+<span class="submenuitem">
+<a href="/dev/xml/alexandra">Alexandra</a>
+</span>
+</div>
+</div>
+<div id="content_inner">
+<div id="titlebox">
+<h1 class="body_title">Alexandra open-source Relax NG to HTML forms and back again FAQ</h1>
+</div>
+<div class="myserif">
+<div class="article" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title"><a id="id2394384"></a>Alexandra open-source Relax NG to HTML forms and back again FAQ</h2>
+</div>
+<div>
+<div class="author">
+<h3 class="author"><span class="firstname">Simon</span> <span class="surname">Woodside</span></h3>
+<code class="email">&lt;<a class="email" href="mailto:sbwoodside@yahoo.com">sbwoodside@yahoo.com</a>&gt;</code>
+</div>
+</div>
+<div>
+<p class="copyright">Copyright © 2003 Simon Woodside</p>
+</div>
+<div>
+<div class="revhistory">
+<table border="1" width="100%" summary="Revision history">
+<tr>
+<th align="left" valign="top" colspan="3">
+<b>Revision History</b>
+</th>
+</tr>
+<tr>
+<td align="left">Revision 1</td>
+<td align="left">2003/01/15</td>
+<td align="left">sbwoodside</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<hr />
+</div>
+<div class="qandaset">
+<table border="0" summary="Q and A Set">
+<col align="left" width="1%" />
+<tbody>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2393257"></a>
+<a id="id2392781"></a>
+<p>
+<b>1.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>What is Alexandra?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>These are XSLT stylesheets to be used with a Relax NG schema. Alexandra uses the RNG schema to create a roundtripping forms interface in HTML to edit an instance document that conforms to the schema.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2349707"></a>
+<a id="id2349710"></a>
+<p>
+<b>2.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>What's Relax NG?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p><a class="ulink" href="http://www.oasis-open.org/committees/relax-ng/tutorial-20011203.html" target="_top">RNG (Relax NG)</a> is a schema language for XML. It's similar to, but better than ;-) the W3C XML Schema language. It's also a replacement for DTDs.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2393509"></a>
+<a id="id2395733"></a>
+<p>
+<b>3.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>I have an W3C XML Schema/DTD/whatever, how do I get an RNG grammar?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>There are some very convenient converters. Why don't you try <a class="ulink" href="http://www.thaiopensource.com/relaxng/jing.html" target="_top">Jing</a>? That's what I used.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2393352"></a>
+<a id="id2393354"></a>
+<p>
+<b>4.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>Why use Relax NG instead of W3C XML Schema/DTDs/etc?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>RNG is an XML dialect so I can apply XSLT transformations to it. This is the glaring advantage over a DTD. I also considered W3C XML schemas but I discarded that because it's too complicated — unecessarily so in my opinion. In fact, I can't understand the specification, and I usually use the spec as my documentation. In fact, from researching the situation, it seems that actually most other people can't understand WXS (or XSD, or whatever you'd like to call it) either.
+      </p>
+<p>In addition, RNG is a superset of WXS, so anything that can be expressed in WXS can be converted to RNG. In addition, RNG has support for arbitrarily ordered elements and WXS doesn't — which seemed like a fairly glaring oversight to me.
+      </p>
+<p>To complete my diatribe, let me add that I think that RNG is a very easy-to-read, easy-to-work with schema language. I hope that more people adopt it.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2368814"></a>
+<a id="id2368817"></a>
+<p>
+<b>5.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>What's all this about then? What's it for?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>Lots of people these days are writing schemas to validate their XML data. Schemas are good because they can validate an existing instance document. Alexandra goes the other way, using the schema to help create a document that is always valid.
+      </p>
+<p>In order to avoid constantly writing forms interfaces by hand, it is necessary to introduce some form of automation into the process. Alexandra does this by using information that is already available about what the document is supposed to look like. Since schemas already exist for many formats, it would be simple to be able to plug in a schema and get a forms interface automatically.
+      </p>
+<p>Roundtripping is the process of sending the data on a round-trip from the server to the client (UA (user agent)) and back again. Alexandra passes information about the data format to the UA, and the UA passes information about changes the client wants to make back to the server. Then, the server updates the instance with this new information, and passes a new image of the data back to the client. This is a roundtrip.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2404136"></a>
+<a id="id2404138"></a>
+<p>
+<b>6.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>Why do all that work on the server when you could do it on the client?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>First, doing it on the client is still a hypothetical. It may be possible to do all of the necessary work on the client in a limited situation, e.g., Microsoft Internet Explorer 6.0. However many clients are not yet capable of doing what Alexandra can do. And some clients may never be up to it (e.g. cell phones, PDAs) while Alexandra could serve very light-weight forms to virtually any client device.
+      </p>
+<p>In addition, we would not want to trust the client to validate the data. That is best done on the trusted server.
+      </p>
+<p>Finally there is the issue of compatibility. Even if we limit ourselves to PC browsers, the different browsers have different implementations, e.g., of DOM and ECMAScript. I wish to write only once, and deploy on any platform.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2392733"></a>
+<a id="id2392736"></a>
+<p>
+<b>7.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>What's all this about AxKit?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p><a class="ulink" href="http://axkit.org/" target="_top">AxKit</a> is a web-applications suite from the Apache project. It's written in perl but you don't need to know any perl to use it. It has excellent support for XSLT pipelining.
+      </p>
+<p>If you do know perl you can write extension in perl fairly easily. AxKit also supports taglibs and a language called XSP (eXtensible Server Pages). Alexandra is fully written in XSLT.
+      </p>
+<p>Apparently the Cocoon project from Apache is also an XSLT pipelining solution, written in Java.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2404028"></a>
+<a id="id2404031"></a>
+<p>
+<b>8.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>Do I need to use AxKit to run Alexandra?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>This distribution requires AxKit. I don't know if it will run on Cocoon without changes. From what I hear, they are very similar, so it could probably be ported to Cocoon. If other XSLT pipelining solutions appear, it could probably be ported to those as well.
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2392825"></a>
+<a id="id2392827"></a>
+<p>
+<b>9.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>What's XSLT pipelining?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>Instead of just applying a single XSLT stylesheet to a document, with tons and tons of includes, you write a series of XSLTs. The results of one are passed on as input to the next. This allows a very flexible, reusable style of programming.
+      </p>
+<p>Incidentally, AxKit now supports (through the axkit: URI) XSLT tree-pipelining, which is even more flexible and fun. I don't use it in this project though (yet).
+      </p>
+</td>
+</tr>
+<tr class="question">
+<td align="left" valign="top">
+<a id="id2393314"></a>
+<a id="id2393317"></a>
+<p>
+<b>10.</b>
+</p>
+</td>
+<td align="left" valign="top">
+<p>Doesn't it seem kind of ... unpolished?
+      </p>
+</td>
+</tr>
+<tr class="answer">
+<td align="left" valign="top"></td>
+<td align="left" valign="top">
+<p>The current release (0.01) is a pre-alpha demonstration release. It's GPL code so feel free to use and modify it if you want to.
+      </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="noprint">
+<p class="subtle">
+<a href="?show_source=YES">[Show DocBook XML source]</a>
+</p>
+</div>
+<div style="clear:both;"></div>
+<div id="footerbox" style="font-family:sans-serif;">
+<p>Copyright © 
+        1996-2007 Simon Woodside. If no license is noted, rights are reserved.</p>
+<p><a href="http://validator.w3.org/check/referer">Valid XHTML 1.0 strict?</a>
+        Made with 
+        <a href="http://www.axkit.org/">AxKit</a>
+        and
+        <a href="http://simonwoodside.com/dev/xml/saxite">Saxite</a>.
+      </p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

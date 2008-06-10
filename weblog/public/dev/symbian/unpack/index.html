@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Simon Woodside | Unpack Nokia's Symbian Series 60 SDK on Linux/Mac OS X</title>
+<meta name="author" lang="en" content="Simon Woodside" xml:lang="en" />
+<meta name="description" lang="en" content="Simon Woodside's personal home page." xml:lang="en" />
+<link rel="Stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+<link rel="Stylesheet" href="/css/print.css" type="text/css" media="print" />
+<link rel="Stylesheet" href="/css/mobile.css" type="text/css" media="handheld" />
+</head>
+<body>
+<div id="nocsstitlebox">
+<b>Simon Woodside | Unpack Nokia's Symbian Series 60 SDK on Linux/Mac OS X</b>
+<br />
+<b><a href="#content">Skip to content</a> &gt;</b>
+</div>
+<div id="wrapper">
+<div id="sidebarbox">
+<div id="sidebarbox_inner">
+<div id="bannerbox">
+<a href="/">
+<img src="/images/swclogo.gif" alt="SWC logo" style="border:none;" />
+</a>
+</div>
+<div id="sitemenu">
+<div class="sitemenuitem">
+<a href="/weblog">Simon Says</a>
+</div>
+<div class="sitemenuitem">
+<a href="/dev">Development</a>
+</div>
+<div class="sitemenuitem">
+<a href="/content">Content</a>
+</div>
+<div class="sitemenuitem">
+<a href="/about">About</a>
+</div>
+<br />
+<div class="sitemenuitem">
+<a href="mailto:sbwoodside@yahoo.com?subject=SimonWoodside.com">email</a>
+</div>
+</div>
+<form method="get" action="http://www.google.com/search">
+<div id="searchbox">
+<input type="hidden" name="sitesearch" value="simonwoodside.com" />
+<input type="text" name="q" maxlength="255" value="Search the site..." onblur="if(this.value=='') this.value='Search the site...';" onfocus="if(this.value=='Search the site...') this.value='';" />
+</div>
+</form>
+<div id="related">
+<div>
+<b>
+              Recent posts related to
+              <a href="/weblog/tag/dev/symbian">dev/symbian</a>:
+            </b>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/04/03">HOWTO develop Symbian apps using Mac OS X</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/04/02">Success! Built Symbian C++ app on OS X!</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/01/21">psst - #symbian on freenode</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/01/21">Unpack Nokia SDK 2.1 on Unix</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2005/01/17">Installing UIQ on Linux / sdk2unix</a>
+</div>
+<div xmlns:sax="http://simonwoodside.com/simon-axkit" class="weblog_entry_title">
+<a href="/weblog/2004/07/18">more symbian errata</a>
+</div>
+</div>
+</div>
+</div>
+<div id="content">
+<div id="navi">
+<div id="pathbar"><span class="pathbaritem"><a href="/">Home</a></span> &gt; <span class="pathbaritem"><a href="/dev">Software dev</a></span> &gt; <span class="pathbaritem">Symbian</span> &gt; <span class="pathbaritem"></span></div>
+<div id="submenu">
+<span class="submenuitem">
+<a href="/dev/xml">XML</a>
+</span>
+<span class="submenuitem">
+<a href="/dev/symbian">Symbian</a>
+</span>
+<span class="submenuitem">
+<a href="/dev/mozilla">Camino</a>
+</span>
+</div>
+</div>
+<div id="content_inner"><div id="titlebox"><h1 class="body_title">Unpack Nokia's Symbian Series 60 SDK on Linux/Mac OS X</h1></div>
+
+<style>
+pre {
+  margin: 3mm; padding: 3mm;
+  background-color: #EEE;
+  border-width: 1px; border-style: solid;
+}
+</style>
+
+
+<p>Herewith, a UNIX script that will unpack Nokia's 2.1 SDK for Symbian C++ 
+Series 60 applications.
+Use this in conjunction with
+<a href="/dev/symbian/howto.html">sdk2unix</a>
+or something like it, in order to develop s60 apps on Linux or OS X.
+</p>
+
+
+<h2>Read this</h2>
+
+<h3>This is for Nokia's 2.1 SDK</h3>
+
+<p>If you want to unpack an earlier SDK like 1.2, 
+you should use 
+<a href="http://www.cdavies.org/">Chris Davies'</a>
+<a href="http://www.cdavies.org/permalink/unpackingthenokiaseriessdkonlinux.php">
+Unpacking the Nokia Series 60 SDK on Linux</a>
+which was written way back (like 5 months ago) when you didn't actually need the 
+newer SDK for any practical purpose. (Now you do.)
+</p>
+
+<h3>OS X - use Fink</h3>
+
+<p>If you're on OS X, to start off with, you should have
+<a href="http://fink.sourceforge.net/">Fink</a>
+installed. It's a really useful set of Unix packages for OS X.
+</p>
+
+
+<h2>Get cabextract</h2>
+
+<p>Use your favorite package management system (like fink, dpkg, rpms)
+to install the <code>cabextract</code> program which is needed
+for unpack21 to work.
+</p>
+
+<p>If for some insane reason you don't have a package available you can build from
+source, available at the
+<a href="http://www.kyz.uklinux.net/cabextract.php">cabextract home page</a>.
+</p>
+
+
+<h2>Get Nokia's 2.1 SDK</h2>
+
+<p>I can't give you a precise URL because Nokia keeps changing it. They have
+apparently never heard of 
+<a href="http://www.w3.org/Provider/Style/URI.html">
+Cool URLs don't change</a>.
+You have to surf to it yourself.
+Go to 
+<a href="http://www.forum.nokia.com/">Forum Nokia</a>.
+Navigate to Tools and SDKs, Symbian/C++ ; 
+Series 60 SDKs for Symbian OS, Nokia Edition.
+Download v2.1, Borland &amp; Microsoft, 115 MB.
+After download the archive should be called <code>S60_SDK_2_1_NET.zip</code>.
+</p>
+
+
+<h2>Download unpack21</h2>
+
+<p>
+<a href="files/unpack21.tgz">unpack21</a>
+is what I wrote to extract the above into a usable SDK installation on Unix.
+</p>
+
+
+<h2>Usage</h2>
+
+<p>If it works it should be very easy to use. Set up the following directory structure.
+Create a working directory called <code>sdk21</code> or whatever.
+</p>
+
+<pre>
+mkdir sdk21
+cd sdk21
+mv .../S60_SDK_2_1_NET.zip .
+mv .../unpack21.tgz .
+tar -xvzf unpack21.tgz
+unpack21/unpack21.sh
+</pre>
+
+<p>Now you have the unpacked 2.1 SDK in the <code>target/Series60_v21</code> directory.
+You can delete everything else and move Series60_v21 to wherever you like.
+The whole SDK is contained within that directory.
+</p>
+
+
+<h2>Help and feedback</h2>
+
+<p>If something goes wrong, feel free to either 
+<a href="mailto:sbwoodside@yahoo.com?subject=unpack21">email me</a>
+or contact one of the resources listed at the bottom of 
+<a href="/dev/symbian/howto.html">this other page</a>.
+</p>
+
+
+
+
+  <div style="clear:both;"></div><div id="footerbox" style="font-family:sans-serif;"><p>Copyright © 
+        1996-2007 Simon Woodside. If no license is noted, rights are reserved.</p><p><a href="http://validator.w3.org/check/referer">Valid XHTML 1.0 strict?</a>
+        Made with 
+        <a href="http://www.axkit.org/">AxKit</a>
+        and
+        <a href="http://simonwoodside.com/dev/xml/saxite">Saxite</a>.
+      </p></div></div>
+</div>
+</div>
+</body>
+</html>
