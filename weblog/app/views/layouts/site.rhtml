@@ -25,17 +25,23 @@
         </div>
       </div>
       <div id="right-rail">
-        <p>This is the Simon Says weblog -- by Simon Woodside.</p>
         <p>
           <a href="/archives" title="Archives">Browse the weblog archives</a>
         </p>
-        <p>Subscribe to the <%= Site.rss_feed_link %> or the <%= Site.comments_feed_link %>.</p>
         <p>Tags:</p>
-        <%= Site.list_tags_linked(@tags) %>	
+        <%= Site.list_tags_linked(@tags) %>
+        <p>Subscribe to the <%= Site.rss_feed_link %> or the <%= Site.comments_feed_link %>.</p>
       </div>
     </div>
     <%= Site.mint_tag %>
-    <%= Site.ga_tag %>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-3449575-2");
+      pageTracker._trackPageview();
+    </script>
   </body>
   
 </html>
