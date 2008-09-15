@@ -175,7 +175,7 @@
 <tr class="breaker btop"><td colspan="2">Advanced Settings</td></tr>
 
 <tr id="av6"><td class="labels"><label for="preferences[archive_token]"><%= @prefs_hash['archive_token']['nice_name'] %></label></td><td class="fields">
-<%= create_pref_select('preferences[archive_token]', ['archives', 'older', 'past'], @prefs_hash['archive_token']['value'], false) %><% if @prefs_hash['archive_token']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['archive_token']['description'] %></span><% end %></td></tr>
+<%= create_pref_select('preferences[archive_token]', ['weblog', 'archives', 'older', 'past'], @prefs_hash['archive_token']['value'], false) %><% if @prefs_hash['archive_token']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['archive_token']['description'] %></span><% end %></td></tr>
 
 <tr id="av1"><td class="labels"><label for="preferences[rss_url]"><%= @prefs_hash['rss_url']['nice_name'] %></label></td><td class="fields">
 <%= text_field_tag 'preferences[rss_url]', @prefs_hash['rss_url']['value'], :size => '58', :class => 'normal_i_width' %><% if @prefs_hash['rss_url']['description'] != '' %><br/><span class="small gray"><%= @prefs_hash['rss_url']['description'] %></span><% end %></td></tr>
