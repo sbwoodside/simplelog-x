@@ -23,7 +23,7 @@
 # TODO: This needs a serious overhaul to DRY it up with Rails 2 techniques
 ActionController::Routing::Routes.draw do |map|
 
-  tokens = /archives|older|past/
+  tokens = /archives|older|past|weblog/
   
   # site ########################################################################################
   # index page
