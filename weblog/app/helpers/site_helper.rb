@@ -162,19 +162,19 @@ class Site
     return (mint_dir != '' ? "<!-- mint tag -->\n" + '<script src="' + mint_dir + (mint_dir[-1..mint_dir.length] == '/' ? '' : '/') + '?js" type="text/javascript"></script>' + "\n<!-- end mint tag -->" : '')
   end
   
-  def self.ga_tag
-    return <<-EOS
-      <script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-      <script type="text/javascript">
-      var pageTracker = _gat._getTracker("UA-3449575-1");
-      pageTracker._initData();
-      pageTracker._trackPageview();
-      </script>
-    EOS
-  end
+  #def self.ga_tag
+  #  return <<-EOS
+  #    <script type="text/javascript">
+  #    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  #    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  #    </script>
+  #    <script type="text/javascript">
+  #    var pageTracker = _gat._getTracker("UA-3449575-1");
+  #    pageTracker._initData();
+  #    pageTracker._trackPageview();
+  #    </script>
+  #  EOS
+  #end
 
   # a link to the site with the site's name as the link text
   def self.site_name_linked
