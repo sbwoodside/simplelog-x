@@ -15,6 +15,5 @@
         <folder path="weblog/public/stylesheets/"/>
         <folder path="weblog/test/"/>
         <file name="weblog/README"/>
-        <file name="weblog/README%20FIRST"/>
     </projectTree>
 </project>
