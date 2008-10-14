@@ -18,9 +18,9 @@
   <% f = 1 -%>
   <% for tag in @tags -%>
     <tr class="<%= (c%2 == 0 ? 'alt_row ' : '') %><%= (f == 1 ? 'first_row' : '') %>">
-      <td class="first_col wider"><%= link_to tag.name, Site.full_url + '/admin/tags/edit/' + tag.id.to_s %></td>
+      <td class="first_col wider"><%= link_to tag.name, '/admin/tags/edit/' + tag.id.to_s %></td>
       <td class="small_col"><%= tag.post_count %></td>
-      <td class="del_col"><%= link_to 'X', Site.full_url + '/admin/tags/destroy/' + tag.id.to_s, :confirm => "You are about to delete this tag. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
+      <td class="del_col"><%= link_to 'X', '/admin/tags/destroy/' + tag.id.to_s, :confirm => "You are about to delete this tag. This is permanent.\n\nAre you ABSOLUTELY sure?" %></td>
     </tr>
     <% c = (c == 1 ? c+1 : c = 1) -%>
     <% f = f+1 -%>

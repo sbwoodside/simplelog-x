@@ -6,8 +6,8 @@
   <% if flash[:notice] %><div class="green flash"><%= flash[:notice] %></div><% end %>
 </div>
 
-<% form_tag(Site.full_url + '/admin/blacklist/update', :id => 'blacklist_form') do -%>
+<% form_tag('/admin/blacklist/update', :id => 'blacklist_form') do -%>
   <%= render :partial => 'admin/blacklist/blacklist_form' %>
-  <div class="submit_area"><%= submit_tag 'Update blacklist', :class => 'submit' %> or <%= link_to 'cancel and return to comments list', Site.full_url + '/admin/comments' %></div>
+  <div class="submit_area"><%= submit_tag 'Update blacklist', :class => 'submit' %> or <%= link_to 'cancel and return to comments list', '/admin/comments' %></div>
 <% end -%>
 <br/>

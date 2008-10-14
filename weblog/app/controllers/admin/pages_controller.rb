@@ -55,9 +55,9 @@ class Admin::PagesController < Admin::BaseController
       if Preference.get_setting('RETURN_TO_PAGE') == 'yes'
       # if they have a pref set as such, return them to the page,
       # rather than the list
-        redirect_to Site.full_url + '/admin/pages/edit/' + @page.id.to_s
+        redirect_to '/admin/pages/edit/' + @page.id.to_s
       else
-        redirect_to Site.full_url + '/admin/pages'
+        redirect_to '/admin/pages'
       end
     else
     # whoops!
@@ -88,9 +88,9 @@ class Admin::PagesController < Admin::BaseController
       if Preference.get_setting('RETURN_TO_PAGE') == 'yes'
       # if they have a pref set as such, return them to the page,
       # rather than the list
-        redirect_to Site.full_url + '/admin/pages/edit/' + @page.id.to_s
+        redirect_to '/admin/pages/edit/' + @page.id.to_s
       else
-        redirect_to Site.full_url + '/admin/pages'
+        redirect_to '/admin/pages'
       end
     else
     # whoops!
@@ -101,7 +101,7 @@ class Admin::PagesController < Admin::BaseController
     end
   end
 
-  # destroy an existing page! destroy! destroy! destory!
+  # destroy an existing page! destroy! destroy! destroy!
   def page_destroy
     Page.find(params[:id]).destroy
     flash[:notice] = 'Page was destroyed.'  
@@ -110,10 +110,10 @@ class Admin::PagesController < Admin::BaseController
       session[:was_searching] = nil
       q = session[:prev_search_string]
       session[:prev_search_string] = nil
-      redirect_to Site.full_url + '/admin/pages/search?q=' + q
+      redirect_to '/admin/pages/search?q=' + q
     else
     # not sure where they came from, just send them to normal place
-      redirect_to Site.full_url + '/admin/pages'
+      redirect_to '/admin/pages'
     end
   end
   

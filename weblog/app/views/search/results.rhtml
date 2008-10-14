@@ -7,7 +7,7 @@
   <% end -%>
 </ol>
 
-<div id="full_link"><a href="<%= Site.full_url + '/search/full?q=' + CGI.escape(params[:q].to_s) %>" title="View a full list of results">View a full list of results &rarr;</a></div>
+<div id="full_link"><a href="<%= '/search/full?q=' + CGI.escape(params[:q].to_s) %>" title="View a full list of results">View a full list of results &rarr;</a></div>
 
 <% else -%>
 <% # no results, return message %>

@@ -6,7 +6,7 @@
   <% if flash[:notice] %><div class="green flash"><%= flash[:notice] %></div><% end %>
 </div>
 
-<% form_tag(Site.full_url + '/admin/prefs/save', :id => 'prefs_form') do %>
+<% form_tag('/admin/prefs/save', :id => 'prefs_form') do %>
     <%= hidden_field_tag 'current_tab', 'site_details' %>
     <% fields = [] %>
     <% if @write_errors and @errors_list %>
@@ -27,7 +27,7 @@
         
         <%= render :partial => 'admin/prefs/prefs_form', :locals => {:fields => fields} %>
     
-        <div class="submit_area"><%= submit_tag 'Save Preferences', :class => 'submit' %> or <%= link_to 'cancel changes you\'ve made', Site.full_url + '/admin/prefs' %></div>
+        <div class="submit_area"><%= submit_tag 'Save Preferences', :class => 'submit' %> or <%= link_to 'cancel changes you\'ve made', '/admin/prefs' %></div>
     </div>
     
 <% end -%>

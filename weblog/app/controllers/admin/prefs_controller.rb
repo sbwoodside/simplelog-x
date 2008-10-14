@@ -167,11 +167,11 @@ class Admin::PrefsController < Admin::BaseController
       if !errors
       # preferences saved successfully
         flash[:notice] = '<b>Success:</b> Preferences were saved.'
-        redirect_to Site.full_url + '/admin/prefs'
+        redirect_to '/admin/prefs'
       else
       # we had ACTUAL errors, as in we couldn't save data for some reason
         flash[:notice] = '<span class="red"><b>Failed:</b> Some of your preferences could not be saved. Please try again.</span>'
-        redirect_to Site.full_url + '/admin/prefs'
+        redirect_to '/admin/prefs'
       end
     end
   end
@@ -187,7 +187,7 @@ class Admin::PrefsController < Admin::BaseController
     # that's it!
     flash[:notice] = '<b>Success:</b> Theme cache was cleared.'
     # redirect back
-    redirect_to Site.full_url + '/admin/prefs'
+    redirect_to '/admin/prefs'
   end
   
 end

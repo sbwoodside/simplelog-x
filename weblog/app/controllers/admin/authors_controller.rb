@@ -59,7 +59,7 @@ class Admin::AuthorsController < Admin::BaseController
     if @author.save
     # author was saved successfully
       flash[:notice] = '<b>Success:</b> Author was created.'
-      redirect_to Site.full_url + '/admin/authors'
+      redirect_to '/admin/authors'
     else
     # whoops!
       # remember the update checking if it's there
@@ -84,12 +84,12 @@ class Admin::AuthorsController < Admin::BaseController
     if (Author.find(:all, :conditions => ['is_active = true and id != ?', params[:id]]).length < 1) and params[:author][:is_active] == '0'
     # trying to set this author to inactive, but it would lock them out of the admin section--don't do it
       flash[:notice] = '<span class="red"><b>Failed:</b> Setting that author to inactive would lock you out!</span>'
-      redirect_to Site.full_url + '/admin/authors'
+      redirect_to '/admin/authors'
     else
       if @author.update_attributes(params[:author])
       # author was updated successfully
         flash[:notice] = '<b>Success:</b> Author was updated.'
-        redirect_to Site.full_url + '/admin/authors'
+        redirect_to '/admin/authors'
       else
       # whoops!
         @posts = @author.posts
@@ -112,7 +112,7 @@ class Admin::AuthorsController < Admin::BaseController
         redirect_to :back
       else
       # not sure where they came from, just send them to normal place
-        redirect_to Site.full_url + '/admin/authors'
+        redirect_to '/admin/authors'
       end
     else
       Author.find(params[:id]).destroy
@@ -122,7 +122,7 @@ class Admin::AuthorsController < Admin::BaseController
         session[:came_from] = nil
         redirect_to :back
       else
-        redirect_to Site.full_url + '/admin/authors'
+        redirect_to '/admin/authors'
       end
     end
   end

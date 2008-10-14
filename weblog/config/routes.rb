@@ -162,7 +162,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:sort/:order'
   
   # some defaults to move stuff around for 404s #################################################
-  map.connect 'notfound', :controller => 'application', :action => 'handle_unknown_request'
   map.connect '*anything', :controller => 'application', :action => 'handle_unknown_request'
   # default route (not really used here...)
   map.connect ':controller/:action/:id'

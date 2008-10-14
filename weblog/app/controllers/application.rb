@@ -50,7 +50,11 @@ class ApplicationController < ActionController::Base
     @tags = Post.tags_count(:count => '> 0', :current_only => true, :order => 'name asc')
     $page_title = Preference.get_setting('ERROR_PAGE_TITLE')
     @error = true # for use later
-    render :template => 'errors/unknown_request'
+    render :template => 'errors/unknown_request', :status => 404
+  end
+  
+  def display_404
+    render :template => 'errors/unknown_request', :status => 404
   end
   
 end

@@ -6,10 +6,10 @@
 <table class="super" cellspacing="0" cellpadding="0">
   <tr>
     <td class="super_left" valign="top" class="no_pad">
-      <% form_tag(Site.full_url + '/admin/posts/create', :id => 'post_form') do %>
+      <% form_tag('/admin/posts/create', :id => 'post_form') do %>
         <%= render :partial => 'admin/posts/post_form' %>
         <div class="submit_area">
-          <%= submit_tag 'Create new post', :class => 'submit wymupdate' %> or <%= link_to 'cancel and return to post list', Site.full_url + '/admin/posts' %>
+          <%= submit_tag 'Create new post', :class => 'submit wymupdate' %> or <%= link_to 'cancel and return to post list', '/admin/posts' %>
         </div>
       <% end -%>
     </td>

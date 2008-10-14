@@ -67,7 +67,7 @@ class Admin::TagsController < Admin::BaseController
     if @tag.save
     # tag was saved successfully
       flash[:notice] = 'Tag was created.'
-      redirect_to Site.full_url + '/admin/tags'
+      redirect_to '/admin/tags'
     else
     # whoops!
       # remember the update checking if it's there
@@ -116,7 +116,7 @@ class Admin::TagsController < Admin::BaseController
       @tag = Tag.find(:all, :conditions => ['name = ?', params[:old_name]])
       @tag[0].destroy
       flash[:notice] = 'Tags were merged.'
-      redirect_to Site.full_url + '/admin/tags'
+      redirect_to '/admin/tags'
     else
     # no duplicate, this is just a straight rename
       # find our tag
@@ -124,7 +124,7 @@ class Admin::TagsController < Admin::BaseController
       if @tag.update_attributes(:name => clean_tag(params[:tag]['name']))
       # tag was updated successfully
         flash[:notice] = 'Tag was updated.'
-        redirect_to Site.full_url + '/admin/tags'
+        redirect_to '/admin/tags'
       else
       # whoops!
         @old_name = params[:old_name]
@@ -145,10 +145,10 @@ class Admin::TagsController < Admin::BaseController
       session[:was_searching] = nil
       q = session[:prev_search_string]
       session[:prev_search_string] = nil
-      redirect_to Site.full_url + '/admin/tags/search?q=' + q
+      redirect_to '/admin/tags/search?q=' + q
     else
     # not sure where they came from, just send them to normal place
-      redirect_to Site.full_url + '/admin/tags'
+      redirect_to '/admin/tags'
     end
   end
   
