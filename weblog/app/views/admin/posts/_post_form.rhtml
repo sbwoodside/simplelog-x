@@ -30,7 +30,7 @@
   </tr>
   <tr class="breaker">
     <td colspan="2">
-      <a class="section_toggler" href="javascript://" onclick="Element.toggle('et1');Element.toggle('et_i1');Element.toggle('et_i2');">Existing Tags&nbsp;&nbsp;<img id="et_i1" src="<%= Site.full_url %>/images/admin/arrow_right.gif" border="0" alt=""<% if get_pref('ALL_TAGS_BY_DEFAULT') == 'yes' %> style="display: none;"<% end %>/><img id="et_i2" src="<%= Site.full_url %>/images/admin/arrow_down.gif" border="0" alt=""<% if get_pref('ALL_TAGS_BY_DEFAULT') != 'yes' %> style="display: none;"<% end %>/></a>
+      <a class="section_toggler" href="javascript://" onclick="Element.toggle('et1');Element.toggle('et_i1');Element.toggle('et_i2');">Existing Tags&nbsp;&nbsp;<img id="et_i1" src="/images/admin/arrow_right.gif" border="0" alt=""<% if get_pref('ALL_TAGS_BY_DEFAULT') == 'yes' %> style="display: none;"<% end %>/><img id="et_i2" src="/images/admin/arrow_down.gif" border="0" alt=""<% if get_pref('ALL_TAGS_BY_DEFAULT') != 'yes' %> style="display: none;"<% end %>/></a>
     </td>
   </tr>
   <tr id="et1"<% if get_pref('ALL_TAGS_BY_DEFAULT') != 'yes' %> style="display: none;"<% end %>>
@@ -39,7 +39,7 @@
   </tr>
   <tr class="breaker">
     <td colspan="2">
-      <a class="section_toggler" href="javascript://" onclick="Element.toggle('ex1');Element.toggle('ex2');<%= "Element.toggle('ex3');" if get_pref("CUSTOM_FIELD_1_ON") == "yes" %><%= "Element.toggle('ex4');" if get_pref("CUSTOM_FIELD_2_ON") == "yes" %><%= "Element.toggle('ex5');" if get_pref("CUSTOM_FIELD_3_ON") == "yes" %>Element.toggle('ex_i1');Element.toggle('ex_i2');">Extended Content&nbsp;&nbsp;<img id="ex_i1" src="<%= Site.full_url %>/images/admin/arrow_right.gif" border="0" alt=""/><img id="ex_i2" src="<%= Site.full_url %>/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a>
+      <a class="section_toggler" href="javascript://" onclick="Element.toggle('ex1');Element.toggle('ex2');<%= "Element.toggle('ex3');" if get_pref("CUSTOM_FIELD_1_ON") == "yes" %><%= "Element.toggle('ex4');" if get_pref("CUSTOM_FIELD_2_ON") == "yes" %><%= "Element.toggle('ex5');" if get_pref("CUSTOM_FIELD_3_ON") == "yes" %>Element.toggle('ex_i1');Element.toggle('ex_i2');">Extended Content&nbsp;&nbsp;<img id="ex_i1" src="/images/admin/arrow_right.gif" border="0" alt=""/><img id="ex_i2" src="/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a>
     </td>
   </tr>
   <tr id="ex1" style="display: none;">
@@ -92,7 +92,7 @@
     <% default_comment_setting = get_pref('COMMENT_DEFAULT') %>
     <tr class="breaker">
       <td colspan="2">
-        <a class="section_toggler" href="javascript://" onclick="Element.toggle('cs1');Element.toggle('cs2');Element.toggle('cs3');Element.toggle('cs_i1');Element.toggle('cs_i2');">Comment Settings&nbsp;&nbsp;<img id="cs_i1" src="<%= Site.full_url %>/images/admin/arrow_right.gif" border="0" alt=""/><img id="cs_i2" src="<%= Site.full_url %>/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a>
+        <a class="section_toggler" href="javascript://" onclick="Element.toggle('cs1');Element.toggle('cs2');Element.toggle('cs3');Element.toggle('cs_i1');Element.toggle('cs_i2');">Comment Settings&nbsp;&nbsp;<img id="cs_i1" src="/images/admin/arrow_right.gif" border="0" alt=""/><img id="cs_i2" src="/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a>
       </td>
     </tr>
     <tr id="cs1" style="display: none;">
@@ -114,7 +114,7 @@
       <tr id="cs3" style="display: none;">
         <td><label for="post_comments_link">Total comments</label></td><td>
         <%= @post.comments.length %>
-        (<%= link_to 'View comment' + (@post.comments.length != 1 ? 's' : ''), Site.full_url + '/admin/comments/bypost/' + @post.id.to_s %>)
+        (<%= link_to 'View comment' + (@post.comments.length != 1 ? 's' : ''), '/admin/comments/bypost/' + @post.id.to_s %>)
         </td>
       </tr>
     <% end -%>
@@ -125,7 +125,7 @@
   <% end -%>
   <tr class="breaker">
     <td colspan="2">
-      <a class="section_toggler" href="javascript://" onclick="Element.toggle('dt1');<% if @authors.length > 1 %>Element.toggle('dt2');<% end %>Element.toggle('dt3');<% unless params[:action] == 'post_new' %>Element.toggle('dt4');<% end %>Element.toggle('dt5');Element.toggle('dt6');Element.toggle('dt7');Element.toggle('dt_i1');Element.toggle('dt_i2');">Details&nbsp;&nbsp;<img id="dt_i1" src="<%= Site.full_url %>/images/admin/arrow_right.gif" border="0" alt=""/><img id="dt_i2" src="<%= Site.full_url %>/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a>
+      <a class="section_toggler" href="javascript://" onclick="Element.toggle('dt1');<% if @authors.length > 1 %>Element.toggle('dt2');<% end %>Element.toggle('dt3');<% unless params[:action] == 'post_new' %>Element.toggle('dt4');<% end %>Element.toggle('dt5');Element.toggle('dt6');Element.toggle('dt7');Element.toggle('dt_i1');Element.toggle('dt_i2');">Details&nbsp;&nbsp;<img id="dt_i1" src="/images/admin/arrow_right.gif" border="0" alt=""/><img id="dt_i2" src="/images/admin/arrow_down.gif" border="0" alt="" style="display: none;"/></a>
     </td>
   </tr>
   <tr id="dt1" style="display: none;">

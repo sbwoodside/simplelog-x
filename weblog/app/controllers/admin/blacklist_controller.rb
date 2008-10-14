@@ -68,7 +68,7 @@ class Admin::BlacklistController < Admin::BaseController
       items_added = nil
     end
     flash[:notice] = '<b>Success</b>: Blacklist updated.'
-    redirect_to Site.full_url + '/admin/blacklist'
+    redirect_to '/admin/blacklist'
   end
   
   # add a blacklist item remotely (from comments section), using text

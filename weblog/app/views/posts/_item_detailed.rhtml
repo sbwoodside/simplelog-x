@@ -45,7 +45,7 @@
         <h3 id="post">Post a comment</h3>
         <h4>Required fields in <b>bold</b>.</h4>
     
-        <% form_tag(Site.full_url + '/comments/add', :id => 'post_form') do %>
+        <% form_tag('/comments/add', :id => 'post_form') do %>
         <%= hidden_field_tag 'do', '1' %>
         <%# ###################################################### -%>
         <%# This is used to check if commenter is human by seeing  -%>

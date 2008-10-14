@@ -50,14 +50,12 @@ class PageController < ApplicationController
   # show a page based on its permalink (/pages/:permalink)
   def show
     @page = Page.find_by_link(params[:link])
-    if !@page
-    # page doesn't exist, send them packin'
-      redirect_to Site.full_url + '/notfound'
-      return
-    end
+    display_404 and return unless @page
     # set the page title
     $page_title = @page.title # + '.'
     render :template => 'pages/show'
   end
   
 end
+
+

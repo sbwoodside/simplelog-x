@@ -68,7 +68,7 @@ class Admin::BaseController < ApplicationController
       session[:came_from] = nil
       session[:came_from] = request.parameters if !$no_session_actions.index(params[:action])
       flash[:notice] = 'Please log in'
-      redirect_to Site.full_url + '/login' and return false
+      redirect_to '/login' and return false
     end
   end
   
@@ -99,7 +99,7 @@ class Admin::BaseController < ApplicationController
         # there was!
           if last_update.update_version != SL_CONFIG[:VERSION]
           # this is a different version, let's tell them about it
-            @update_checker = "<b>Update found!</b> Version #{last_update.update_version} is <a href=\"http://simplelog.net\" title=\"Visit the SimpleLog website\" target=\"_blank\">now available</a>. (Want to <a href=\"#{Site.full_url}/admin/updates/auto/toggle\" title=\"Turn off auto update checking\">turn off auto update checking</a>?)"
+            @update_checker = "<b>Update found!</b> Version #{last_update.update_version} is <a href=\"http://simplelog.net\" title=\"Visit the SimpleLog website\" target=\"_blank\">now available</a>. (Want to <a href=\"/admin/updates/auto/toggle\" title=\"Turn off auto update checking\">turn off auto update checking</a>?)"
             session[:update_check_version_stored] = last_update.update_version
             session[:update_check_stored] = @update_checker
           else
@@ -127,9 +127,9 @@ class Admin::BaseController < ApplicationController
   # depending on preference, we send user to a new post form, or to the posts list
   def index
     if Preference.get_setting('NEW_POST_BY_DEFAULT') == 'yes'
-      redirect_to Site.full_url + '/admin/posts/new'
+      redirect_to '/admin/posts/new'
     else
-      redirect_to Site.full_url + '/admin/posts'
+      redirect_to '/admin/posts'
     end
   end
     

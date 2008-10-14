@@ -130,8 +130,8 @@ class Admin::MiscController < Admin::BaseController
       session[:came_from] = nil
       redirect_to :back
     else
-    # not sure where they came from, just send them to Site.full_url + /admin/updates
-      redirect_to Site.full_url + '/admin/updates'
+    # not sure where they came from, just send them to /admin/updates
+      redirect_to '/admin/updates'
     end
   end
   

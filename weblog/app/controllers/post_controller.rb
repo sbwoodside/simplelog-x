@@ -136,7 +136,7 @@ class PostController < ApplicationController
     # get all the posts from this month
     @posts = Post.find_by_month(params[:month], params[:year])
     # we didn't find a post... send them packin'!
-    render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return unless @posts.length > 0
+    display_404 and return unless @posts.length > 0
     # set the page title
     $page_title = 'Monthly archive: ' + Time.parse("#{params[:month]}/01/#{params[:year]}").strftime('%B, %Y')
     render :template => 'archives/monthly'
@@ -147,7 +147,7 @@ class PostController < ApplicationController
     # get all the posts from this day
     @posts = Post.find_by_day(params[:day], params[:month], params[:year])
     # we didn't find a post... send them packin'!
-    render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return unless @posts.length > 0
+    display_404 and return unless @posts.length > 0
     # set the page title
     $page_title = 'Daily archive: ' + Time.parse("#{params[:month]}/#{params[:day]}/#{params[:year]}").strftime('%d %B, %Y')
     render :template => 'archives/daily'
@@ -157,7 +157,7 @@ class PostController < ApplicationController
   def show
     @post = Post.find_individual(params[:link])
     # we didn't find a post... send them packin'!
-    render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return unless @posts.length > 0
+    display_404 and return unless @post
     # create comment
     @comment = Comment.new
     # set the page title

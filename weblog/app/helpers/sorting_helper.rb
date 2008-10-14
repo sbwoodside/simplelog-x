@@ -25,9 +25,9 @@ module SortingHelper
     
     def di(col, show_blank = true)
       if col == @sort
-        return '&nbsp;<img src="' + Site.full_url + '/images/admin/arrow_' + (@order == 'DESC' ? 'down' : 'up') + '.gif" width="8" height="7" alt="" class="direction_arrow" />'
+        return '&nbsp;<img src="' + '/images/admin/arrow_' + (@order == 'DESC' ? 'down' : 'up') + '.gif" width="8" height="7" alt="" class="direction_arrow" />'
       else
-        return (show_blank ? '&nbsp;<img src="' + Site.full_url + '/images/admin/t.gif" width="8" height="7" alt=""/>' : '')
+        return (show_blank ? '&nbsp;<img src="' + '/images/admin/t.gif" width="8" height="7" alt=""/>' : '')
       end
     end
 

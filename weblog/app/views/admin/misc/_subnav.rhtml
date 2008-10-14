@@ -13,7 +13,7 @@
 
     <div id="admin_sub_nav">
         <div class="sn_left">
-            <%= link_to '<b>Turn ' + (@updates_pref == 'yes' ? 'off' : 'on') + '</b>', Site.full_url + '/admin/updates/auto/toggle' %> automatic update checking.
+            <%= link_to '<b>Turn ' + (@updates_pref == 'yes' ? 'off' : 'on') + '</b>', '/admin/updates/auto/toggle' %> automatic update checking.
         </div>
         <div class="sn_right">
             You're running version <b><%= SL_CONFIG[:VERSION] %></b>

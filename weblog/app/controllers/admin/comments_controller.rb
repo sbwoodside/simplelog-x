@@ -69,9 +69,9 @@ class Admin::CommentsController < Admin::BaseController
       if Preference.get_setting('RETURN_TO_COMMENT') == 'yes'
       # if they have a pref set as such, return them to the comment,
       # rather than the list
-        redirect_to Site.full_url + '/admin/comments/edit/' + @comment.id.to_s
+        redirect_to '/admin/comments/edit/' + @comment.id.to_s
       else
-        redirect_to Site.full_url + '/admin/comments'
+        redirect_to '/admin/comments'
       end
     else
     # whoops!
@@ -92,10 +92,10 @@ class Admin::CommentsController < Admin::BaseController
       session[:was_searching] = nil
       q = session[:prev_search_string]
       session[:prev_search_string] = nil
-      redirect_to Site.full_url + '/admin/comments/search?q=' + q
+      redirect_to '/admin/comments/search?q=' + q
     else
     # not sure where they came from, just send them to normal place
-      redirect_to Site.full_url + '/admin/comments'
+      redirect_to '/admin/comments'
     end
   end
   
@@ -131,14 +131,14 @@ class Admin::CommentsController < Admin::BaseController
       session[:was_searching] = nil
       q = session[:prev_search_string]
       session[:prev_search_string] = nil
-      redirect_to Site.full_url + '/admin/posts/search?q=' + q
+      redirect_to '/admin/posts/search?q=' + q
     elsif session[:came_from]
     # they came from somewhere, let's send them back there
         session[:came_from] = nil
         redirect_to :back
     else
     # not sure where they came from, just send them to normal place
-      redirect_to Site.full_url + '/admin/posts'
+      redirect_to '/admin/posts'
     end
   end
   
@@ -149,7 +149,7 @@ class Admin::CommentsController < Admin::BaseController
       c.update_attribute('is_approved', true)
     end
     flash[:notice] = 'All unapproved comments have been approved.'
-    redirect_to Site.full_url + '/admin/comments'
+    redirect_to '/admin/comments'
   end
   
   # delete all comments that aren't approved
@@ -159,7 +159,7 @@ class Admin::CommentsController < Admin::BaseController
       c.destroy
     end
     flash[:notice] = 'All unapproved comments have been deleted.'
-    redirect_to Site.full_url + '/admin/comments'
+    redirect_to '/admin/comments'
   end
   
 end

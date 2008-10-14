@@ -76,9 +76,9 @@ class Admin::PostsController < Admin::BaseController
       if Preference.get_setting('RETURN_TO_POST') == 'yes'
       # if they have a pref set as such, return them to the post,
       # rather than the list
-        redirect_to Site.full_url + '/admin/posts/edit/' + @post.id.to_s
+        redirect_to '/admin/posts/edit/' + @post.id.to_s
       else
-        redirect_to Site.full_url + '/admin/posts'
+        redirect_to '/admin/posts'
       end
     else
     # whoops!
@@ -119,9 +119,9 @@ class Admin::PostsController < Admin::BaseController
       if Preference.get_setting('RETURN_TO_POST') == 'yes'
       # if they have a pref set as such, return them to the post,
       # rather than the list
-        redirect_to Site.full_url + '/admin/posts/edit/' + @post.id.to_s
+        redirect_to '/admin/posts/edit/' + @post.id.to_s
       else
-        redirect_to Site.full_url + '/admin/posts'
+        redirect_to '/admin/posts'
       end
     else
     # whoops!
@@ -143,10 +143,10 @@ class Admin::PostsController < Admin::BaseController
       session[:was_searching] = nil
       q = session[:prev_search_string]
       session[:prev_search_string] = nil
-      redirect_to Site.full_url + '/admin/posts/search?q=' + q
+      redirect_to '/admin/posts/search?q=' + q
     else
     # not sure where they came from, just send them to normal place
-      redirect_to Site.full_url + '/admin/posts'
+      redirect_to '/admin/posts'
     end
   end
   
@@ -189,11 +189,11 @@ class Admin::PostsController < Admin::BaseController
       end
       # all done!
       flash[:notice] = 'Batch processing completed.'
-      redirect_to Site.full_url + '/admin/posts'
+      redirect_to '/admin/posts'
     else
     # don't know what happened, but we didn't get the required
     # stuff so let's send them back
-      redirect_to Site.full_url + '/admin/posts'
+      redirect_to '/admin/posts'
     end
   end
   
