@@ -65,7 +65,7 @@ class AuthorController < ApplicationController
           redirect_to temp
         else
         # not sure where they came from, just send them to /admin
-          redirect_to Site.full_url + '/admin'
+          redirect_to '/admin'
         end
       else
       # no good
@@ -81,7 +81,7 @@ class AuthorController < ApplicationController
     # there was an error--delete the cookies and send them back to the login page
       cookies.delete SL_CONFIG[:USER_EMAIL_COOKIE]
       cookies.delete SL_CONFIG[:USER_HASH_COOKIE]
-      redirect_to Site.full_url + '/login'
+      redirect_to '/login'
     end
   end
   
@@ -89,7 +89,7 @@ class AuthorController < ApplicationController
   def logout
     cookies.delete SL_CONFIG[:USER_EMAIL_COOKIE]
     cookies.delete SL_CONFIG[:USER_HASH_COOKIE]
-    redirect_to Site.full_url
+    redirect_to '/'
   end
   
 end
