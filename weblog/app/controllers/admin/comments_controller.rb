@@ -32,7 +32,7 @@ class Admin::CommentsController < Admin::BaseController
     # grab the paginator
     @comment_pages = Paginator.new self, Comment.count, 20, params[:page]
     # grab the comments (join on posts for titles)
-    @comments = Comment.find(:all, :select => 'comments.*, posts.title', :joins => 'left outer join posts on comments.post_id = posts.id', :order => @sorter.to_sql, :limit => @comment_pages.current.to_sql)
+    @comments = Comment.find(:all, :select => 'comments.*, posts.title', :joins => 'left outer join posts on comments.post_id = posts.id', :order => @sorter.to_sql, :limit => @comment_pages.items_per_page, :offset => @comment_pages.current.offset)
     $admin_page_title = 'Listing comments'
     render :template => 'admin/comments/comment_list'
   end

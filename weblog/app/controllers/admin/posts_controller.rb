@@ -38,10 +38,10 @@ class Admin::PostsController < Admin::BaseController
     # grab the paginator
     @post_pages = Paginator.new self, Post.count, 20, params[:page]
     if Preference.get_setting('COMMENTING_ON') == 'yes'
-    # grab the posts (join on comments for count)
+      # grab the posts (join on comments for count)
       @posts = Post.find(:all, :select => 'posts.id, posts.created_at, posts.title, posts.body, posts.is_active, COUNT(comments.id) as comments_count', :joins => 'left outer join comments on comments.post_id = posts.id', :group => 'posts.id, posts.title, posts.body, posts.is_active, posts.created_at', :order => @sorter.to_sql, :limit => @post_pages.items_per_page, :offset => @post_pages.current.offset)
     else
-    # grab the posts (no comments)
+      # grab the posts (no comments)
       @posts = Post.find(:all, :order => @sorter.to_sql, :limit => @post_pages.items_per_page, :offset => @post_pages.current.offset)
     end
     $admin_page_title = 'Listing posts'
