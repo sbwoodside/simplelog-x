@@ -63,21 +63,8 @@ class Site
   #
   # blocks
   #
-  
-  # a list of all the active tags (1 or more post assigned)
-  def self.list_tags_linked(tags, div_id = 'tags', title = 'Tags', archive_token = Preference.get_setting('archive_token'), separator = ', ')
-    list  = (div_id != '' ? '<ul id="' + div_id + '">' : '')
-    if tags.length == 0 # no tags
-      list += "<li>There aren't any tags yet.</li>"
-    else # we've got some tags
-      c = 0
-      for tag in tags.sort # build the list
-        list += "<li> <a href=\"#{self.full_url}/#{archive_token}/tags/#{tag[0]}\" title=\"View posts tagged with &quot;#{tag[0]}&quot;\">#{tag[0]}</a> </li>"
-        c = c+1
-      end
-    end
-    return list + (div_id != '' ? '</ul>' : '')
-  end
+  # TODO These really should be re-implemented as partials that you pass local variables to.
+  # (already converted some)
   
   # a list of all active authors (1 or more post written)
   def self.list_authors_linked(authors, div_id = 'authors', title = 'Authors', archive_token = Preference.get_setting('archive_token'), separator = ', ')
@@ -183,12 +170,12 @@ class Site
   end
   
   # link to the posts RSS feed
-  def self.rss_feed_link(name = 'full-text RSS feed', title = 'Full-text RSS feed')
+  def self.rss_feed_link(name = 'Posts feed', title = 'Posts feed')
     return "<a href=\"#{self.rss_url}\" title=\"#{title}\">#{name}</a>"
   end
   
   # link to the comments RSS feed
-  def self.comments_feed_link(name = 'comments RSS feed', title = 'Comments RSS feed')
+  def self.comments_feed_link(name = 'Comments feed', title = 'Comments feed')
     return "<a href=\"#{self.comments_rss_url}\" title=\"#{title}\">#{name}</a>"
   end
   

@@ -48,55 +48,6 @@ module ApplicationHelper
      return enkode_mail(email, link_text, link_title, subject).rstrip
   end
   
-  # build a list of all tags for the about site section
-  #### DEPRECATED: See site_helper.rb -> list_tags_linked
-  def build_tag_block(tags, title = 'Tags', archive_token = get_pref('ARCHIVE_TOKEN'), separator = ', ')
-    logger.warn('DEPRECATED: The ApplicationHelper method build_tag_block() has been deprecated. Please use Site.list_tags_linked() instead.')
-    # start the output
-    list = (title != '' ? '<b>' + title + ':</b> ' : '')
-    if tags.length == 0
-    # no tags
-      list += "There aren't any tags yet."
-    else
-    # we've got some tags
-      c = 0
-      for tag in tags.sort
-      # build the list
-        list += (c > 0 ? separator : '') + "<a href=\"/#{archive_token}/tags/#{tag[0]}\" title=\"View posts tagged with &quot;#{tag[0]}&quot;\">#{tag[0]}</a>"
-        c = c+1
-      end
-    end
-    # all done
-    return list
-  end
-  
-  # builds a list of tags for the tag archive
-  def build_tag_archive_list(tags)
-    build_tag_block(tags, '')
-  end
-  
-  # build a list of all active authors for the about site section
-  #### DEPRECATED: See site_helper.rb -> list_authors_linked
-  def build_author_block(authors, title = 'Authors', archive_token = get_pref('ARCHIVE_TOKEN'), separator = ', ')
-    logger.warn('DEPRECATED: The ApplicationHelper method build_author_block() has been deprecated. Please use Site.list_authors_linked() instead.')
-    # start the output
-    list = (title != '' ? '<b>' + title + ':</b> ' : '')
-    if authors.length == 0
-    # no authors
-      list += "There aren't any authors yet."
-    else
-    # we've got authors
-      c = 0
-      for author in authors
-      # build the list
-        list += (c > 0 ? separator : '') + "<a href=\"/#{archive_token}/authors/#{author.id.to_s}\" title=\"View all posts by #{author.name}\">#{author.name}</a>"
-        c = c+1
-      end
-    end
-    # all done
-    return list
-  end
-  
   # creates checkbox field for preference based on boolean/current value
   def create_pref_bool(id, current_value, description = '')
    output = '<input type="checkbox" name="' + id + '" id="' + id + '" value="yes"'

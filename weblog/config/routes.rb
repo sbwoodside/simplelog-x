@@ -43,6 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':archive_token/authors/:id', :controller => 'post', :action => 'by_author',
               :archive_token => tokens
   # individual archives
+  # Apparently there is no way to do this using restful routes. bummer.
   map.connect ':archive_token/:year/:month/:day/:link', :controller => 'post', :action => 'show',
               :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/,
               :archive_token => tokens

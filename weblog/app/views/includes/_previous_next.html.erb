@@ -1,0 +1,11 @@
+<div class="item_hierarchy">
+  <%
+    previous = Post.find_previous(post)
+    previous &&= previous[0]
+    following = Post.find_next(post)
+    following &&= following[0]
+  %>
+  <%= previous and link_to "&lt;&lt; Previous post: #{previous.title}", Post.permalink(previous) %>
+  <%= following and "|" %>
+  <%= following and link_to "Next post: #{following.title} &gt;&gt;", Post.permalink(following) %>
+</div>

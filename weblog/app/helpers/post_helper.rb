@@ -34,38 +34,6 @@ module PostHelper
   # in case something goes wrong...
     return ''
   end
-
-  # build links to previous and next post when viewing an individual post archive, pass
-  # true for show_titles and you'll get those instead of just previous and next
-  # set append_left and append_right to add things like arrows to the links
-  def previous_next(current_post, div = 'item_hierarchy', title = 'Hierarchy: ', show_titles = false, prev_text = 'previous', next_text = 'next', append_left = '', append_right = '', separator = ', ')
-    links = ''
-    # run the queries
-    @previous = Post.find_previous(current_post)
-    @next = Post.find_next(current_post)
-    if @previous.length > 0 or @next.length > 0
-    # we've got something either before or after us
-      # start building the links
-      links += (div != '' ? '<div class="' + div + '">' : '') + title
-      for post in @previous
-        # grab the previous link if we've got one
-        links += (append_left != '' ? append_left + ' ' : '') + link_to((show_titles ? post.title : prev_text), Post.permalink(post), :title => 'Previous post')
-      end
-      for post in @next
-        # grab the next link if we've got one
-        # if there was a previous link, we should add a space and such first
-        links += (@previous.length > 0 ? separator : '') + link_to((show_titles ? post.title : next_text), Post.permalink(post), :title => 'Next post') + (append_right != '' ? ' ' + append_right : '')
-      end
-      # all done!
-      return links + (div != '' ? '</div>' : '')
-    else
-    # no previous or next links
-      return ''
-    end
-  rescue
-  # whoops!
-    return ''
-  end
   
   # use this in views to get any posts you want (say, for instance, all posts with comments)
   # uses SQL so people can do virtually anything they want with it
