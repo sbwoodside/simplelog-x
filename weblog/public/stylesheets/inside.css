@@ -16,7 +16,6 @@ div#footer { text-align: left; }
 /*
  * Accordion
  ***************************/
-
 h1.accordion_toggle {
   display: block;
   height: 30px;
@@ -50,6 +49,14 @@ div.accordion_content p { margin-top: 15px; }
   top: 0px;
   width:360px;
 }
+
+/*
+ * Tags
+ ***************************/
+ul#tags { list-style: none; margin: 0; padding: 0; }
+ul#tags li { display: inline; }
+ul#tags li:after { content: ","; } 
+ul#tags li:last-child:after { content: ""; }
 
 /*
  * Posts and comments

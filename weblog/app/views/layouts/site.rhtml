@@ -8,6 +8,7 @@
     <meta name="mssmarttagspreventparsing" content="true"/>
     <%= Site.default_meta_tags %> <%= Site.icbm_meta_tag %> <%= Site.esbn_meta_tag %> <%= Site.issn_meta_tag %>
     <%= auto_discovery_link_tag :rss, Site.posts_rss_url, :title => 'Simon Says' %>
+    <%= auto_discovery_link_tag :rss, Site.comments_rss_url, :title => 'Simon Says - Comments' %>
     <link type="text/css" title="WatStart" rel="Stylesheet" media="screen" href="/stylesheets/inside.css"/>
     <%= javascript_include_tag 'site' %>
     <%= javascript_include_tag 'prototype' %> <%= javascript_include_tag 'effects' %> <%= javascript_include_tag 'lightbox' %>
@@ -26,11 +27,12 @@
       </div>
       <div id="right-rail">
         <p>
-          <a href="/archives" title="Archives">Browse the weblog archives</a>
+          <a href="/archives" title="Archives">Browse Old Articles</a>
         </p>
         <p>Tags:</p>
-        <%= Site.list_tags_linked(@tags) %>
-        <p>Subscribe to the <%= Site.rss_feed_link %> or the <%= Site.comments_feed_link %>.</p>
+        <%= render :partial => 'includes/tags', :tags => @tags %>
+        <p>Subscribe to:</p>
+        <ul><li><%= Site.rss_feed_link %></li><li><%= Site.comments_feed_link %></li></ul>
       </div>
     </div>
     <%= Site.mint_tag %>
