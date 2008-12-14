@@ -50,14 +50,13 @@ div.accordion_content p { margin-top: 15px; }
   width:360px;
 }
 
-
 /*
- * Tags
+ * Inline list
  ***************************/
-ul#tags { list-style: none; margin: 0; padding: 0; }
-ul#tags li { display: inline; }
-ul#tags li:after { content: ","; } 
-ul#tags li:last-child:after { content: ""; }
+ul.inline { list-style: none; margin: 0; padding: 0; }
+ul.inline li { display: inline; }
+ul.inline li:after { content: ","; } 
+ul.inline li:last-child:after { content: ""; }
 
 /*
  * Posts and comments

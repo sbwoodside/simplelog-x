@@ -1,5 +1,5 @@
 <div>
-  <ul id="tags">
+  <ul class="inline">
     <% tags.sort.each do |tag| %>
       <li><%= link_to tag[0], "/#{Site.archive_token}/tags/#{tag[0]}" , :title => "View posts tagged with &quot;#{tag[0]}&quot;" %></li>
     <% end %>

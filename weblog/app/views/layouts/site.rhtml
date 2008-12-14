@@ -9,7 +9,7 @@
     <%= Site.default_meta_tags %> <%= Site.icbm_meta_tag %> <%= Site.esbn_meta_tag %> <%= Site.issn_meta_tag %>
     <%= auto_discovery_link_tag :rss, Site.posts_rss_url, :title => 'Simon Says' %>
     <%= auto_discovery_link_tag :rss, Site.comments_rss_url, :title => 'Simon Says - Comments' %>
-    <link type="text/css" title="WatStart" rel="Stylesheet" media="screen" href="/stylesheets/inside.css"/>
+    <link type="text/css" title="Stylesheet" rel="Stylesheet" media="screen" href="/stylesheets/inside.css"/>
     <%= javascript_include_tag 'site' %>
     <%= javascript_include_tag 'prototype' %> <%= javascript_include_tag 'effects' %> <%= javascript_include_tag 'lightbox' %>
     <%= javascript_include_tag 'rollover' %> <%= javascript_include_tag 'accordion' %>
@@ -29,10 +29,21 @@
         <p>
           <a href="/archives" title="Archives">Browse Old Articles</a>
         </p>
-        <p>Tags:</p>
+        <p>Categories:</p>
         <%= render :partial => 'includes/tags', :tags => @tags %>
         <p>Subscribe to:</p>
         <ul><li><%= Site.rss_feed_link %></li><li><%= Site.comments_feed_link %></li></ul>
+        <p>Blogroll:</p>
+        <ul class="inline">
+          <li><a href="http://www.basicinstructions.net/">Basic Instructions</a></li>
+          <li><a href="http://www.zeigermann.com/cartoonist/">The Cartoonist (Ralf Zeigermann)</a></li>
+          <li><a href="http://www.whoyoucallingajesse.com/">Jesse Rodgers</a></li>
+          <li><a href="http://my2iu.blogspot.com/">Ming-Ye Iu</a></li>
+          <li><a href="http://paulschreiber.com/blog/">Paul Schreiber</a></li>
+          <li><a href="http://crazypaulito.blogspot.com/">Paul Watabe</a></li>
+          <li><a href="http://wandership.ca/blog/">Stephen Forrest</a></li>
+          <li><a href="http://tinselman.typepad.com/tinselman/">Tinselman (Robyn Miller)</a></li>
+        </ul>
       </div>
     </div>
     <%= Site.mint_tag %>
