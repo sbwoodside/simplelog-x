@@ -21,5 +21,4 @@ config.action_view.debug_rjs = true
 
 
 require 'bluecloth/lib/bluecloth' # for markdown filtering
-require 'redcloth/lib/redcloth'   # for textile filtering
 require 'rubypants'               # nice quotes, dashes, etc (smartypants)
