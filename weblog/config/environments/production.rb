@@ -14,5 +14,4 @@ config.cache_classes = true
 config.action_controller.consider_all_requests_local = false
 
 require 'bluecloth/lib/bluecloth' # for markdown filtering
-require 'redcloth/lib/redcloth'   # for textile filtering
 require 'rubypants'               # nice quotes, dashes, etc (smartypants)
