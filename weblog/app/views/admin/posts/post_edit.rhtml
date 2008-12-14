@@ -8,11 +8,10 @@
 <table class="super" cellspacing="0" cellpadding="0">
   <tr>
     <td class="super_left" valign="top" class="no_pad">
-      <% form_tag('/admin/posts/update/' + @post.id.to_s, :id => 'post_form') do %>
-        <%= render :partial => 'admin/posts/post_form' %>
+      <% form_for :post, :url => "/admin/posts/update/#{@post.id.to_s}", :html => { :multipart => true } do |f| %>
+        <%= render :partial => 'admin/posts/post_form', :locals => { :f => f } %>
         <div class="submit_area">
-          <%= submit_tag 'Update this post', :class => 'submit wymupdate' %>
-          or <%= link_to 'cancel and return to post list', '/admin/posts' %>
+          <%= submit_tag 'Update this post', :class => 'submit wymupdate' %> or <%= link_to 'cancel and return to post list', '/admin/posts' %>
         </div>
       <% end -%>
     </td>

@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 28) do
+ActiveRecord::Schema.define(:version => 20081104045500) do
 
   create_table "authors", :force => true do |t|
     t.datetime "created_at",                                    :null => false
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(:version => 28) do
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "author_id",                          :default => 0,    :null => false
-    t.datetime "created_at",                                           :null => false
-    t.datetime "modified_at",                                          :null => false
-    t.string   "permalink",           :limit => 128
+    t.integer  "author_id",                              :default => 0,    :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "modified_at",                                              :null => false
+    t.string   "permalink",               :limit => 128
     t.string   "title"
     t.string   "synd_title"
     t.text     "summary"
@@ -65,14 +65,17 @@ ActiveRecord::Schema.define(:version => 28) do
     t.text     "extended_raw"
     t.text     "body"
     t.text     "extended"
-    t.boolean  "is_active",                          :default => true
+    t.boolean  "is_active",                              :default => true
     t.string   "custom_field_1"
     t.string   "custom_field_2"
     t.string   "custom_field_3"
     t.text     "body_searchable"
     t.text     "extended_searchable"
     t.string   "text_filter"
-    t.integer  "comment_status",                     :default => 0
+    t.integer  "comment_status",                         :default => 0
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
   end
 
   create_table "posts_tags", :id => false, :force => true do |t|

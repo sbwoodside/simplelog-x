@@ -39,7 +39,7 @@ class Admin::PostsController < Admin::BaseController
     @post_pages = Paginator.new self, Post.count, 20, params[:page]
     if Preference.get_setting('COMMENTING_ON') == 'yes'
       # grab the posts (join on comments for count)
-      @posts = Post.find(:all, :select => 'posts.id, posts.created_at, posts.title, posts.body, posts.is_active, COUNT(comments.id) as comments_count', :joins => 'left outer join comments on comments.post_id = posts.id', :group => 'posts.id, posts.title, posts.body, posts.is_active, posts.created_at', :order => @sorter.to_sql, :limit => @post_pages.items_per_page, :offset => @post_pages.current.offset)
+      @posts = Post.find(:all, :select => 'posts.id, posts.created_at, posts.title, posts.body, posts.is_active, posts.permalink, COUNT(comments.id) as comments_count', :joins => 'left outer join comments on comments.post_id = posts.id', :group => 'posts.id, posts.title, posts.body, posts.is_active, posts.created_at', :order => @sorter.to_sql, :limit => @post_pages.items_per_page, :offset => @post_pages.current.offset)
     else
       # grab the posts (no comments)
       @posts = Post.find(:all, :order => @sorter.to_sql, :limit => @post_pages.items_per_page, :offset => @post_pages.current.offset)
@@ -94,7 +94,7 @@ class Admin::PostsController < Admin::BaseController
   # load the post we're editing
   def post_edit
     @post     = Post.find(params[:id])
-    @plink    = Post.permalink(@post[0])
+    @plink    = Post.permalink(@post)
     @tags     = Tag.find(:all, :order => 'name asc')
     @authors  = Author.find(:all, :order => 'name asc')
     @preview  = (@post.body ? @post.body : '') + (@post.extended ? @post.extended : '')

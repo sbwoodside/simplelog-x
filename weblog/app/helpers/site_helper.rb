@@ -195,9 +195,9 @@ class Site
   end
   
   # create a full URL for post permalinks (references the Post method)
-  def self.permalink(post)
-    return Post.permalink(post, archive_token = Preference.get_setting('ARCHIVE_TOKEN'))
-  end
+  #def self.permalink(post)
+  #  return Post.permalink(post, archive_token = Preference.get_setting('ARCHIVE_TOKEN'))
+  #end
   
   #
   # various outputted texts

@@ -1,18 +1,19 @@
 <!-- this is post id <%= post.id %> -->
 
 <div class="item_perma">
-    <div class="item_details">
-        <h3><%= post.title %></h3>
-        <h4>Posted <%= author_info(post) %> on <%= date_time_linked(post) %></h4>
-        <h4>Tags: <%= tag_info(post) %></h4>
-    </div>
-    <div class="item_content">
-        <%= auto_link(post.body) %>
-        <%= auto_link(extended_content_block(post)) %>
-    </div>
-    <div class="item_meta">
-        <%= render :partial => 'includes/previous_next', :locals => { :post => post } %>
-    </div>
+  <div class="item_details">
+    <h3><%= post.title %></h3>
+    <h4>Posted <%= author_info(post) %> on <%= date_time_linked(post) %></h4>
+    <h4>Categories: <%= tag_info(post) %></h4>
+  </div>
+  <div class="item_content">
+    <%= auto_link(post.body) %>
+    <%= auto_link(extended_content_block(post)) %>
+    <p><%= image_tag post.attachment.url %></p>
+  </div>
+  <div class="item_meta">
+    <%= render :partial => 'includes/previous_next', :locals => { :post => post } %>
+  </div>
 </div>
 
 <%# ##################################################### -%>
