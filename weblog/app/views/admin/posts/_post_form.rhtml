@@ -7,14 +7,12 @@
       tag_list += link_to(tag.name, 'javascript://', :id => 'tag_' + tag.name, :class => 'tag_tag', :onclick => 'tag_swap(document.forms[\'post_form\'].elements[\'tag_input\'], \'' + tag.name + '\')') + ' '
     end
   %>
-  <!--[form:post]-->
   <tr>
     <td class="labels"><label for="post_title"><b>Title</b></label></td>
     <td class="fields"><%= text_field 'post', 'title', :size => '58', :class => 'normal_i_width' %></td>
   </tr>
   <tr>
-    <td><label for="post_body_raw"><b>Body</b></label></td>
-    <td>
+    <td colspan="2">
       <%= wym_editor :post, :body_raw %>
       <%#= text_area 'post', 'body_raw', :rows => '28', :cols => '59', :wrap => 'virtual', :class => 'normal_i_width' %>
       <br/>
@@ -36,6 +34,17 @@
   <tr id="et1"<% if get_pref('ALL_TAGS_BY_DEFAULT') != 'yes' %> style="display: none;"<% end %>>
     <td><label for="tags_list_existing">All existing tags</label></td>
     <td valign="top" class="wrap"><%= tag_list %></span></td>
+  </tr>
+  <tr class="breaker">
+    <td colspan="2">
+      <a class="section_toggler" href="javascript://" onclick="Element.toggle('attach1');Element.toggle('attach_i1');Element.toggle('attach_i2');">Attachment&nbsp;&nbsp;<img id="attach_i1" src="/images/admin/arrow_right.gif" border="0" alt="" /><img id="attach_i2" src="/images/admin/arrow_down.gif" border="0" alt="" style="display: none;" /></a>
+    </td>
+  </tr>
+  <tr id="attach1"<% if get_pref('ALL_TAGS_BY_DEFAULT') != 'yes' %> style="display: none;"<% end %>>
+    <td><%= f.label 'Attachment' %><!--<label for="attachment">Attachment</label>--></td>
+    <td valign="top" class="wrap">
+      <%= f.file_field :attachment %>
+    </td>
   </tr>
   <tr class="breaker">
     <td colspan="2">
@@ -196,5 +205,4 @@
       </label>
     </td>
   </tr>
-  <!--[eoform:post]-->
 </table>

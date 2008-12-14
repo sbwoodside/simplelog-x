@@ -27,6 +27,14 @@ class Post < ActiveRecord::Base
   # for tagging
   acts_as_taggable
   
+  has_attached_file :attachment
+  #,
+  #:styles => {
+  #  :thumb=> "100x100#",
+  #  :small  => "150x150>",
+  #  :medium => "300x300>",
+  #  :large =>   "400x400>" }
+  
   # set up search fields
   searches_on :title, :body_searchable, :extended_searchable
   
@@ -62,12 +70,10 @@ class Post < ActiveRecord::Base
   end
   
   # builds a link to a post based on its date of creation and its permalink
-  def self.permalink(post, archive_token = Preference.get_setting('ARCHIVE_TOKEN'))
+  def self.permalink(post)
+    archive_token = Preference.get_setting('ARCHIVE_TOKEN')
     # we could use stftime, but i like the month and year to be without leading zeros, so this is easier
     return Site.full_url + '/' + archive_token + '/' + post.created_at.year.to_s + '/' + post.created_at.month.to_s + '/' + post.created_at.day.to_s + '/' + post.permalink + '/'
-  rescue
-  # just in case something goes wrong...
-    return Site.full_url
   end
   
   # strip html from a string, (optionally) allowing for certain tags to remain
@@ -100,12 +106,12 @@ class Post < ActiveRecord::Base
   end
   
   # this fixes redcloth issues because redcloth sucks and i hate it!
-  def self.fix_redcloth(input)
-    input = input.gsub(/\>\s+?\</, '><') # get rid of newlines between tags
-    input = input.gsub(/\n{2,}/, '') # get rid of more than one newline block
-    input = input.gsub("\n", '<br/>') # replace single newline with BR
-    return input
-  end
+  #def self.fix_redcloth(input)
+  #  input = input.gsub(/\>\s+?\</, '><') # get rid of newlines between tags
+  #  input = input.gsub(/\n{2,}/, '') # get rid of more than one newline block
+  #  input = input.gsub("\n", '<br/>') # replace single newline with BR
+  #  return input
+  #end
   
   # cleans up text, runs filter of your choice
   def self.create_clean_content(input, text_filter = Preference.get_setting('TEXT_FILTER'))
@@ -113,7 +119,8 @@ class Post < ActiveRecord::Base
     if text_filter == 'markdown'
       input = BlueCloth.new(input).to_html
     elsif text_filter == 'textile'
-      input = self.fix_redcloth(RedCloth.new(input).to_html)
+      #input = self.fix_redcloth(RedCloth.new(input).to_html)
+      input = RedCloth.new(input).to_html
     elsif text_filter == 'convert line breaks'
       input = input.gsub(/\n\n/, '</p><p>')
       input = input.gsub(/\n/, '<br/>')

@@ -71,7 +71,7 @@ class Admin::PagesController < Admin::BaseController
   # load the page we're editing
   def page_edit
     @page     = Page.find(params[:id])
-    @plink    = Post.permalink(@page[0])
+    @plink    = Post.permalink(@page)
     @preview  = (@page.body ? @page.body : '')
     $admin_page_title = 'Editing page'
     @onload   = "document.forms['page_form'].elements['page[permalink]'].focus()"
