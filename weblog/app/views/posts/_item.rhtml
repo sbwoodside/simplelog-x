@@ -4,7 +4,7 @@
   <div class="item_details">
     <h3><%= post.title %></h3>
     <h4>Posted <%= author_info(post) %> on <%= date_time_linked(post) %></h4>
-    <h4>Tags: <%= tag_info(post) %></h4>
+    <h4>Categories: <%= tag_info(post) %></h4>
   </div>
   <div class="item_content">
     <%= auto_link(post.body) %>
