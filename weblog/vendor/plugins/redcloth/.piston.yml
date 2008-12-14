@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 0d28813da15d5963bd6c2ef705fdbd5d1fb284fc
+  branch: master
+lock: 
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/jgarber/redcloth.git
