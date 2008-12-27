@@ -1,32 +1,10 @@
-# $Id: post.rb 329 2007-02-09 19:39:12Z garrett $
-
-#--
-# Copyright (C) 2006-2007 Garrett Murray
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along
-# with this program (doc/LICENSE); if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301 USA.
-#++
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 # using a search library
 require_dependency 'search'
 
 class Post < ActiveRecord::Base
-  
-  # for tagging
-  acts_as_taggable
-  
+
   has_attached_file :attachment
   #,
   #:styles => {
@@ -381,7 +359,7 @@ class Post < ActiveRecord::Base
   
   # get a list of tags that are assigned more than once and sorts them by name ascending
   def self.get_tags
-    self.tags_count(:count => '> 0', :current_only => true, :order => 'name asc')
+    #########self.tags_count(:count => '> 0', :current_only => true, :order => 'name asc')
   end
 
 end

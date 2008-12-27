@@ -1,38 +1,14 @@
-# $Id: post_helper.rb 311 2007-02-06 15:28:51Z garrett $
-
-#--
-# Copyright (C) 2006-2007 Garrett Murray
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along
-# with this program (doc/LICENSE); if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301 USA.
-#++
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 module PostHelper
   
-  # build a linked-list of tags for a post
+  # build html list of tags with links
   def build_tag_list(tags, archive_token = get_pref('ARCHIVE_TOKEN'), separator = ', ')
-    url = Preference.get_setting('domain')
-    url = (url != '' ? 'http://' + url : '')
     list = ''
     for tag in tags
-      list += (list != '' ? separator : '') + "<a href=\"#{url}/#{archive_token}/tags/#{tag}\" title=\"View posts tagged with &quot;#{tag}&quot;\">#{tag}</a>"
+      list += (list != '' ? separator : '') + "<a href=\"/#{archive_token}/tags/#{tag.name}\" title=\"View posts tagged with &quot;#{tag.name}&quot;\">#{tag.name}</a>"
     end
     return list
-  rescue
-  # in case something goes wrong...
-    return ''
   end
   
   # use this in views to get any posts you want (say, for instance, all posts with comments)
@@ -122,8 +98,8 @@ module PostHelper
   
   # if there are tags, return them for this post
   def tag_info(post)
-    if post.tag_names.length > 0
-      return build_tag_list(post.tag_names.sort!)
+    if post.tags.length > 0
+      return build_tag_list(post.tags) #.sort!)
     else
       return '(none)'
     end

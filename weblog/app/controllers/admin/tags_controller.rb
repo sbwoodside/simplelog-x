@@ -156,7 +156,7 @@ class Admin::TagsController < Admin::BaseController
   def tag_search
     session[:was_searching] = 1
     session[:prev_search_string] = params[:q]
-    @tags = Tag.find_by_string(params[:q], 20)
+    @tags = Tag.find_by_string(params[:q], 20) #this will be broken now... umm... TODO fix.
     $admin_page_title = 'Search results'
     render :template => 'admin/tags/tag_search'
   end

@@ -59,10 +59,9 @@ end
   require 'server.rb'
 
   # Some required stuff (there are additional requires in the environment sub files)
-  require 'taggable'      # acts as taggable is required
   require 'htmlentities'  # useful string extension
   require 'cgi'           # we use this in places
   require 'digest/sha1'   # for password hashing
   require 'digest/md5'    # for creating MD5 hashes (gravatar)
   require 'redcloth'      # for textile support
-  
+  require 'tagging_extensions'

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081104045500) do
+ActiveRecord::Schema.define(:version => 20081227012435) do
 
   create_table "authors", :force => true do |t|
     t.datetime "created_at",                                    :null => false
@@ -78,11 +78,6 @@ ActiveRecord::Schema.define(:version => 20081104045500) do
     t.integer  "attachment_file_size"
   end
 
-  create_table "posts_tags", :id => false, :force => true do |t|
-    t.integer "tag_id"
-    t.integer "post_id"
-  end
-
   create_table "preferences", :force => true do |t|
     t.string "nice_name",   :null => false
     t.text   "description", :null => false
@@ -96,9 +91,19 @@ ActiveRecord::Schema.define(:version => 20081104045500) do
     t.datetime "updated_at"
   end
 
+  create_table "taggings", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "taggable_id"
+    t.string  "taggable_type", :default => "Post", :null => false
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type"], :name => "index_taggings_on_tag_id_and_taggable_id_and_taggable_type", :unique => true
+
   create_table "tags", :force => true do |t|
     t.string "name", :limit => 128
   end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "updates", :force => true do |t|
     t.datetime "last_checked_at"
