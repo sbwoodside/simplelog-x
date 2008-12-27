@@ -1,26 +1,6 @@
-# $Id: application.rb 329 2007-02-09 19:39:12Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
-#--
-# Copyright (C) 2006-2007 Garrett Murray
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along
-# with this program (doc/LICENSE); if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301 USA.
-#++
-
-# used to get preferences site-wide
-require 'preference'
+require 'preference' # used to get preferences site-wide
 
 class ApplicationController < ActionController::Base
   
@@ -47,7 +27,7 @@ class ApplicationController < ActionController::Base
     $params = request.request_uri # the requested URI
     # we're still going to build the 'about' block, so let's get that data
     @posts = Post.find_current
-    @tags = Post.tags_count(:count => '> 0', :current_only => true, :order => 'name asc')
+    @tags = Tag.find(:all) # TODO should only find the ones that are actualy in use
     $page_title = Preference.get_setting('ERROR_PAGE_TITLE')
     @error = true # for use later
     render :template => 'errors/unknown_request', :status => 404
