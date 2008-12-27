@@ -1,39 +1,12 @@
-# $Id: post_controller.rb 313 2007-02-06 16:37:40Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
-#--
-# Copyright (C) 2006-2007 Garrett Murray
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along
-# with this program (doc/LICENSE); if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301 USA.
-#++
-
+# the post controller handles all the work of displaying posts, archives and feeds, as well as searching
 class PostController < ApplicationController
+  layout 'site', :except => ['search', 'feed_all_rss', 'feed_comments_rss']  # use the post layout, unless this is a search or a feed
   
-  #
-  # the post controller handles all the work of displaying posts, archives and
-  # feeds, as well as searching
-  #
-
-  # use the post layout, unless this is a search or a feed
-  layout 'site', :except => ['search', 'feed_all_rss', 'feed_comments_rss']
+  helper :site  # grab the site helper for prefs and such (thanks garrett dimon for this idea!)
   
-  # grab the site helper for prefs and such (thanks garrett dimon for this idea!)
-  helper :site
-  
-  # default page title (set in prefs)
-  $page_title = Preference.get_setting('SLOGAN')
+  $page_title = Preference.get_setting('SLOGAN')  # default page title (set in prefs)
   
   # we need a list of tags on every page this controller will serve, so let's
   # just go ahead and get them automatically every time
@@ -92,10 +65,8 @@ class PostController < ApplicationController
   
   # main page of the site
   def list
-    # get all the current posts (set number in preferences)
-    @posts = Post.find_current
-    # set the page title
-    $page_title = Preference.get_setting('SLOGAN')
+    @posts = Post.find_current  # get all the current posts (set number in preferences)
+    $page_title = Preference.get_setting('SLOGAN')  # set the page title
     render :template => 'index'
   end
   # we should also be able to get to the list with 'index'
@@ -126,8 +97,7 @@ class PostController < ApplicationController
       redirect_to '/'
       return
     end
-    # set the page title
-    $page_title = 'Yearly archive: ' + params[:year]
+    $page_title = 'Yearly archive: ' + params[:year]  # set the page title
     render :template => 'archives/yearly'
   end
   
@@ -210,18 +180,14 @@ class PostController < ApplicationController
     render :template => 'archives/by_author'
   end
   
-  # tag archives
+  # display tag archives
   def tagged
     # get all posts tagged with this tag
-    @posts = Post.find_by_tag(params[:tag])
-    # we didn't find any posts... send them packin'!
-    if @posts.length < 1
-      redirect_to '/'
-      return
-    end
-    # set the page title
-    $page_title = 'Tag archive: ' + params[:tag] + '.'
+    @posts = Tag.find_by_name(params[:tag]).posts.sort {|a,b| a.created_at <=> b.created_at}.reverse # must be a better way to sort
+    $page_title = 'Tag archive: ' + params[:tag] + '.'  # set the page title
     render :template => 'archives/by_tag'
+  rescue
+    render :template => 'errors/unknown_request', :status => 404 # tag wasn't found, probably
   end
   
   # search posts for a string and return them for ajax inclusion (set number of
