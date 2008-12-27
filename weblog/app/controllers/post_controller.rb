@@ -13,7 +13,7 @@ class PostController < ApplicationController
   before_filter :pre_post
   def pre_post
     # get all the tags in use
-    @tags = Post.get_tags
+    @tags = Tag.find(:all).map { |t| t.name }
     # get authors if necessary
     if Preference.get_setting('SHOW_AUTHOR_OF_POST') == 'yes'
       @authors_list = Author.get_all
