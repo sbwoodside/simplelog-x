@@ -14,6 +14,7 @@
         <folder path="weblog/public/javascripts/"/>
         <folder path="weblog/public/stylesheets/"/>
         <folder path="weblog/test/"/>
+        <folder path="weblog/vendor/"/>
         <file name="weblog/README"/>
     </projectTree>
 </project>
