@@ -21,7 +21,7 @@
   <tr>
     <td><label for="tag_input">Tags</label></td>
     <td>
-      <%= text_field_tag 'tag_input', @post.tag_names.join(' '), :size => '58', :class => 'normal_i_width', :id => 'tag_input', :onkeyup => 'highlight_tags(this)' %>
+      <%= text_field_tag 'tag_input', @post.tag_list, :size => '58', :class => 'normal_i_width', :id => 'tag_input', :onkeyup => 'highlight_tags(this)' %>
       <br/>
       <span class="small gray">Enter tags separated by a space or click existing tags below.</span>
     </td>

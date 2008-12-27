@@ -1,3 +1,5 @@
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
+
 class SiteSweeper < ActionController::Caching::Sweeper
   observe Author, Page, Post
 

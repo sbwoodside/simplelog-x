@@ -1,3 +1,4 @@
+if(!WYMeditor) var WYMeditor = {};
 WYMeditor.STRINGS['en'] = {
     Strong:           'Strong',
     Emphasis:         'Emphasis',

@@ -356,10 +356,5 @@ class Post < ActiveRecord::Base
   def self.find_flexible(sql)
     self.find_by_sql(sql)
   end
-  
-  # get a list of tags that are assigned more than once and sorts them by name ascending
-  def self.get_tags
-    #########self.tags_count(:count => '> 0', :current_only => true, :order => 'name asc')
-  end
 
 end
