@@ -1,15 +1,12 @@
 # This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 class Admin::TagsController < Admin::BaseController
+  # Tags keep everything nice and organized (somewhat) and apply (at present) to posts and pages
   
-  #
-  # tags keep everything nice and organized (somewhat)
-  #
-  
-  # strips quotes, spaces, special chars from tags
+  # strip quotes, spaces, special chars from tags
   def clean_tag(input)
-    input = input.gsub(' ', '').gsub("'", '').gsub(/[^a-zA-Z0-9 ]/, '')
-    return input
+    return nil if input.nil?
+    input.gsub(' ', '').gsub("'", '').gsub(/[^a-zA-Z0-9 ]/, '')
   end
   
   # get a list of tags, paginated, with sorting
@@ -19,7 +16,7 @@ class Admin::TagsController < Admin::BaseController
     # grab the paginator
     @tag_pages = Paginator.new self, Tag.count, 20, params[:page]
     # grab the tags and get posts counts as well for sorting
-    @tags = Tag.find(:all, :select => 'tags.id, tags.name, count(posts_tags.tag_id) as post_count', :joins => 'left outer join posts_tags on tags.id = posts_tags.tag_id', :group => 'tags.id, tags.name', :order => @sorter.to_sql, :limit => @tag_pages.items_per_page, :offset =>  @tag_pages.current.offset)
+    @tags = Tag.find(:all, :select => 'tags.id, tags.name, count(taggings.tag_id) as post_count', :joins => 'left outer join taggings on tags.id = taggings.tag_id', :group => 'tags.id, tags.name', :order => @sorter.to_sql, :limit => @tag_pages.items_per_page, :offset =>  @tag_pages.current.offset)
     $admin_page_title = 'Listing tags'
     render :template => 'admin/tags/tag_list'
   end
@@ -46,12 +43,13 @@ class Admin::TagsController < Admin::BaseController
     @tag = Tag.new(params[:tag])
     @tag.name = clean_tag(@tag.name)
     if @tag.save
-    # tag was saved successfully
+      # tag was saved successfully
       flash[:notice] = 'Tag was created.'
       redirect_to '/admin/tags'
     else
-    # whoops!
+      # whoops!
       # remember the update checking if it's there
+      # TODO what the hell is this? checking for new version of simplelog?
       @update_checker = session[:update_check_stored] if session[:update_check_stored] != nil
       render :action => 'tag_new', :template => 'admin/tags/tag_new'
     end
@@ -74,61 +72,39 @@ class Admin::TagsController < Admin::BaseController
   # its name to blue, we'll take all the posts tagged with red and tag them blue
   # and then delete the red tag.
   def tag_update
-    # let's check for a dup and merge if necessary
-    @tags = Tag.find(:all)
-    @temp = Tag.new(params[:tag])
-    @temp.name = clean_tag(@temp.name) if @temp.name # strip spaces and quotes
-    dup = false
-    for tag in @tags
-      if @temp.name == tag.name and tag.name != params[:old_name]
-      # we found a duplicate
-        dup = true
-        break
+    old_tag_name = clean_tag params[:old_name] # it's possible this is nil!
+    new_tag_name = clean_tag params[:tag][:name]
+    old_tag = Tag.find :first, :conditions => ['name = ?', old_tag_name] # why doesn't Tag.find_by_name work?
+    new_tag = Tag.find :first, :conditions => ['name = ?', new_tag_name]
+    if old_tag_name == new_tag_name
+      flash[:notice] = "You didn't change the name of the tag."
+    elsif new_tag # collision!
+      old_tag.taggables.each do |item|
+        item.tags.delete old_tag # eliminate the old tag
+        item.tags << new_tag # deals with duplicates internally
       end
-    end
-    if dup
-    # there was a duplicate--re-tag all the posts with the old tag to the new
-    # one and then delete the old one
-      @posts = Post.find_by_tag(params[:old_name])
-      for post in @posts
-        post.tag(@temp.name)
-      end
-      # kill the old tag
-      @tag = Tag.find(:all, :conditions => ['name = ?', params[:old_name]])
-      @tag[0].destroy
-      flash[:notice] = 'Tags were merged.'
-      redirect_to '/admin/tags'
+      old_tag.destroy
+      flash[:notice] = "Tag #{old_tag_name} was merged into existing tag #{new_tag_name}."
     else
-    # no duplicate, this is just a straight rename
-      # find our tag
-      @tag = Tag.find(params[:id])
-      if @tag.update_attributes(:name => clean_tag(params[:tag]['name']))
-      # tag was updated successfully
-        flash[:notice] = 'Tag was updated.'
-        redirect_to '/admin/tags'
-      else
-      # whoops!
-        @old_name = params[:old_name]
-        @posts = Post.find_by_tag(params[:old_name], false)
-        # remember the update checking if it's there
-        @update_checker = session[:update_check_stored] if session[:update_check_stored] != nil
-        render :action => 'tag_edit', :template => 'admin/tags/tag_edit'
-      end
+      old_tag.name = new_tag_name
+      old_tag.save!
+      flash[:notice] = "Tag #{old_tag_name} was changed to #{new_tag_name}"
     end
+    redirect_to '/admin/tags'
   end
-
+  
   # destroy an existing tag! destroy! destroy! destroy!
   def tag_destroy
     Tag.find(params[:id]).destroy
     flash[:notice] = 'Tag was destroyed.'
     if session[:was_searching]
-    # they came from somewhere, let's send them back there
+      # they came from somewhere, let's send them back there
       session[:was_searching] = nil
       q = session[:prev_search_string]
       session[:prev_search_string] = nil
       redirect_to '/admin/tags/search?q=' + q
     else
-    # not sure where they came from, just send them to normal place
+      # not sure where they came from, just send them to normal place
       redirect_to '/admin/tags'
     end
   end

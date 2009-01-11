@@ -10,11 +10,12 @@ class ChangeTagsToHasManyPolymorphs < ActiveRecord::Migration
     #create_table :tags do |t|
     #  t.column :name, :string, :null => false
     #end
-    ###add_index :tags, :name, :unique => true
+    add_index :tags, :name, :unique => true
     
     # taggings table - some changes
-    ###rename_table :posts_tags, :taggings
-    ###rename_column :taggings, :post_id, :taggable_id # simply rename, should add :null => false ...
+    rename_table :posts_tags, :taggings
+    rename_column :taggings, :post_id, :taggable_id # simply rename, should add :null => false ...
+    add_column    :taggings, :id, :primary_key
     add_column    :taggings, :taggable_type, :string, { :default => "Post", :null => false }
     #create_table :taggings do |t|
     #  t.column :tag_id, :integer, :null => false
@@ -27,10 +28,10 @@ class ChangeTagsToHasManyPolymorphs < ActiveRecord::Migration
 
   def self.down
     remove_index :tags, :name
-    rename_table :taggings, :posts_tags
-    rename_column :posts_tags, :taggable_id, :post_id
-    remove_column :posts_tags, :taggable_type
     remove_index :taggings, [:tag_id, :taggable_id, :taggable_type]
+    rename_column :taggings, :taggable_id, :post_id
+    remove_column :taggings, :taggable_type
+    rename_table :taggings, :posts_tags
   end
 
 end

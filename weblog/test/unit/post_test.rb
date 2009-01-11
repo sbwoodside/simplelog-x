@@ -1,10 +1,8 @@
-# $Id: post_test.rb 296 2007-01-30 22:31:51Z garrett $
-
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PostTest < Test::Unit::TestCase
   
-  fixtures :tags, :posts, :posts_tags
+  fixtures :posts, :taggings, :tags
   
   def test_create_post
     c = Post.count
@@ -41,19 +39,24 @@ class PostTest < Test::Unit::TestCase
   end    
   
   def test_tag_post
-    # let's turn off deprecation warnings for now
-    ActiveSupport::Deprecation.silenced = true
-    
     p = Post.find(1)
-    c = p.tag_names.length
-    assert p.tag('another')
-    assert_equal c+1, p.tag_names.length
+    c = p.tags.length
+    
+    # add/push a tag
+    new_tag = Tag.create
+    new_tag.name = "another"
+    assert p.tags << new_tag # this time p.tags is updated
+    assert_equal c+1, p.tags.size
+    
+    # overwrite the tags
+    assert p.tag_with "atag" # for some reason p.tags isn't updated at this point, but p.tag_list is
+    assert_equal 1, p.tag_list.split.size
   end
   
   def test_remove_tags
     p = Post.find(1)
-    assert p.tag('', :clear => true)
-    assert_equal 0, p.tag_names.length
+    assert p.tags.clear
+    assert_equal 0, p.tags.length
   end
   
   def test_permalinks

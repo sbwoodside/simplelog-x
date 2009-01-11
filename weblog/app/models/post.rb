@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :author_id, :title, :body_raw
   validates_uniqueness_of :permalink # brute force to make sure we don't let a dup in
   validates_each :body_raw, :extended_raw, :allow_nil => true do |record, attr, value|
-  # this tests the content first... makes sure we don't have malformed XHTML (which won't save!)
+    # this tests the content first... makes sure we don't have malformed XHTML (which won't save!)
     Post.create_clean_content(value) rescue record.errors.add(attr, 'contains malformed XHTML')
   end
   validates_presence_of :permalink, :if => :test_for_permalink # check for presence of permalink
@@ -311,12 +311,14 @@ class Post < ActiveRecord::Base
   end
   
   # get a list of posts tagged with `tag`
-  def self.find_by_tag(tag, only_active = true)
-    tag = tag.gsub("'", "''") # protect against quotes
+  # why does post have this and not page?
+  def self.find_by_tag(tag_name, only_active = true)
+    tag = Tag.find_by_name tag_name.gsub("'", "''") # protect against quotes
+    return nil if tag.nil?
     if only_active
-      self.find_tagged_with(:all => tag, :conditions => ['is_active = ? and created_at <= ?', true, Time.sl_local], :order => 'created_at desc')
+      tag.posts.find :all, :conditions => ['is_active = ? and created_at <= ?', true, Time.sl_local], :order => 'created_at desc'
     else
-      self.find_tagged_with(:all => tag, :order => 'created_at desc')
+      tag.posts.find :all, :order => 'created_at desc'
     end
   end
   
