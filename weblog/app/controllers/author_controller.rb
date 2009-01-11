@@ -18,7 +18,6 @@ class AuthorController < ApplicationController
   def login
     # when we log in, we're looking at a page that looks like all other pages,
     # so we need some data for the layout
-    @tags = Post.tag_count
     # create a new author to access
     @author = Author.new
     # set the page title

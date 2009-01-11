@@ -1230,7 +1230,7 @@ WYMeditor.editor.prototype.computeJqueryPath = function() {
 
 WYMeditor.editor.prototype.computeCssPath = function() {
   return jQuery(jQuery.grep(jQuery('link'), function(s){
-   return (s.href && s.href.match(/wymeditor\/skins\/(.*)screen\.css(\?.*)?$/ ))
+   return (s.href && s.href.match(/wymeditor\/skins\/(.*)skin\.css(\?.*)?$/ ))
   })).attr('href');
 };
 

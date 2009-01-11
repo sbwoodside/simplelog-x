@@ -1,7 +1,6 @@
 <div>
   <ul class="inline">
-    <!-- TODO RESTORE THIS! -->
-    <% tags.sort.each do |tag| %>
+    <% mytags.sort.each do |tag| %>
       <li><%= link_to tag, "/#{Site.archive_token}/tags/#{tag}" , :title => "View posts tagged with &quot;#{tag}&quot;" %></li>
     <% end %>
   </ul>

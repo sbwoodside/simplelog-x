@@ -30,7 +30,7 @@
           <a href="/archives" title="Archives">Browse Old Articles</a>
         </p>
         <p>Categories:</p>
-        <%= render :partial => 'includes/tags', :tags => @tags %>
+        <%= render :partial => 'includes/tags', :locals => { :mytags => @tags } %>
         <p>Subscribe to:</p>
         <ul><li><%= Site.rss_feed_link %></li><li><%= Site.comments_feed_link %></li></ul>
         <p>Blogroll:</p>

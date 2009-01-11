@@ -1,5 +1,3 @@
-# $Id: base_controller_test.rb 296 2007-01-30 22:31:51Z garrett $
-
 require File.dirname(__FILE__) + '/../test_helper'
 require 'admin/base_controller'
 
@@ -8,7 +6,7 @@ class Admin::BaseController; def rescue_action(e) raise e end; end
 
 class BaseControllerTest < Test::Unit::TestCase
   
-  fixtures :authors, :comments, :tags, :posts, :tags_posts
+  fixtures :authors, :comments, :tags, :posts, :taggings
   
   def setup
     @controller = Admin::BaseController.new
@@ -41,8 +39,8 @@ class BaseControllerTest < Test::Unit::TestCase
     assert_routing 'admin/authors/update/1', route
     route = {:controller => 'admin/misc', :action => 'do_ping'}
     assert_routing 'admin/ping/do', route
-    route = {:controller => 'xmlrpc', :action => 'api'}
-    assert_routing 'xmlrpc/api', route
+    #route = {:controller => 'xmlrpc', :action => 'api'} # I disabled XML RPC server
+    #assert_routing 'xmlrpc/api', route
   end
   
 end

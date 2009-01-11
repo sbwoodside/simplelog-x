@@ -40,7 +40,7 @@ class Tag < ActiveRecord::Base
   #TODO maybe restore this?
   #def self.find_by_string(str, limit = 20)
   #  # use plain old SQL to find this, it's not that complicated
-  #  results = Tag.find(:all, {:select => 'tags.id, tags.name, count(posts_tags.tag_id) as post_count', :joins => 'left outer join posts_tags on tags.id = posts_tags.tag_id', :group => 'tags.id, tags.name', :conditions => ['name like ?', '%' + str + '%'], :limit => limit})
+  #  results = Tag.find(:all, {:select => 'tags.id, tags.name, count(taggings.tag_id) as post_count', :joins => 'left outer join taggings on tags.id = taggings.tag_id', :group => 'tags.id, tags.name', :conditions => ['name like ?', '%' + str + '%'], :limit => limit})
   #  return results
   #end
 end

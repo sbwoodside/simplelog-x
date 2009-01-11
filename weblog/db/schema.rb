@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20081227012435) do
     t.datetime "updated_at"
   end
 
-  create_table "taggings", :id => false, :force => true do |t|
+  create_table "taggings", :force => true do |t|
     t.integer "tag_id"
     t.integer "taggable_id"
     t.string  "taggable_type", :default => "Post", :null => false

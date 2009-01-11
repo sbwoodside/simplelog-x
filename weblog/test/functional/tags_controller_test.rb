@@ -1,14 +1,14 @@
-# $Id: tags_controller_test.rb 296 2007-01-30 22:31:51Z garrett $
-
 require File.dirname(__FILE__) + '/../test_helper'
 require 'admin/tags_controller'
+
+# TODO need tests for searching tags, because it's broken
 
 # Re-raise errors caught by the controller.
 class Admin::TagsController; def rescue_action(e) raise e end; end
 
 class TagsControllerTest < Test::Unit::TestCase
   
-  fixtures :authors, :posts, :tags
+  fixtures :authors, :posts, :pages, :tags, :taggings
   
   def setup
     @controller = Admin::TagsController.new
@@ -40,7 +40,7 @@ class TagsControllerTest < Test::Unit::TestCase
   end
   
   def test_tag_edit
-    get :tag_edit, :id => 1
+    get :tag_edit, :id => 2
     assert_template 'tag_edit'
     assert(@response.has_template_object?('tag'))
     assert(assigns('tag').valid?)
@@ -48,16 +48,23 @@ class TagsControllerTest < Test::Unit::TestCase
   end
   
   def test_tag_update
-    post :tag_update, :id => 1, :tag => {:name => 'testagain'}
-    assert_redirected_to '/admin/tags'
+    c = Tag.count
+    post :tag_update, :id => 1, :old_name => "imperial", :tag => {:name => "imperial"}
+    assert_valid Tag.find_by_name "imperial"
+    assert_equal c, Tag.count
+    post :tag_update, :id => 1, :old_name => "imperial", :tag => {:name => "changed"}
+    assert_valid Tag.find_by_name "changed"
+    assert_nil Tag.find_by_name "imperial"
+    assert_equal c, Tag.count
+    assert_redirected_to "/admin/tags"
   end
   
   def test_tag_update_merge
     c = Tag.count
-    post :tag_update, :id => 1, :tag => {:name => 'gtest'}
+    post :tag_create, :tag => {:name => "collision"}
+    assert_equal c+1, Tag.count
+    post :tag_update, :id => 2, :old_name => "imperial", :tag => {:name => "collision"}
     assert_equal c, Tag.count
-    post :tag_update, :id => 2, :old_name => 'tag_two', :tag => {:name => 'gtest'}
-    assert_equal c-1, Tag.count # once merged, there will be one less tag
   end
   
   def test_tag_destroy

@@ -1,5 +1,3 @@
-# $Id: author_controller_test.rb 296 2007-01-30 22:31:51Z garrett $
-
 require File.dirname(__FILE__) + '/../test_helper'
 require 'author_controller'
 $page_title = 'test' # for testing purposes
@@ -21,7 +19,7 @@ class AuthorControllerTest < Test::Unit::TestCase
     get :login
     assert_template 'login'
     assert(@response.has_template_object?('author'))
-    assert(@response.has_template_object?('tags'))
+    #assert(@response.has_template_object?('tags'))
     assert_response :success
   end
   

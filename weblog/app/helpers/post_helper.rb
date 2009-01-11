@@ -111,6 +111,7 @@ module PostHelper
     url = (url != '' ? 'http://' + url : '')
     if Preference.get_setting('SHOW_AUTHOR_OF_POST') == 'yes'
       author = post.author
+      return "(unknown author)" if author.nil? 
       return "#{prefix}<a href=\"#{url}/#{archive_token}/authors/#{author.id.to_s}\" title=\"View all posts by #{author.name}\">#{author.name}</a>"
     end
   end

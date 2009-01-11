@@ -1,5 +1,3 @@
-# $Id: post_controller_test.rb 296 2007-01-30 22:31:51Z garrett $
-
 require File.dirname(__FILE__) + '/../test_helper'
 require 'post_controller'
 $page_title = 'test' # for testing purposes
@@ -9,7 +7,7 @@ class PostController; def rescue_action(e) raise e end; end
 
 class PostControllerTest < Test::Unit::TestCase
   
-  fixtures :tags, :posts, :posts_tags
+  fixtures :tags, :posts, :taggings
 
   def setup
     @controller = PostController.new
@@ -129,13 +127,13 @@ class PostControllerTest < Test::Unit::TestCase
   end
   
   def test_tag_archive
-    get :tagged, :tag => tags(:tag_1).name
+    get :tagged, :tag => tags(:tags_001).name
     assert_response :success
     assert_template 'by_tag'
     assert(@response.has_template_object?('tags'))
     assert(@response.has_template_object?('posts'))
     get :tagged, :tag => 'asdfsdfsdf' # doesn't exist
-    assert_redirected_to '/'
+    assert_response :missing
   end
   
   def test_author_archive
