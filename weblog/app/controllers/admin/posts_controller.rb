@@ -48,21 +48,22 @@ class Admin::PostsController < Admin::BaseController
     @post.custom_field_2 = @post.custom_field_2 || ''
     @post.custom_field_3 = @post.custom_field_3 || ''
     # assign our tags
-    @post.tag_with params[:tag_input] ? params[:tag_input].gsub("'", '').gsub(/[^a-zA-Z0-9 ]/, '') : ''
     if @post.save
-    # post was saved successfully
+      @post.tag_with params[:tag_input] ? params[:tag_input].gsub("'", '').gsub(/[^a-zA-Z0-9 ]/, '') : ''
+      # post was saved successfully
       # do the ping if necessary
       do_ping if params[:ping] == 1
       flash[:notice] = 'Post was created.'
       if Preference.get_setting('RETURN_TO_POST') == 'yes'
-      # if they have a pref set as such, return them to the post,
-      # rather than the list
+        # if they have a pref set as such, return them to the post,
+        # rather than the list
         redirect_to '/admin/posts/edit/' + @post.id.to_s
       else
         redirect_to '/admin/posts'
       end
     else
-    # whoops!
+      # whoops!
+      # TODO what the hell is all of this???
       @tags     = Tag.find(:all, :order => 'name asc')
       @authors  = Author.find(:all, :order => 'name asc')
       @preview  = (@post.body_raw ? @post.body_raw: '') + (@post.extended_raw ? @post.extended_raw : '')
