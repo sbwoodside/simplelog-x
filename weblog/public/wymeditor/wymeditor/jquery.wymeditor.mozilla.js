@@ -80,10 +80,11 @@ WYMeditor.WymClassMozilla.prototype.html = function(html) {
     
     //replace em by i and strong by bold
     //(designMode issue)
-    html = html.replace(/<em([^>]*)>/gi, "<i$1>")
-      .replace(/<\/em>/gi, "</i>")
-      .replace(/<strong([^>]*)>/gi, "<b$1>")
-      .replace(/<\/strong>/gi, "</b>");
+    // this messes up embed tags -- changes them to ibed
+    //html = html.replace(/<em([^>]*)>/gi, "<i$1>")
+    //  .replace(/<\/em>/gi, "</i>")
+    //  .replace(/<strong([^>]*)>/gi, "<b$1>")
+    //  .replace(/<\/strong>/gi, "</b>");
     
     //update the html body
     jQuery(this._doc.body).html(html);
