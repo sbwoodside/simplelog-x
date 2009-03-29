@@ -1,11 +1,17 @@
-<div class="item_hierarchy">
+<div style="margin-top:30px;">
   <%
     previous = Post.find_previous(post)
     previous &&= previous[0]
     following = Post.find_next(post)
     following &&= following[0]
   %>
-  <%= previous and link_to "&lt;&lt; Previous post: #{previous.title}", Post.permalink(previous) %>
-  <%= following and "|" %>
-  <%= following and link_to "Next post: #{following.title} &gt;&gt;", Post.permalink(following) %>
+  <div style="float:left; width:45%; text-align:right;">
+    <div><%= previous and link_to "&lt;&lt; Previous", Post.permalink(previous) %></div>
+    <div><%= previous and link_to previous.title, Post.permalink(previous) %></div>
+  </div>
+  <div style="float:right; width:45%;">
+    <div><%= following and link_to "Next &gt;&gt;", Post.permalink(following) %></div>
+    <div><%= following and link_to following.title, Post.permalink(following) %></div>
+  </div>
+  <div style="clear:both;"></div>
 </div>

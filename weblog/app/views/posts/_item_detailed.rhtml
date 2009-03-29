@@ -9,7 +9,7 @@
   <div class="item_content">
     <%= auto_link(post.body) %>
     <%= auto_link(extended_content_block(post)) %>
-    <p><%= image_tag post.attachment.url %></p>
+    <%= image_tag( post.attachment.url ) if post.attachment.file? %>
   </div>
   <div class="item_meta">
     <%= render :partial => 'includes/previous_next', :locals => { :post => post } %>
