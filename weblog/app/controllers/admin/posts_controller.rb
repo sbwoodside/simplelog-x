@@ -93,6 +93,8 @@ class Admin::PostsController < Admin::BaseController
     @post.custom_field_1 = @post.custom_field_1 || ''
     @post.custom_field_2 = @post.custom_field_2 || ''
     @post.custom_field_3 = @post.custom_field_3 || ''
+    # potentially delete attachment
+    @post.attachment = nil if params[:delete_attachment] && params[:delete_attachment] == 'yes'
     # assign our tags (clearing old tags)
     @post.tag_with params[:tag_input] ? params[:tag_input].gsub("'", '').gsub(/[^a-zA-Z0-9 ]/, '') : ''
     if @post.update_attributes(params[:post])
