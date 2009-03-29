@@ -29,6 +29,8 @@ class IntegrationTest < Test::Unit::TestCase
       assert @dummy.save
     end
 
+    teardown { @file.close }
+
     should "create its thumbnails properly" do
       assert_match /\b50x50\b/, `identify "#{@dummy.avatar.path(:thumb)}"`
     end
@@ -37,6 +39,7 @@ class IntegrationTest < Test::Unit::TestCase
       setup do
         Dummy.class_eval do
           has_attached_file :avatar, :styles => { :thumb => "150x25#" }
+          has_attached_file :avatar, :styles => { :thumb => "150x25#", :dynamic => lambda { |a| '50x50#' } }
         end
         @d2 = Dummy.find(@dummy.id)
         @d2.avatar.reprocess!
@@ -45,6 +48,70 @@ class IntegrationTest < Test::Unit::TestCase
 
       should "create its thumbnails properly" do
         assert_match /\b150x25\b/, `identify "#{@dummy.avatar.path(:thumb)}"`
+        assert_match /\b50x50\b/, `identify "#{@dummy.avatar.path(:dynamic)}"`
+      end
+    end
+  end
+
+  context "A model that modifies its original" do
+    setup do
+      rebuild_model :styles => { :original => "2x2#" }
+      @dummy = Dummy.new
+      @file = File.new(File.join(File.dirname(__FILE__),
+                                 "fixtures",
+                                 "5k.png"), 'rb')
+      @dummy.avatar = @file
+    end
+
+    should "report the file size of the processed file and not the original" do
+      assert_not_equal @file.size, @dummy.avatar.size
+    end
+
+    teardown { @file.close }
+  end
+
+  context "A model with attachments scoped under an id" do
+    setup do
+      rebuild_model :styles => { :large => "100x100",
+                                 :medium => "50x50" },
+                    :path => ":rails_root/tmp/:id/:attachments/:style.:extension"
+      @dummy = Dummy.new
+      @file = File.new(File.join(File.dirname(__FILE__),
+                                 "fixtures",
+                                 "5k.png"), 'rb')
+      @dummy.avatar = @file
+    end
+
+    teardown { @file.close }
+
+    context "when saved" do
+      setup do
+        @dummy.save
+        @saved_path = @dummy.avatar.path(:large)
+      end
+
+      should "have a large file in the right place" do
+        assert File.exists?(@dummy.avatar.path(:large))
+      end
+
+      context "and deleted" do
+        setup do
+          @dummy.avatar.clear
+          @dummy.save
+        end
+
+        should "not have a large file in the right place anymore" do
+          assert ! File.exists?(@saved_path)
+        end
+
+        should "not have its next two parent directories" do
+          assert ! File.exists?(File.dirname(@saved_path))
+          assert ! File.exists?(File.dirname(File.dirname(@saved_path)))
+        end
+
+        before_should "not die if an unexpected SystemCallError happens" do
+          FileUtils.stubs(:rmdir).raises(Errno::EPIPE)
+        end
       end
     end
   end
@@ -168,7 +235,7 @@ class IntegrationTest < Test::Unit::TestCase
         assert File.exists?(p)
       end
 
-      @dummy.avatar = nil
+      @dummy.avatar.clear
       assert_nil @dummy.avatar_file_name
       assert @dummy.valid?
       assert @dummy.save
@@ -191,7 +258,7 @@ class IntegrationTest < Test::Unit::TestCase
 
       saved_paths = [:thumb, :medium, :large, :original].collect{|s| @dummy.avatar.path(s) }
 
-      @d2.avatar = nil
+      @d2.avatar.clear
       assert @d2.save
 
       saved_paths.each do |p|
@@ -199,7 +266,7 @@ class IntegrationTest < Test::Unit::TestCase
       end
     end
 
-    should "know the difference between good files, bad files, not files, and nil" do
+    should "know the difference between good files, bad files, and not files" do
       expected = @dummy.avatar.to_file
       @dummy.avatar = "not a file"
       assert @dummy.valid?
@@ -208,25 +275,21 @@ class IntegrationTest < Test::Unit::TestCase
 
       @dummy.avatar = @bad_file
       assert ! @dummy.valid?
-      @dummy.avatar = nil
-      assert @dummy.valid?
     end
 
-    should "know the difference between good files, bad files, not files, and nil when validating" do
+    should "know the difference between good files, bad files, and not files when validating" do
       Dummy.validates_attachment_presence :avatar
       @d2 = Dummy.find(@dummy.id)
       @d2.avatar = @file
       assert   @d2.valid?, @d2.errors.full_messages.inspect 
       @d2.avatar = @bad_file
       assert ! @d2.valid?
-      @d2.avatar = nil
-      assert ! @d2.valid?
     end
 
     should "be able to reload without saving and not have the file disappear" do
       @dummy.avatar = @file
       assert @dummy.save
-      @dummy.avatar = nil
+      @dummy.avatar.clear
       assert_nil @dummy.avatar_file_name
       @dummy.reload
       assert_equal "5k.png", @dummy.avatar_file_name
@@ -248,16 +311,6 @@ class IntegrationTest < Test::Unit::TestCase
         @dummy.save
         assert_equal `identify -format "%wx%h" "#{@dummy.avatar.path(:original)}"`,
                      `identify -format "%wx%h" "#{@dummy2.avatar.path(:original)}"`
-      end
-      
-      should "work when assigned a nil file" do
-        @dummy2.avatar = nil
-        @dummy2.save
-
-        @dummy.avatar = @dummy2.avatar
-        @dummy.save
-        
-        assert !@dummy.avatar?
       end
     end    
 
@@ -356,7 +409,7 @@ class IntegrationTest < Test::Unit::TestCase
           assert key.exists?
         end
 
-        @dummy.avatar = nil
+        @dummy.avatar.clear
         assert_nil @dummy.avatar_file_name
         assert @dummy.valid?
         assert @dummy.save
@@ -379,7 +432,7 @@ class IntegrationTest < Test::Unit::TestCase
 
         saved_keys = [:thumb, :medium, :large, :original].collect{|s| @dummy.avatar.to_file(s) }
 
-        @d2.avatar = nil
+        @d2.avatar.clear
         assert @d2.save
 
         saved_keys.each do |key|
