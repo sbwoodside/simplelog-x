@@ -1,13 +1,47 @@
 require 'test/helper'
 
 class PaperclipTest < Test::Unit::TestCase
-  context "Calling Paperclip.run" do
+  [:image_magick_path, :convert_path].each do |path|
+    context "Calling Paperclip.run with an #{path} specified" do
+      setup do
+        Paperclip.options[:image_magick_path] = nil
+        Paperclip.options[:convert_path]      = nil
+        Paperclip.options[path]               = "/usr/bin"
+      end
+
+      should "execute the right command" do
+        Paperclip.expects(:path_for_command).with("convert").returns("/usr/bin/convert")
+        Paperclip.expects(:bit_bucket).returns("/dev/null")
+        Paperclip.expects(:"`").with("/usr/bin/convert one.jpg two.jpg 2>/dev/null")
+        Paperclip.run("convert", "one.jpg two.jpg")
+      end
+    end
+  end
+
+  context "Calling Paperclip.run with no path specified" do
+    setup do
+      Paperclip.options[:image_magick_path] = nil
+      Paperclip.options[:convert_path]      = nil
+    end
+
     should "execute the right command" do
-      Paperclip.expects(:path_for_command).with("convert").returns("/usr/bin/convert")
+      Paperclip.expects(:path_for_command).with("convert").returns("convert")
       Paperclip.expects(:bit_bucket).returns("/dev/null")
-      Paperclip.expects(:"`").with("/usr/bin/convert one.jpg two.jpg 2>/dev/null")
+      Paperclip.expects(:"`").with("convert one.jpg two.jpg 2>/dev/null")
       Paperclip.run("convert", "one.jpg two.jpg")
     end
+  end
+
+  should "raise when sent #processor and the name of a class that exists but isn't a subclass of Processor" do
+    assert_raises(Paperclip::PaperclipError){ Paperclip.processor(:attachment) }
+  end
+
+  should "raise when sent #processor and the name of a class that doesn't exist" do
+    assert_raises(NameError){ Paperclip.processor(:boogey_man) }
+  end
+
+  should "return a class when sent #processor and the name of a class under Paperclip" do
+    assert_equal ::Paperclip::Thumbnail, Paperclip.processor(:thumbnail)
   end
 
   context "Paperclip.bit_bucket" do
@@ -38,6 +72,8 @@ class PaperclipTest < Test::Unit::TestCase
       @file = File.new(File.join(FIXTURES_DIR, "5k.png"), 'rb')
     end
 
+    teardown { @file.close }
+
     should "not error when trying to also create a 'blah' attachment" do
       assert_nothing_raised do
         Dummy.class_eval do
@@ -55,8 +91,6 @@ class PaperclipTest < Test::Unit::TestCase
       end
 
       should "not assign the avatar on mass-set" do
-        @dummy.logger.expects(:debug)
-
         @dummy.attributes = { :other => "I'm set!",
                               :avatar => @file }
         
@@ -65,8 +99,6 @@ class PaperclipTest < Test::Unit::TestCase
       end
 
       should "still allow assigment on normal set" do
-        @dummy.logger.expects(:debug).times(0)
-
         @dummy.other  = "I'm set!"
         @dummy.avatar = @file
         
@@ -140,6 +172,21 @@ class PaperclipTest < Test::Unit::TestCase
         setup do
           Dummy.send(:"validates_attachment_#{validation}", :avatar, options)
           @dummy = Dummy.new
+        end
+        context "and assigning nil" do
+          setup do
+            @dummy.avatar = nil
+            @dummy.valid?
+          end
+          if validation == :presence
+            should "have an error on the attachment" do
+              assert @dummy.errors.on(:avatar)
+            end
+          else
+            should "not have an error on the attachment" do
+              assert_nil @dummy.errors.on(:avatar)
+            end
+          end
         end
         context "and assigned a valid file" do
           setup do
