@@ -37,11 +37,23 @@
   </tr>
   <tr class="breaker">
     <td colspan="2">
-      <a class="section_toggler" href="javascript://" onclick="Element.toggle('attach1');Element.toggle('attach_i1');Element.toggle('attach_i2');">Attachment&nbsp;&nbsp;<img id="attach_i1" src="/images/admin/arrow_right.gif" border="0" alt="" /><img id="attach_i2" src="/images/admin/arrow_down.gif" border="0" alt="" style="display: none;" /></a>
+      <a class="section_toggler" href="javascript://" onclick="Element.toggle('attach1');Element.toggle('attach2');Element.toggle('attach3');Element.toggle('attach_i1');Element.toggle('attach_i2');">Attachment&nbsp;&nbsp;<img id="attach_i1" src="/images/admin/arrow_right.gif" border="0" alt="" /><img id="attach_i2" src="/images/admin/arrow_down.gif" border="0" alt="" style="display: none;" /></a>
     </td>
   </tr>
-  <tr id="attach1"<% if get_pref('ALL_TAGS_BY_DEFAULT') != 'yes' %> style="display: none;"<% end %>>
-    <td><%= f.label 'Attachment' %><!--<label for="attachment">Attachment</label>--></td>
+  <tr id="attach1" style="display: none;">
+    <td><%= f.label 'Current attachment' %></td>
+    <td valign="top" class="wrap">
+      <%= if @post.attachment.file? then "#{@post.attachment}" else "none" end %>
+    </td>
+  </tr>
+  <tr id="attach2" style="display: none;">
+    <td><%= f.label 'Delete attachment' %></td>
+    <td valign="top" class="wrap">
+      <%= check_box_tag( 'delete_attachment', 'yes' ) if @post.attachment.file? %>
+    </td>
+  </tr>
+  <tr id="attach3" style="display: none;">
+    <td><%= f.label 'Attach file' %></td>
     <td valign="top" class="wrap">
       <%= f.file_field :attachment %>
     </td>
