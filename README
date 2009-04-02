@@ -1,0 +1,8 @@
+This is my own version of SimpleLog that runs on Rails 2.
+
+The original SimpleLog ( http://simplelog.net/ ) does not work on Rails 2 and it seems that
+it is no longer maintained.
+
+In addition to Rails 2, I also added WYM Editor to the posts admin page, attachments using
+paperclip, and some other things. On the other hand, I also removed some functionality... 
+more information TODO.
