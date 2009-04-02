@@ -1,4 +1,4 @@
-# $Id: test.rb 302 2007-02-02 22:43:14Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 # Settings specified here will take precedence over those in config/environment.rb
 

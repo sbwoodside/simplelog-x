@@ -1,4 +1,4 @@
-# $Id: development.rb 302 2007-02-02 22:43:14Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development

@@ -1,18 +1,4 @@
-# $Id: server.rb 300 2007-02-01 23:01:00Z garrett $
-#
-#        ,--.                 ,--.       ,--.              
-#  ,---. `--',--,--,--. ,---. |  | ,---. |  | ,---.  ,---. 
-# (  .-' ,--.|        || .-. ||  || .-. :|  || .-. || .-. |
-# .-'  `)|  ||  |  |  || '-' '|  |\   --.|  |' '-' '' '-' '
-# `----' `--'`--`--`--'|  |-' `--' `----'`--' `---' .`-  / 
-#                      `--'                         `---'
-#
-# SimpleLog - A simple Ruby on Rails weblog application
-# Copyright (c) 2006-2007 Garrett Murray
-#
-# This software is released under the GPL license. See LICENSE file for details.
-#
-# See README for installation instructions!
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 ##################################################################
 # BE SURE TO RESTART YOUR WEB SERVER AFTER YOU MODIFY THIS FILE! #

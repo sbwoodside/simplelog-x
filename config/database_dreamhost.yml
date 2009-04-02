@@ -1,20 +1,24 @@
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
+
+# dreamhost is a little different--they use hosts rather than sockets
+
 development:
-  adapter: postgresql
-  database: simplelog
+  adapter: mysql
+  database: simplelog_dev
   username: simplelog
-  password: '!simplePASS'
-  host: localhost
+  password: 
+  host: sql.yoursite.com
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
 #
 # DO NOT SET THIS DB TO THE SAME AS DEVELOPMENT OR PRODUCTION!
 test:
-  adapter: postgresql
+  adapter: mysql
   database: simplelog_test
   username: simplelog
-  password: '!simplePASS'
-  host: localhost
+  password: 
+  host: sql.yoursite.com
 
 # Unless you have a specific reason, leave this the same as 
 # development when installing SimpleLog, since this allows for
