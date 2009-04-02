@@ -1,4 +1,4 @@
-# $Id: production.rb 302 2007-02-02 22:43:14Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
