@@ -1,5 +1,5 @@
 --- 
-cwd: /disk2/home/simon/deployed-swc-weblog/current
+cwd: /home/simon/deployed-swc-weblog/current
 log_file: log/mongrel.log
 port: "8100"
 environment: production
