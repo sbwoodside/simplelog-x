@@ -26,7 +26,6 @@
         <li><a href="#hq15">How do I use the blacklist?</a> <span class="new">NEW!</span></li>
         <li><a href="#hq16">What are pages?</a> <span class="new">NEW!</span></li>
         <li><a href="#hq17">How do I enable/disable comments?</a> <span class="new">NEW!</span></li>
-        <li><a href="#hq18">Changes to my theme aren't appearing!</a> <span class="new">NEW!</span></li>
         <li><a href="#hq999">I have a question that isn't answered here!</a></li>
       </ol>
       
@@ -82,9 +81,6 @@
       
       <p><a id="hq17"></a><b>How do I enable/disable comments?</b> <span class="new">NEW!</span><br/>
       To enable/disable comments, turn the system on/off in <a href="/admin/prefs" title="Preferences">preferences</a> in the "Comment settings" section. To show comments and the comments form in your theme, you'll need to either use the default "simplelog" theme that's included with SimpleLog, or copy/paste the necessary code from that theme to yours. You'll find the code you need in <code>themes/simplelog/views/posts/_item.rhtml</code> and <code>themes/simplelog/views/posts/_item_detailed.rhtml</code>. It's surrounded by ruby comments for clarity.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
-      
-      <p><a id="hq18"></a><b>Changes to my theme aren't appearing!</b> <span class="new">NEW!</span><br/>
-      In production mode, all theme content is cached for speed. Therefore, if you make changes, they won't appear on your site. To make sure all cached content gets dumped and re-cached, simply visit the <a href="/admin/prefs" title="Preferences">preferences</a> section and click the "Clear the theme cache" link. Also note that the cache is cleared each time you save your preferences.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
       
       <p><a id="hq999"></a><b>I have a question that isn't answered here!</b><br/>
       Check the <%= link_to 'SimpleLog wiki', 'http://wiki.simplelog.net', :target => '_blank', :title => 'SimpleLog wiki' %> for more information and documentation (requires internet connection) or send your question to <%= link_to 'support@simplelog.net', 'mailto:support@simplelog.net?Subject=[SimpleLog] Question', :title => 'Send your question' %> and we'll do our best to answer it as quickly as we can.&nbsp;<a href="#top">Top &#8617;</a><br/><br/></p>
