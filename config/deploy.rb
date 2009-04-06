@@ -5,7 +5,6 @@
 require 'mongrel_cluster/recipes'
 
 set :application, "deployed-swc-weblog"
-#set :repository,  "http://shrub.ca:8080/svn/swc/weblog"
 set :repository,  "git://github.com/sbwoodside/simplelog-2-x.git"
 set :scm, "git"
 set :deploy_to, "/home/simon/#{application}"

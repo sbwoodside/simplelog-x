@@ -1,11 +1,10 @@
 <table class="form" cellpadding="0" cellspacing="0">
-  <%  temp_repair = error_messages_for('post') || '' %>
-  <%= temp_repair.gsub('Body raw', 'Body').gsub('Extended raw', 'Extended') %>
-  <%
-    tag_list = ''
-    for tag in @tags
-      tag_list += link_to(tag.name, 'javascript://', :id => 'tag_' + tag.name, :class => 'tag_tag', :onclick => 'tag_swap(document.forms[\'post_form\'].elements[\'tag_input\'], \'' + tag.name + '\')') + ' '
-    end
+  <%#  temp_repair = error_messages_for('post') || '' %>
+  <%#= temp_repair.gsub('Body raw', 'Body').gsub('Extended raw', 'Extended') %>
+  <% tag_list = ''
+     for tag in @tags
+       tag_list += link_to(tag.name, 'javascript://', :id => 'tag_' + tag.name, :class => 'tag_tag', :onclick => 'tag_swap(document.forms[\'post_form\'].elements[\'tag_input\'], \'' + tag.name + '\')') + ' '
+     end
   %>
   <tr>
     <td class="labels"><label for="post_title"><b>Title</b></label></td>
@@ -14,7 +13,6 @@
   <tr>
     <td colspan="2">
       <%= wym_editor :post, :body_raw %>
-      <%#= text_area 'post', 'body_raw', :rows => '28', :cols => '59', :wrap => 'virtual', :class => 'normal_i_width' %>
       <br/>
     </td>
   </tr>

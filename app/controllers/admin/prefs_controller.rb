@@ -1,29 +1,6 @@
-# $Id: prefs_controller.rb 300 2007-02-01 23:01:00Z garrett $
-
-#--
-# Copyright (C) 2006-2007 Garrett Murray
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along
-# with this program (doc/LICENSE); if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301 USA.
-#++
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 class Admin::PrefsController < Admin::BaseController
-  
-  #
-  # i guess people should be able to specify their preferences, eh?
-  #
   
   # monitor prefs errors for use later
   def record_pref_err(nice_name = '', name = '', error = '')
@@ -37,26 +14,11 @@ class Admin::PrefsController < Admin::BaseController
   
   # get prefs list
   def prefs_list
-    # clear the sessions table
-    sql = "DELETE FROM sessions"
+    sql = "DELETE FROM sessions" # clear the sessions table
     ActiveRecord::Base.connection.execute(sql)
-    # grab ALL the prefs
-    prefs = Preference.find(:all)
-    # we'll use this hash in the form
-    @prefs_hash = Hash.new()
-    # loop through prefs
-    for p in prefs
-      # create actual hash of data
-      prefs_sub_hash = Hash.new()
-      prefs_sub_hash['nice_name']   = p.nice_name
-      prefs_sub_hash['description'] = p.description
-      prefs_sub_hash['value']       = p.value
-      # add it to the main hash by name key
-      @prefs_hash[p.name]           = prefs_sub_hash 
-    end
+    @prefs_hash = Hash[ Preference.find(:all).map { |p| [ p.name , { 'nice_name' => p.nice_name, 'description' => p.description, 'value' => p.value } ] } ]
     $admin_page_title = 'Preferences'
-    if session[:was_on_tab]
-    # they were on a tab, let's switch to it
+    if session[:was_on_tab] # switch to correct tab
       @onload = "swapTab('#{session[:was_on_tab]}')"
       session[:was_on_tab] = nil
     else
@@ -64,8 +26,8 @@ class Admin::PrefsController < Admin::BaseController
     end
     render :template => 'admin/prefs/prefs_list'
   end
-
-  # save preferences
+  
+  # TODO isn't it a bit odd to have a database of prefs but hardcode the checks?
   def prefs_save
     # worry about errors here, assume we have none to start
     @write_errors = false
@@ -150,10 +112,6 @@ class Admin::PrefsController < Admin::BaseController
       end
     end
     
-    # clear the theme cache
-    FileUtils.rm_r "#{RAILS_ROOT}/public/themes", :force => true
-    # unset the theme
-    @@gm_curr_theme = nil
     # unset prefs hash
     Preference.clear_hash
     
@@ -176,18 +134,6 @@ class Admin::PrefsController < Admin::BaseController
     end
   end
   
-  # clear the theme cache from a link
-  def prefs_clear_cache
-    # clear the theme cache
-    FileUtils.rm_r "#{RAILS_ROOT}/public/themes", :force => true
-    # unset the theme
-    @@gm_curr_theme = nil
-    # unset prefs hash
-    Preference.clear_hash
-    # that's it!
-    flash[:notice] = '<b>Success:</b> Theme cache was cleared.'
-    # redirect back
-    redirect_to '/admin/prefs'
-  end
   
 end
+
