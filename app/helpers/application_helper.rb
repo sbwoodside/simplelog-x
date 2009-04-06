@@ -71,18 +71,6 @@ module ApplicationHelper
     return output + '</select>'
   end
   
-  # creates a select menu for theme selector
-  def create_pref_theme_select(id, possible_values, current_value = nil)
-    output = '<select name="' + id + '" id="' + id + '">'
-    for v in possible_values
-      output += '<option value="' + v['value'] + '"'
-      if current_value == v['value']
-        output += ' selected="selected"'
-      end
-      output += '>' + v['name'] + '</option>'
-    end
-    return output + '</select>'
-  end
   
   # creates a select menu with time offset options (and selects the current value)
   def create_pref_offset_select(id, current_value = '0')
