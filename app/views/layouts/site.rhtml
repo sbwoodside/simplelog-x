@@ -14,7 +14,6 @@
     <%= javascript_include_tag 'prototype' %> <%= javascript_include_tag 'effects' %> <%= javascript_include_tag 'rollover' %>
   </head>
   <body>
-    <%#= render :partial => 'includes/browser_check' %>
     <div id="container">
       <%= render :partial => 'includes/masthead' %>
       <%= render :partial => 'includes/main_nav' %>
@@ -30,6 +29,9 @@
         </p>
         <p>Categories:</p>
         <%= render :partial => 'includes/tags', :locals => { :mytags => @tags } %>
+        <p>Popular posts:</p>
+        <script type="text/javascript" src="http://api.postrank.com/static/widget-v2.js"></script>
+        <script type="text/javascript">var options = { "feed_hash": "87f79d2f78d4758e9445e7aeb4c55a2d", "num": 5 , "theme": "theDarkSide" }; new PostRankWidget(options);</script>
         <p>Subscribe to:</p>
         <ul><li><%= Site.rss_feed_link %></li><li><%= Site.comments_feed_link %></li></ul>
         <p>Blogroll:</p>
