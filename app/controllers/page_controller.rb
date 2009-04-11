@@ -9,15 +9,14 @@ class PageController < ApplicationController
   
   # we need a list of tags on every page this controller will serve, so let's
   # just go ahead and get them automatically every time
-  before_filter :pre_page
-  def pre_page
+  # TODO I believe this should be moved to application.rb since it's used pretty much everywhere...
+  before_filter :load_tags_and_authors
+  def load_tags_and_authors
     @tags = Tag.find(:all).map { |t| t.name } # get all the tags in use
     if Preference.get_setting('SHOW_AUTHOR_OF_POST') == 'yes'
       @authors_list = Author.get_all # get authors if necessary
     end
   end
-  
-  cache_sweeper :site_sweeper, :only => [:create, :update, :destroy]
   
   # show a page based on its permalink (/pages/:permalink)
   def show
