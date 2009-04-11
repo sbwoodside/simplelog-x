@@ -12,3 +12,8 @@ more information TODO.
 Changes from SimpleLog 2
  - removed themes, minimal value and not very popular any more
  - changed post/page editor to WYSIWYG, using WYM editor
+
+
+
+Major Todos:
+ - restore internal search functionality (and maybe improve it...)
