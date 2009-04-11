@@ -1,19 +1,43 @@
-This is my own version of SimpleLog that runs on Rails 2.
+README for SimpleLog-X
 
-The original SimpleLog ( http://simplelog.net/ ) does not work on Rails 2 and it seems that
-it is no longer maintained.
-
-In addition to Rails 2, I also added WYM Editor to the posts admin page, attachments using
-paperclip, and some other things. On the other hand, I also removed some functionality... 
-more information TODO.
+This software is licensed under GPL v2 or later.
+See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 
+SimpleLog was originally created in 2006 circa Rails 1.0 or 1.1, I'm not sure. 
+The last release of the original SimpleLog was version 2.0.2 on Feb. 15 2007
+(for Rails 1.x). Since then it is no longer maintained by the original author, Garrett Murphy.
+There is still plenty of information about original SimpleLog at http://simplelog.net/ .
 
-Changes from SimpleLog 2
- - removed themes, minimal value and not very popular any more
- - changed post/page editor to WYSIWYG, using WYM editor
+SimpleLog-X is my version of SimpleLog that runs on Rails 2.x.
+I'm making it available publicly because other people who know I have it have asked for it,
+and I think it serves a useful purpose for people who want to run their blog on Rails
+but don't want to roll it from scratch (or like myself when I started, wouldn't know how to).
 
+In addition to keeping it up to date I've made other changes...
 
+Major changes from original SimpleLog:
+ * Works on Rails 2.x
+ * Added attachments to posts
+ * changed post/page editor to WYSIWYG, using WYM editor
+ * gradually slimming down the code and transitioning to modern Ruby/Rails methods
+
+Things that I've removed:
+ * themes, the themes plugin used was not updated to Rails 2 and I saw no value in it anyway
+ * search (temporarily... TODO restore this...)
 
 Major Todos:
- - restore internal search functionality (and maybe improve it...)
+ * TODO: Get all of my personal junk out of the public folder!!! (move files to public/system?)
+ * refactor the controllers to have a single controller instead of one for display and one for admin
+ * convert to RESTful routing (this depends on the above)
+ * multiple attachments, non image attachments
+ * possibly support OpenID etc. for comments
+ * apply tags and comments to the CMS section
+ * whatever else happens in the blogoworld
+
+TODO: fix gravatar size (64x64?)
+TODO: unit tests in at least post_controller_test need to check the actual values that are assigned
+TODO: make attachment images show up in regular view as well as detailed view
+TODO: merge item and item_detailed and get rid of as many helpers as possible
+
+
