@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     $params = request.request_uri # the requested URI
     # we're still going to build the 'about' block, so let's get that data
     @posts = Post.find_current
-    @tags = Tag.find(:all) # TODO should only find the ones that are actually in use
+    @tags = Tag.find(:all).map { |t| t.name }
     $page_title = Preference.get_setting('ERROR_PAGE_TITLE')
     @error = true # for use later
     puts "handle_unknown_request for #{request.request_uri}"
