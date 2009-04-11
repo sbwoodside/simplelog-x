@@ -11,7 +11,6 @@ class AuthorController < ApplicationController
   # let's use the post layout for this, except when we're actually doing the login action
   layout 'admin_login', :except => 'do_login'
   
-  # grab the site helper for prefs and such (thanks garrett dimon for this idea!)
   helper :site
   
   # login page creates a new author for login purposes
@@ -24,8 +23,6 @@ class AuthorController < ApplicationController
     $page_title = 'Log in.'
     render :template => 'admin/login/login'
   end
-  
-  cache_sweeper :site_sweeper, :only => [:create, :update, :destroy]
   
   # login form is submitted, we need to check it
   def do_login

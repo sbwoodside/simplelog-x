@@ -23,7 +23,6 @@ class Admin::BaseController < ApplicationController
                                             ]
   layout 'admin'
   
-  # grab the site helper for prefs and such (thanks garrett dimon for this idea!)
   helper :site
   
   # default page title
