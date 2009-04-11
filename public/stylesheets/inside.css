@@ -90,7 +90,7 @@ table#comment_form td.labels {
 	padding: 0;
 	margin: 4px 6px 0 0;
 	border: 1px solid #777;
-	background: #fff url(../images/default_gravatar.gif) no-repeat top left;
+	background: #fff;
 }
 #comments h3#post {
 	clear: both;
