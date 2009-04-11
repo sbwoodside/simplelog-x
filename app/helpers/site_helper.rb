@@ -394,6 +394,150 @@ class Site
     @@app_params = app_params
     @@app_req = req
   end
+  
+  
+  ### POSTS & TAGS
+  
+  # build html list of tags with links
+  def self.build_tag_list(tags, archive_token = Preference.get_setting('archive_token'), separator = ', ')
+    list = ''
+    for tag in tags
+      list += (list != '' ? separator : '') + "<a href=\"/#{archive_token}/tags/#{tag.name}\" title=\"View posts tagged with &quot;#{tag.name}&quot;\">#{tag.name}</a>"
+    end
+    return list
+  end
+  
+  # if there are tags, return them for this post
+  def self.tag_info(post)
+    if post.tags.length > 0
+      return build_tag_list(post.tags) #.sort!)
+    else
+      return '(none)'
+    end
+  end
+  
+  # if we are showing authors, return them for this post
+  def self.author_info(post, prefix = 'by ', archive_token = Preference.get_setting('archive_token'))
+    url = Preference.get_setting('domain')
+    url = (url != '' ? 'http://' + url : '')
+    if Preference.get_setting('SHOW_AUTHOR_OF_POST') == 'yes'
+      author = post.author
+      return "(unknown author)" if author.nil? 
+      return "#{prefix}<a href=\"#{url}/#{archive_token}/authors/#{author.id.to_s}\" title=\"View all posts by #{author.name}\">#{author.name}</a>"
+    end
+  end
+
+  
+  # date/time of post linked, using formats from preferences
+  def self.date_time_linked(post)
+    return "<a href=\"#{Post.permalink(post)}\" title=\"Permalink for this post\">#{post.created_at.strftime(Preference.get_setting('date_format'))} at #{post.created_at.strftime(Preference.get_setting('time_format'))}</a>"
+  end
+  
+  # date/time of post
+  def self.date_time(post, hide_time = false)
+    return post.created_at.strftime(Preference.get_setting('date_format')) + (hide_time ? '' : " at #{post.created_at.strftime(Preference.get_setting('time_format'))}")
+  end
+  
+  # create post excerpt for search results
+  def self.post_excerpt(post)
+    return truncate_words(Post.strip_html(post.body), 20)
+  end
+  
+  # same as above, but for comments
+  def self.date_time_comment_linked(comment, post)
+    return "<a href=\"#{Post.permalink(post)}\#c#{comment.id.to_s}\" title=\"Permalink for this comment\">#{comment.created_at.strftime(Preference.get_setting('date_format'))} at #{comment.created_at.strftime(Preference.get_setting('time_format'))}</a>"
+  end
+  
+  # if there's extended content, this shows a link
+  def self.extended_content_link(post, wrap_in_p = true)
+    if post.extended != ''
+      ext_link = Preference.get_setting('extended_link_text')
+      ext_link = "<a href=\"#{Post.permalink(post)}\" title=\"#{ext_link}\">#{ext_link}</a>"
+      return (wrap_in_p ? '<p>' : '') + ext_link + (wrap_in_p ? '</p>' : '')
+    else
+      return ''
+    end
+  end
+  
+  # if there's extended content, this shows it
+  def self.extended_content_block(post)
+    return (post.extended != '' ? post.extended : '')
+  end
+  
+  # if the comment system is turned on, return comment info for a post
+  def self.comment_info(post)
+    if post.comment_status != 0
+      return "<a href=\"#{Post.permalink(post)}\#comments\" title=\"Comments for this post\">#{post.comments.length.to_s}#{(post.comment_status == 2 ? ' (comments closed)' : ' (view/add your own)')}</a>"
+    else
+      return '(disabled)'
+    end
+  end
+  
+  # describes the current comment amount for a post in language
+  def self.comment_count_description(post)
+    if post
+      result = "There #{(post.comments.length == 1 ? 'is' : 'are')} "
+      result += "comments on this post."
+      #result += "#{pluralize(post.comments.length, 'comment')} on this post." TODO restore pluralization
+      return result
+    else
+      return ''
+    end
+  end
+  
+  # a link to posting, if posting comments is allowed for this post
+  def self.add_comment_link(post)
+    if post.comment_status == 1
+      return '&nbsp;<a href="#post" title="Post yours &rarr;">Post yours &rarr;</a>'
+    else
+      return ''
+    end
+  end
+  
+  # return the commenter's name, linked if necessary
+  def self.comment_author(comment)
+    if comment.url and comment.url != ''
+      return "<a href=\"#{comment.url}\" title=\"View #{comment.name}'s website\">#{comment.name}</a>"
+    else
+      return comment.name
+    end
+  end
+  
+  # boolean... does this post accept comments?
+  def self.accepting_comments(post)
+    return (post.comment_status == 1 ? true : false)
+  end
+  
+  
+  
+  # build a short preview of `text` to be used in search returns
+  def self.truncate_words(text, length = 30, end_string = '...')
+    words = text.split()
+    words[0..(length-1)].join(' ') + (words.length > length ? end_string : '')
+  end
+
+  # create a nice title to be used in the browser
+  # looks like: The first few words... (27 April, 2006)
+  # customize the date format in preferences
+  def self.create_html_title(post, include_date = true)
+    return post.synd_title + (include_date ? '(' + post.created_at.strftime(Preference.get_setting('DATE_FORMAT')) + ')' : '')
+  rescue
+  # just in case something goes wrong...
+    return 'Untitled'
+  end
+  
+  # get an author's name
+  def self.get_author_name(author)
+    @author = Author.find(:all, :conditions => ['id = ?', author])
+    if @author.length > 0
+    # we found an author
+      return @author[0].name
+    else
+    # no author found...
+      return ''
+    end
+  end
+  
 
 end
 

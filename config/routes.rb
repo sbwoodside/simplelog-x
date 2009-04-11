@@ -1,68 +1,40 @@
 # This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
-# TODO: This needs a serious overhaul to DRY it up with Rails 2 techniques
+# Unfortunately we can't use RESTful routes until the controllers are refactored to have
+#   proper pluralization of the names. (And we would have one controller for both site & admin instead of two)
+# TODO: restore search routes if needed
 ActionController::Routing::Routes.draw do |map|
-
-  tokens = /archives|older|past|weblog/
+  # Order matters!
+  map.root :controller => 'post'
   
-  # site ########################################################################################
-  # index page
-  map.connect '', :controller => 'post', :action => 'list'
-  # main blog display
-  map.connect 'weblog', :controller => 'post', :action => 'list'
-  # archives list
-  map.connect ':archive_token', :controller => 'post', :action => 'archives_list',
-              :archive_token => tokens
-  # archives tags list (there's another route for this below as well)
-  map.connect ':archive_token/tags', :controller => 'post', :action => 'tags_list',
-              :archive_token => tokens
-  # archives by tag
-  map.connect ':archive_token/tags/:tag', :controller => 'post', :action => 'tagged',
-              :archive_token => tokens
-  # archives by author
-  map.connect ':archive_token/authors/:id', :controller => 'post', :action => 'by_author',
-              :archive_token => tokens
-  # individual archives
-  # Apparently there is no way to do this using restful routes. bummer.
-  map.connect ':archive_token/:year/:month/:day/:link', :controller => 'post', :action => 'show',
-              :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/,
-              :archive_token => tokens
-  # archives by day
-  map.connect ':archive_token/:year/:month/:day', :controller => 'post', :action => 'by_day',
-              :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/,
-              :archive_token => tokens
-  # archives by month
-  map.connect ':archive_token/:year/:month', :controller => 'post', :action => 'by_month',
-              :year => /\d{4}/, :month => /\d{1,2}/,
-              :archive_token => tokens
-  # archives by year
-  map.connect ':archive_token/:year', :controller => 'post', :action => 'by_year',
-              :year => /\d{4}/,
-              :archive_token => tokens
-  # tags list
-  map.connect 'tags', :controller => 'post', :action => 'tags_list'
-  # comments
-  map.connect 'comments/add', :controller => 'post', :action => 'add_comment'
-  # search
-  map.connect 'search', :controller => 'post', :action => 'search'
-  map.connect 'search/full', :controller => 'post', :action => 'search_full'
-  # rss feeds
-  map.connect 'weblog/rss.xml', :controller => 'post', :action => 'feed_all_rss'
-  map.connect 'posts/rss', :controller => 'post', :action => 'feed_all_rss'
-  map.connect 'comments/rss', :controller => 'post', :action => 'feed_comments_rss'
-  # "static" pages
+  # Aliases for backwards compatibility with older versions of simplelog
+  map.connect 'comments/rss', :controller => 'comment', :action => 'feed'
+  map.connect 'posts/rss', :controller => 'post', :action => 'feed'
+  map.connect 'posts/:action/:id', :controller => 'post'
+  map.connect 'weblog/tags/:tag', :controller => 'tag', :action => 'show'
+  map.connect 'weblog/rss.xml', :controller => 'post', :action => 'feed'
+  map.connect 'weblog/:action/:id', :controller => 'post'
+  
+  # Archives
+  post_aliases = /archives|older|past|weblog|post/ # allow different root paths to access archives
+  map.connect ':archive_token/:year/:month/:day/:link', :controller => 'post', :action => 'index', :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/, :archive_token => post_aliases
+  map.connect ':archive_token/:year/:month/:day', :controller => 'post', :action => 'by_day', :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/, :archive_token => post_aliases
+  map.connect ':archive_token/:year/:month', :controller => 'post', :action => 'by_month', :year => /\d{4}/, :month => /\d{1,2}/, :archive_token => post_aliases
+  map.connect ':archive_token/:year', :controller => 'post', :action => 'by_year', :year => /\d{4}/, :archive_token => post_aliases  
+  
+  # Tags
+  map.connect 'tag/:tag', :controller => 'tag', :action => 'show'
+  
+  # CMS
   map.connect 'pages/:link', :controller => 'page', :action => 'show'
-  map.connect 'about/:link', :controller => 'page', :action => 'show'
-  map.connect 'company/:link', :controller => 'page', :action => 'show'
-  map.connect 'about/', :controller => 'page', :action => 'show', :link => 'about'
-  map.connect 'tag/', :controller => 'page', :action => 'show', :link => 'tag'
-  map.connect 'download/', :controller => 'page', :action => 'show', :link => 'download'
-  map.connect 'company/', :controller => 'page', :action => 'show', :link => 'company'
+  
 
+  # search
+#  map.connect 'search', :controller => 'post', :action => 'search'
+#  map.connect 'search/full', :controller => 'post', :action => 'search_full'
 
-  # admin section ###############################################################################
-  # a bit more specific than rails usually uses (i.e. just using :controller/:model/etc) because
-  # we've placed everything in one controller. therefore, we have to write everything out here.
+  # Admin
+  # TODO fix this horrific legacy model of routing! (namespaced routing?)
   # login/out
   map.connect 'login/do', :controller => 'author', :action => 'do_login'
   map.connect 'login', :controller => 'author', :action => 'login'
@@ -137,14 +109,13 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'admin/updates/do', :controller => 'admin/misc', :action => 'do_update_check'
   map.connect 'admin/updates/auto/toggle', :controller => 'admin/misc', :action => 'toggle_updates_check'
   # xmlrpc
-  #map.connect 'xmlrpc/api', :controller => 'xmlrpc', :action => 'api'
-  # sorting
-  map.connect ':controller/:action/:id/:sort/:order'
-  map.connect ':controller/:action/:sort/:order'
+  #map.connect 'xmlrpc/api', :controller => 'xmlrpc', :action => 'api' # TODO maybe make this work again? (remote control posting?)
   
-  # some defaults to move stuff around for 404s #################################################
-  map.connect '*anything', :controller => 'application', :action => 'handle_unknown_request'
-  # default route (not really used here...)
+  # Automatic
   map.connect ':controller/:action/:id'
   
+  # Anything not already handled get a nice 404 page
+  map.connect '*anything', :controller => 'application', :action => 'handle_unknown_request'
+  
 end
+
