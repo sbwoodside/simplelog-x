@@ -41,4 +41,7 @@ TODO unit tests in at least post_controller_test need to check the actual values
 TODO make attachment images show up in regular view as well as detailed view
 TODO merge item and item_detailed and get rid of as many helpers as possible
 TODO delete some or all of public/wymeditor?
+Does weblog in routes cover up public/weblog ? what's it doing there anyway?
 
+Broke the list of /archives/
+link /tags/ to /tag/ ?
