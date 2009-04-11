@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 require 'post_controller'
-$page_title = 'test' # for testing purposes
+$page_title = 'test' # ???
 
 # Re-raise errors caught by the controller.
 class PostController; def rescue_action(e) raise e end; end
@@ -119,49 +119,41 @@ class PostControllerTest < Test::Unit::TestCase
   end
   
   def test_index
-    get :list
+    get :index
     assert_response :success
     assert_template 'index'
     assert(@response.has_template_object?('tags'))
     assert(@response.has_template_object?('posts'))
   end
   
-  def test_tag_archive
-    get :tagged, :tag => tags(:tags_001).name
+  def test_author_archive
+    get :authors, :id => 1
     assert_response :success
-    assert_template 'by_tag'
+    assert_template 'index'
     assert(@response.has_template_object?('tags'))
     assert(@response.has_template_object?('posts'))
-    get :tagged, :tag => 'asdfsdfsdf' # doesn't exist
+    get :authors, :id => 12092 # doesn't exist
     assert_response :missing
   end
   
-  def test_author_archive
-    get :by_author, :id => 1
-    assert_response :success
-    assert_template 'by_author'
-    assert(@response.has_template_object?('tags'))
-    assert(@response.has_template_object?('posts'))
-    get :by_author, :id => 12092 # doesn't exist
-    assert_redirected_to '/'
-  end
-  
   def test_individual_post
-    get :show, :year => 2006, :month => 5, :day => 1, :link => 'test_body_content'
+    get :by_day, :year => 2006, :month => 5, :day => 1, :link => 'test_body_content'
     assert_response :success
-    assert_template 'show'
-    assert_not_nil assigns(:post)
-    assert_equal posts(:post_1), assigns(:post)[0] # just need the post part here
+    assert_template 'index'
+    assert_not_nil assigns(:posts)
+    assert_equal posts(:post_1), assigns(:posts)[0] # just need the post part here
   end
   
-  def test_feed_all
-    get :feed_all_rss
+  def test_feed
+    get :feed
     assert_response :success
-    assert_template 'posts'
-    assert(@response.has_template_object?('posts'))
+    assert_template 'feed'
+    assert_not_nil assigns(:posts)
+    # TODO: how do you test results from XML Builder?
   end
   
   def test_search
+    # TODO make this work when search is restored
     # you can only run this if you run the post_controller_test.rb file directly,
     # there's a bug in rails 1.0 that doesn't respect your table type in the schema
     # when raking, and we need myISAM to be in effect to run this test.

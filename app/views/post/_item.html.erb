@@ -1,0 +1,15 @@
+<div class="item" id='<%= "item_#{post.id}" %>'>
+  <div class="item_details">
+    <h3><%= post.title %></h3>
+    <h4>Posted <%= Site.author_info(post) %>
+      on <%= Site.date_time_linked(post) %></h4>
+    <h4>Categories: <%= Site.tag_info(post) %></h4>
+  </div>
+  <div class="item_content">
+    <%= auto_link(post.body) %>
+    <%= Site.extended_content_link(post) %>
+  </div>
+  <div class="item_meta">
+    <% if Site.comment_system_on %><span class="item_comments">Comments: <%= Site.comment_info(post) %></span><% end %>
+  </div>
+</div>

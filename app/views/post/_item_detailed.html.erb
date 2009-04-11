@@ -3,12 +3,12 @@
 <div class="item_perma">
   <div class="item_details">
     <h3><%= post.title %></h3>
-    <h4>Posted <%= author_info(post) %> on <%= date_time_linked(post) %></h4>
-    <h4>Categories: <%= tag_info(post) %></h4>
+    <h4>Posted <%= Site.author_info(post) %> on <%= Site.date_time_linked(post) %></h4>
+    <h4>Categories: <%= Site.tag_info(post) %></h4>
   </div>
   <div class="item_content">
     <%= auto_link(post.body) %>
-    <%= auto_link(extended_content_block(post)) %>
+    <%= auto_link(Site.extended_content_block(post)) %>
     <%= image_tag( post.attachment.url ) if post.attachment.file? %>
   </div>
   <div class="item_meta">
@@ -23,7 +23,7 @@
 <!-- comments for this post -->
 <div id="comments">
     <h3>Comments</h3>
-    <h4><%= comment_count_description(post) %><%= add_comment_link(post) %></h4>
+    <h4><%= Site.comment_count_description(post) %><%= Site.add_comment_link(post) %></h4>
     
     <% if flash[:notice] -%>
     <div class="approval_required"><%= flash[:notice] %></div>
@@ -35,17 +35,17 @@
         <% if show_gravatars -%>
             <div class="gravatar"><img src="<%= get_gravatar_url(comment.email) %>"/></div>
         <% end -%>
-        <div class="comment_author"><%= comment_author(comment) %></div>
-        <div class="comment_details">posted on <%= date_time_comment_linked(comment, post) %></div>
+        <div class="comment_author"><%= Site.comment_author(comment) %></div>
+        <div class="comment_details">posted on <%= Site.date_time_comment_linked(comment, post) %></div>
         <div class="comment_body"><%= comment.body %></div>
     </div>
     <% end -%>
     
-    <% if accepting_comments(post) -%>
+    <% if Site.accepting_comments(post) -%>
         <h3 id="post">Post a comment</h3>
         <h4>Required fields in <b>bold</b>.</h4>
     
-        <% form_tag('/comments/add', :id => 'post_form') do %>
+        <% form_tag('/comment/add', :id => 'post_form') do %>
         <%= hidden_field_tag 'do', '1' %>
         <%# ###################################################### -%>
         <%# This is used to check if commenter is human by seeing  -%>
