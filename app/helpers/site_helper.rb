@@ -1,35 +1,12 @@
-# $Id: site_helper.rb 314 2007-02-06 16:40:47Z garrett $
-
-#--
-# Copyright (C) 2006-2007 Garrett Murray
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along
-# with this program (doc/LICENSE); if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301 USA.
-#++
+# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
 
 class Site
 
-  #
   # extends the Prefs model by adding an easy way to refer to preferences
   # with the Site.pref_name nomenclature as well as acting as a pseudo-helper
   # so you can call methods such as Site.get_author_gender
-  #
   
-  #
   # meta tags
-  #
   
   # quick way to create a meta tag, shared by other helpers
   def self.simple_meta_tag(name, val)
@@ -194,7 +171,7 @@ class Site
     return Site.full_url + '/pages/' + link.to_s
   end
   
-  # create a full URL for post permalinks (references the Post method)
+  # create a full URL for post permalinks (references the Post method) TODO delete
   #def self.permalink(post)
   #  return Post.permalink(post, archive_token = Preference.get_setting('ARCHIVE_TOKEN'))
   #end
@@ -234,6 +211,7 @@ class Site
   # the domain set in preferences... if the domain in preferences sounds
   # local and differs from the real one, then let's not trust it and
   # warn the user
+  # TODO REMOVE
   def self.check_for_local_domain(url)
     # disabling this for now until we need it in the future...
     return false
