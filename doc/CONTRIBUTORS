@@ -1,7 +1,22 @@
 CONTRIBUTORS
 
-The original version of SimpleLog is:
-  Copyright (C) 2006-2007 Garrett Murray
+The original version of SimpleLog by:
+  Copyright (C) 2006-2007 Garrett Murray, http://maniacalrage.net/, garrett@maniacalrage.net
 
-Modifications for Rails 2, etc. by:
+SimpleLog-X by:
   Simon Woodside, http://simonwoodside.com, sbwoodside@yahoo.com
+
+
+
+ACKNOWLEDGEMENTS
+
+Acknowledgments for original version by Garrett Murray:
+    * Shawn Morrison and Garrett Dimon for endless beta testing
+    * Dema for Acts As Taggable
+    * Matt McCray for theme_generator
+    * Nate McNamara and Duane Johnson for the search library
+    * Dan Benjamin for the Enkoder plugin
+    * #rubyonrails for various answers to various questions
+    * stympy and foomanchoo from #rubyonrails in particular
+    * Tom Watson, Dan Conner and Alex Wolfe
+    * The private beta testers (you know who you are)! 
