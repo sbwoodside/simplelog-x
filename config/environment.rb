@@ -3,6 +3,11 @@
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+# Comment this out if you want to live dangerously and run with another version of Rails!
+RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
+
+# TODO: how much of the rest of this can I get rid of?
+
 # Some storage for application-wide stuff and constants
 SL_CONFIG = Hash.new
 @@stored_prefs = Hash.new
