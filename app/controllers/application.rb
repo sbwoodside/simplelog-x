@@ -10,9 +10,8 @@ class ApplicationController < ActionController::Base
   #
   
   # nearly everything should use the post layout, except the admin section (which we'll deal with later)
-  layout 'site'
+  layout 'site' # TODO so why is this duplicated in so many other controllers?
   
-  # grab the site helper for prefs and such (thanks garrett dimon for this idea!)
   helper :site
   
   # we need to make sure the Site class has the application params on each load
