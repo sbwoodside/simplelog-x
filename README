@@ -1,7 +1,11 @@
 README for SimpleLog-X
 
+<<<<<<< HEAD:README
 This software is licensed under GPL v2 or later.
 See doc/LICENSE and doc/CONTRIBUTORS for details.
+=======
+This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
+>>>>>>> c4aea618193a19347a3ba4d66bd8563d21514c76:README
 
 
 SimpleLog was originally created in 2006 circa Rails 1.0 or 1.1, I'm not sure. 
@@ -27,7 +31,12 @@ Things that I've removed:
  * search (temporarily... TODO restore this...)
 
 Major Todos:
+<<<<<<< HEAD:README
  * TODO: Get all of my personal junk out of the public folder!!! (move files to public/system?)
+=======
+ * TODO Get all of my personal junk out of the public folder!!! (move files to public/system?)
+ * I really should look into restoring the XML-RPC stuff for remote control
+>>>>>>> c4aea618193a19347a3ba4d66bd8563d21514c76:README
  * refactor the controllers to have a single controller instead of one for display and one for admin
  * convert to RESTful routing (this depends on the above)
  * multiple attachments, non image attachments
@@ -35,9 +44,21 @@ Major Todos:
  * apply tags and comments to the CMS section
  * whatever else happens in the blogoworld
 
+<<<<<<< HEAD:README
 TODO: fix gravatar size (64x64?)
 TODO: unit tests in at least post_controller_test need to check the actual values that are assigned
 TODO: make attachment images show up in regular view as well as detailed view
 TODO: merge item and item_detailed and get rid of as many helpers as possible
 
 
+=======
+TODO fix gravatar size (64x64?)
+TODO unit tests in at least post_controller_test need to check the actual values that are assigned
+TODO make attachment images show up in regular view as well as detailed view
+TODO merge item and item_detailed and get rid of as many helpers as possible
+TODO delete some or all of public/wymeditor?
+Does weblog in routes cover up public/weblog ? what's it doing there anyway?
+
+Broke the list of /archives/
+link /tags/ to /tag/ ?
+>>>>>>> c4aea618193a19347a3ba4d66bd8563d21514c76:README
