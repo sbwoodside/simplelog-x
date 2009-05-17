@@ -1,24 +1,87 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'post_controller'
-$page_title = 'test' # ???
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class PostController; def rescue_action(e) raise e end; end
-
-class PostControllerTest < Test::Unit::TestCase
-  
-  fixtures :tags, :posts, :taggings
-
+class PostControllerTest < ActionController::TestCase
   def setup
-    @controller = PostController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
   end
   
-  def test_pref_speed
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_template 'index'
+    #assert_template :partial => '_display_and_form_for_post', :count => 5 # 2.3.2
+    assert_not_nil assigns :tags
+    assert_not_nil assigns :posts
+  end
+  
+  test "should get index with single post" do
+    get :index, :link => "first_post"
+    assert_response :success
+    assert_not_nil assigns :comment
+    #assert_template :partial => '_display_and_form_for_post', :count => 1 # 2.3.2
+  end
+  
+  test "should get missing for non-existent post" do
+    get :index, :link => "not_a_real_post_link"
+    assert_raise( ActionController::ActionControllerError ) { assert_nil posts :not_a_real_post_link }
+    assert_response :missing
+  end
+  
+  test "should get missing for inactive post" do
+    get :index, :link => "inactive"
+    assert_not_nil posts :inactive
+    assert_response :missing
+  end
+  
+  test "should get authors" do
+    get :authors, :id => 1
+    assert_response :success
+    assert_template 'index'
+    assert_not_nil assigns :tags
+    assert_not_nil assigns :posts
+  end
+  
+  test "should get author missing" do
+    get :authors, :id => 12092 # doesn't exist
+    assert_response :missing
+  end
+  
+  test "should get by day" do
+    get :by_day, :year => 2006, :month => 5, :day => 1
+    assert_response :success
+    assert_template 'index'
+    assert_not_nil assigns :posts
+    #assert_equal posts(:first_post), assigns(:posts).first
+    assert_equal assigns(:posts).count, 3 # one is inactive
+  end
+  
+  test "should get feed" do
+    get :feed
+    assert_response :success
+    assert_template 'feed'
+    assert_not_nil assigns(:posts)
+    # TODO: how do you test results from XML Builder?
+  end
+  
+  def test_search
+    # TODO make this work when search is restored
+    # you can only run this if you run the post_controller_test.rb file directly,
+    # there's a bug in rails 1.0 that doesn't respect your table type in the schema
+    # when raking, and we need myISAM to be in effect to run this test.
+    #
+    # uncomment this test if you want to run it directly    
+    #post :search, :q => 'test'
+    #assert assigns(:posts).length > 0
+    #assert_response :success
+    #post :search, :q => 'qwerty'
+    #assert_equal 0, assigns(:posts).length
+    #assert_response :success
+  end
+
+  
+  test "preferences speed" do
+    return # why do this? it's not comparing the speed to anything
     total = 0
     total2 = 0
-    
     10.times do
       start = Time.now
       Preference.get_setting('domain')
@@ -118,53 +181,4 @@ class PostControllerTest < Test::Unit::TestCase
     end
   end
   
-  def test_index
-    get :index
-    assert_response :success
-    assert_template 'index'
-    assert(@response.has_template_object?('tags'))
-    assert(@response.has_template_object?('posts'))
-  end
-  
-  def test_author_archive
-    get :authors, :id => 1
-    assert_response :success
-    assert_template 'index'
-    assert(@response.has_template_object?('tags'))
-    assert(@response.has_template_object?('posts'))
-    get :authors, :id => 12092 # doesn't exist
-    assert_response :missing
-  end
-  
-  def test_individual_post
-    get :by_day, :year => 2006, :month => 5, :day => 1, :link => 'test_body_content'
-    assert_response :success
-    assert_template 'index'
-    assert_not_nil assigns(:posts)
-    assert_equal posts(:post_1), assigns(:posts)[0] # just need the post part here
-  end
-  
-  def test_feed
-    get :feed
-    assert_response :success
-    assert_template 'feed'
-    assert_not_nil assigns(:posts)
-    # TODO: how do you test results from XML Builder?
-  end
-  
-  def test_search
-    # TODO make this work when search is restored
-    # you can only run this if you run the post_controller_test.rb file directly,
-    # there's a bug in rails 1.0 that doesn't respect your table type in the schema
-    # when raking, and we need myISAM to be in effect to run this test.
-    #
-    # uncomment this test if you want to run it directly    
-    #post :search, :q => 'test'
-    #assert assigns(:posts).length > 0
-    #assert_response :success
-    #post :search, :q => 'qwerty'
-    #assert_equal 0, assigns(:posts).length
-    #assert_response :success
-  end
-
 end

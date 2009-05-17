@@ -1,65 +1,66 @@
-post_1:
+first_post:
   id: 1
   author_id: 1
   created_at: '2006-05-01 00:00:00'
   modified_at: '2006-05-01 00:00:00'
-  permalink: test_body_content
-  title: test
-  body_raw: test body content
-  body: test body content
+  permalink: first_post
+  title: First Post
+  body_raw: Teh first post evar!
+  body: Teh first post evar!
   is_active: true
   
-post_2:
+inactive:
   id: 2
   author_id: 1
-  created_at: '2006-05-01 00:00:00'
-  modified_at: '2006-05-01 00:00:00'
-  permalink: test_body_content_again
-  title: test not active
-  body_raw: test body content
-  body: test body content
+  created_at: '2006-05-01 01:00:00'
+  modified_at: '2006-05-01 01:00:00'
+  permalink: inactive
+  title: Inactive
+  body_raw: Yeah, this one is not active.
+  body: Yeah, this one is not active.
   is_active: false
   
-post_3:
+non_existent_author:
   id: 3
   author_id: 1000 # doesn't exist
-  created_at: '2006-05-01 00:00:00'
-  modified_at: '2006-05-01 00:00:00'
-  permalink: test
+  created_at: '2006-05-01 02:00:00'
+  modified_at: '2006-05-01 02:00:00'
+  permalink: non_existent_author
   title: no author
-  body_raw: test
-  body: test
+  body_raw: My author doesn't exist.
+  body: My author doesn't exist.
   is_active: true
   
-post_4:
+some_html:
   id: 4
   author_id: 3
-  created_at: '2006-05-01 00:00:00'
-  modified_at: '2006-05-01 00:00:00'
-  permalink: test_one_more
-  title: another test
-  body_raw: test one more
-  body: test one more
+  created_at: '2006-05-01 03:00:00'
+  modified_at: '2006-05-01 03:00:00'
+  permalink: some_html
+  title: Some HTML
+  body_raw: <a href="foo.bar/baz">I'm a link!</a>
+  body: <a href="foo.bar/baz">I'm a link!</a>
   is_active: true
   
-post_5:
+permalink_and_title_differ:
   id: 5
   author_id: 3
   created_at: '2006-05-02 00:00:00'
   modified_at: '2006-05-02 00:00:00'
-  permalink: more_test_posts
-  title: another test post for author 3
-  body_raw: test one more time for 3
-  body: test one more time for 3
+  permalink: permalink_and_title_differ
+  title: The permalink and the title are different!
+  body_raw: But that's OK.
+  body: But that's OK.
   is_active: true
 
-post_6:
+body_raw_and_body_differ:
   id: 6
   author_id: 3
-  created_at: '2006-05-03 00:00:00'
-  modified_at: '2006-05-03 00:00:00'
-  permalink: more_test_posts_again
-  title: another test post for author 3 again
-  body_raw: test one more time for 3 again
-  body: test one more time for 3 again
+  created_at: '2006-05-03 12:00:00'
+  modified_at: '2006-05-03 12:00:00'
+  permalink: body_raw_and_body_differ
+  title: Body_raw and body differ
+  body_raw: Body is false.
+  body: Body_raw is true.
   is_active: true
+

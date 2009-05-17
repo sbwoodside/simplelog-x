@@ -443,10 +443,6 @@ class Site
     return truncate_words(Post.strip_html(post.body), 20)
   end
   
-  # same as above, but for comments
-  def self.date_time_comment_linked(comment, post)
-    return "<a href=\"#{Post.permalink(post)}\#c#{comment.id.to_s}\" title=\"Permalink for this comment\">#{comment.created_at.strftime(Preference.get_setting('date_format'))} at #{comment.created_at.strftime(Preference.get_setting('time_format'))}</a>"
-  end
   
   # if there's extended content, this shows a link
   def self.extended_content_link(post, wrap_in_p = true)
@@ -473,26 +469,6 @@ class Site
     end
   end
   
-  # describes the current comment amount for a post in language
-  def self.comment_count_description(post)
-    if post
-      result = "There #{(post.comments.length == 1 ? 'is' : 'are')} "
-      result += "comments on this post."
-      #result += "#{pluralize(post.comments.length, 'comment')} on this post." TODO restore pluralization
-      return result
-    else
-      return ''
-    end
-  end
-  
-  # a link to posting, if posting comments is allowed for this post
-  def self.add_comment_link(post)
-    if post.comment_status == 1
-      return '&nbsp;<a href="#post" title="Post yours &rarr;">Post yours &rarr;</a>'
-    else
-      return ''
-    end
-  end
   
   # return the commenter's name, linked if necessary
   def self.comment_author(comment)

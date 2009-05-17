@@ -2,6 +2,7 @@
   <% if @posts.length == 1 %>
     <%# displaying single post %>
     <%= render :partial => 'item_detailed', :locals => {:post => @posts.first} %>
+    <%= render :partial => 'comment/display_and_form_for_post', :locals => { :post => @posts.first } %>
   <% else %>
     <%# displaying multiple posts %>
     <% @posts.each do |post| -%>
