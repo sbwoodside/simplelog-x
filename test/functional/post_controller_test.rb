@@ -22,7 +22,7 @@ class PostControllerTest < ActionController::TestCase
   
   test "should get missing for non-existent post" do
     get :index, :link => "not_a_real_post_link"
-    assert_raise( ActionController::ActionControllerError ) { assert_nil posts :not_a_real_post_link }
+    assert_raise( StandardError ) { assert_nil posts :not_a_real_post_link }
     assert_response :missing
   end
   
