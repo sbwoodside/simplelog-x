@@ -24,9 +24,9 @@ class PostController < ApplicationController
   def index
     if params[:link]
       @posts = Post.find_individual(params[:link])
-      display_404 and return unless @posts
+      display_404 and return unless @posts.first
       @comment = Comment.new
-      $page_title = (Preference.get_setting('SIMPLE_TITLES') == 'yes' ? create_html_title(@posts[0]) : @posts[0].title)
+      $page_title = (Preference.get_setting('SIMPLE_TITLES') == 'yes' ? create_html_title(@posts.first) : @posts.first.title)
     else
       @posts = Post.find_current  # get all the current posts (set number in preferences)
       $page_title = Preference.get_setting('SLOGAN')  # set the page title
