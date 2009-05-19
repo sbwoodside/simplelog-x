@@ -11,10 +11,6 @@
         <folder path="db/"/>
         <folder path="doc/"/>
         <folder path="lib/"/>
-<<<<<<< HEAD:weblog.xpr
-=======
-        <folder path="log/"/>
->>>>>>> 4bbaf5d57b1166cf2e8225bff32f0f5bb633f0dd:weblog.xpr
         <folder path="public/"/>
         <folder path="script/"/>
         <folder path="test/"/>
