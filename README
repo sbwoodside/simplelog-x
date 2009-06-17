@@ -1,12 +1,6 @@
 README for SimpleLog-X
 
-<<<<<<< HEAD:README
 This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
-=======
-This software is licensed under GPL v2 or later.
-See doc/LICENSE and doc/CONTRIBUTORS for details.
->>>>>>> 4bbaf5d57b1166cf2e8225bff32f0f5bb633f0dd:README
-
 
 SimpleLog was originally created in 2006 circa Rails 1.0 or 1.1, I'm not sure. 
 The last release of the original SimpleLog was version 2.0.2 on Feb. 15 2007
@@ -30,36 +24,16 @@ Things that I've removed:
  * themes, the themes plugin used was not updated to Rails 2 and I saw no value in it anyway
  * search (temporarily... TODO restore this...)
 
-<<<<<<< HEAD:README
-TODO LIST:
- * restore XML-RPC stuff for remote control
- * maybe refactor the controllers to have a single controller instead of one for display and one for admin
- * maybe convert to RESTful routing (this depends on the above)
-=======
 Major Todos:
  * TODO Get all of my personal junk out of the public folder!!! (move files to public/system?)
  * I really should look into restoring the XML-RPC stuff for remote control
  * refactor the controllers to have a single controller instead of one for display and one for admin
  * convert to RESTful routing (this depends on the above)
->>>>>>> 4bbaf5d57b1166cf2e8225bff32f0f5bb633f0dd:README
  * multiple attachments, non image attachments
  * possibly support OpenID etc. for comments
  * apply tags and comments to the CMS section
  * whatever else happens in the blogoworld
 
-<<<<<<< HEAD:README
- * fix gravatar size (64x64?)
- * unit tests in at least post_controller_test need to check the actual values that are assigned
- * make attachment images show up in regular view as well as detailed view
- * merge item and item_detailed and get rid of as many helpers as possible
- * delete some or all of public/wymeditor?
- * Does weblog in routes cover up public/weblog ? what's it doing there anyway?
-
- * Broke the list of /archives/
- * link /tags/ to /tag/ ?
-
- * Restore built-in search
-=======
 TODO fix gravatar size (64x64?)
 TODO unit tests in at least post_controller_test need to check the actual values that are assigned
 TODO make attachment images show up in regular view as well as detailed view
@@ -69,4 +43,3 @@ Does weblog in routes cover up public/weblog ? what's it doing there anyway?
 
 Broke the list of /archives/
 link /tags/ to /tag/ ?
->>>>>>> 4bbaf5d57b1166cf2e8225bff32f0f5bb633f0dd:README
