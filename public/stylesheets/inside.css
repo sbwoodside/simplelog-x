@@ -42,7 +42,10 @@ ul.inline li:last-child:after { content: ""; }
  * Posts and comments
  ***************************/
 div.item_content pre {
-  overflow:scroll;
+  overflow: auto;
+  background-color: #333;
+  color: white;
+  padding: 1em;
 }
 div.item_details {
   float:left;
