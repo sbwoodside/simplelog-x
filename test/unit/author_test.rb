@@ -1,25 +1,30 @@
-# $Id: author_test.rb 50 2006-05-04 19:04:18Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-require File.dirname(__FILE__) + '/../test_helper'
-
-class AuthorTest < Test::Unit::TestCase
-  
-  fixtures :authors
-  
-  def test_authorization
-    assert_equal authors(:garrett), Author.authorize('garrett@email.com', 'test', true, true)
+class AuthorTest < ActiveSupport::TestCase
+  test "can authorize an author" do
+    assert_equal authors(:garrett), Author.authorize('garrett@pinchzoom.com', 'test', true, true)
   end
   
-  def test_create_complete
+  test "can't create without name" do
     author = Author.new
     assert !author.save
+  end
+  
+  test "can't create without email" do
     author = Author.new
     author.name = 'test'
     assert !author.save
+  end
+  
+  test "can't create without password" do
     author = Author.new
     author.name = 'test'
     author.email = 'test@test.com'
     assert !author.save
+  end
+  
+  test "can create" do
     author = Author.new
     author.name = 'test'
     author.email = 'test@teset.com'
@@ -27,32 +32,33 @@ class AuthorTest < Test::Unit::TestCase
     assert author.save
   end
   
-  def test_unique_emails
+  test "emails must be unique" do
     author = Author.new
-    author.name = 'test'
-    author.email = 'garrett@email.com'
+    author.name = 'Some Guy'
+    author.email = authors(:garrett).email
     author.password = 'test'
-    assert !author.save
+    assert !author.save # TODO should be more specific
   end
   
-  def test_change_pass
-    author = Author.find(2)
+  test "can change password" do
+    author = authors(:garrett)
     old_pass = author.hashed_pass
     author.password = 'different'
     assert author.save
     assert old_pass != author.hashed_pass
   end
   
-  def test_keep_pass
-    author = Author.find(1)
+  test "hashed_pass is same across saves" do
+    # don't get the point of this test
+    author = authors(:garrett)
     old_pass = author.hashed_pass
     author.save
-    author = Author.find(1)
+    author = authors(:garrett)
     new_pass = author.hashed_pass
     assert_equal old_pass, new_pass
   end
   
-  def test_hash
+  test "password hash is correct" do
     author = Author.new
     author.name = 'test'
     author.email = 'test@test.com'
@@ -61,11 +67,10 @@ class AuthorTest < Test::Unit::TestCase
     assert_equal '9ca450839dab074c48794e9b073a173d1ef008d3', author.hashed_pass
   end
   
-  def test_destroy_author
-    c = Author.count
-    author = Author.find(1)
-    assert author.destroy
-    assert_equal c-1, Author.count
+  test "can destroy author" do
+    assert_difference 'Author.count', -1 do
+      assert authors(:simon).destroy
+    end
   end
   
 end

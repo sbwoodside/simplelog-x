@@ -1,71 +1,44 @@
-require File.dirname(__FILE__) + '/../test_helper'
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-class TaggingTest < Test::Unit::TestCase
-  fixtures :tags, :taggings, :posts, :pages
-  def setup
-    @objs = Page.find(:all, :limit => 2)
-    
-    @obj1 = @objs[0]
-    @obj1.tag_with("pale")
-    @obj1.reload
-    
-    @obj2 = @objs[1]
-    @obj2.tag_with("pale imperial")
-    @obj2.reload
-    
-    @obj3 = Post.find(:first)
-    @tag1 = Tag.find(1)  
-    @tag2 = Tag.find(2)  
-    @tagging1 = Tagging.find(1)
-  end
-
-  def test_tag_with
-    @obj2.tag_with "hoppy pilsner"
-    assert_equal "hoppy pilsner", @obj2.tag_list
+class TaggingTest < ActiveSupport::TestCase
+  test "post has correct tags" do
+    assert posts(:normal).tags.include? tags(:red)
+    assert posts(:normal).tags.include? tags(:green)
+    assert !( posts(:normal).tags.include? tags(:violet) )
   end
   
-  def test_find_tagged_with
-    @obj1.tag_with "seasonal lager ipa"
-    @obj2.tag_with ["lager", "stout", "fruity", "seasonal"]
-    
-    result1 = [@obj1]
-    assert_equal Page.tagged_with("ipa"), result1
-    assert_equal Page.tagged_with("ipa lager"), result1
-    assert_equal Page.tagged_with("ipa", "lager"), result1
-    
-    result2 = [@obj1.id, @obj2.id].sort
-    assert_equal Page.tagged_with("seasonal").map(&:id).sort, result2
-    assert_equal Page.tagged_with("seasonal lager").map(&:id).sort, result2
-    assert_equal Page.tagged_with("seasonal", "lager").map(&:id).sort, result2
+  test "can add a tag" do
+    tag = Tag.new :name => "fuschia"
+    posts(:normal).tags << tag
+    posts(:normal).tags.include? tag
   end
   
-  def test__add_tags
-    @obj1._add_tags "porter longneck"
-    # Page & Post do not implement equivalence (.eql?) so these cannot work:
-    #assert Tag.find_by_name("porter").taggables.include?(@obj1) # fails because no .eql?
-    #assert Tag.find_by_name("longneck").taggables.include?(@obj1) # fails because no .eql?
-    assert_equal "longneck pale porter", @obj1.tag_list    
-    
-    @obj1._add_tags [2]
-    assert_equal "imperial longneck pale porter", @obj1.tag_list        
+  test "can replace tags on a page using tag_with and tag_list" do
+    pages(:hello).tag_with "fuschia yellow"
+    assert_equal "fuschia yellow", pages(:hello).tag_list # alpha order
   end
   
-  def test__remove_tags
-    @obj2._remove_tags ["2", @tag1]
-    assert @obj2.tags.empty?
+  test "can find pages using tagged_with" do
+    assert_equal Page.tagged_with("red"), [pages(:hello), pages(:about)]
   end
   
-  def test_tag_list
-    assert_equal "imperial pale", @obj2.tag_list
+  test "can remove tags from post" do
+    posts(:normal)._remove_tags ["red", "green"]
+    assert posts(:normal).tags.empty?
+  end
+  
+  test "tag_list method" do
+    assert_equal posts(:normal).tag_list, "green red"
   end
     
-  def test_taggable
+  test "posts and pages are taggable" do
     assert_raises(RuntimeError) do 
-      @tagging1.send(:taggable?, true) 
+      taggings(:page_about_red).send(:taggable?, true) 
     end
-    assert !@tagging1.send(:taggable?)
-    assert @obj3.send(:taggable?)
-    
+    assert !( taggings(:page_about_red).send(:taggable?) )
+    assert pages(:about).send(:taggable?)
+    assert posts(:normal).send(:taggable?)
   end
     
 end

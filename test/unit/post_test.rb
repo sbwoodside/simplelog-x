@@ -1,21 +1,23 @@
-require File.dirname(__FILE__) + '/../test_helper'
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-class PostTest < Test::Unit::TestCase
-  
-  fixtures :posts, :taggings, :tags
-  
-  def test_create_post
-    c = Post.count
-    p = Post.new
-    p.author_id = 1
-    p.title = 'new test'
-    p.body_raw = 'test body content'
-    assert p.save
-    assert_equal c+1, Post.count
+class PostTest < ActiveSupport::TestCase
+  test "related posts works" do
+    assert_equal posts(:normal).related, [posts(:most_related_to_normal), posts(:normal)]
   end
   
-  def test_edit_post
-    p = Post.find(1)
+  test "can create a post" do
+    assert_difference 'Post.count' do
+      p = Post.new
+      p.author_id = 1
+      p.title = 'new test'
+      p.body_raw = 'test body content'
+      assert p.save
+    end
+  end
+  
+  test "can edit a post" do
+    p = posts(:by_simon)
     title = p.title
     p.title = 'new title now'
     p.is_active = false
@@ -24,11 +26,10 @@ class PostTest < Test::Unit::TestCase
     assert_equal false, p.is_active
   end
   
-  def test_destroy_post
-    c = Post.count
-    p = Post.find(1)
-    assert p.destroy
-    assert_equal c-1, Post.count
+  test "can destroy a post" do
+    assert_difference 'Post.count', -1 do
+      assert posts(:normal).destroy
+    end
   end
   
   def test_get_active_posts
@@ -39,24 +40,21 @@ class PostTest < Test::Unit::TestCase
   end    
   
   def test_tag_post
-    p = Post.find(1)
-    c = p.tags.length
-    
+    p = posts(:by_simon)
     # add/push a tag
-    new_tag = Tag.create
-    new_tag.name = "another"
-    assert p.tags << new_tag # this time p.tags is updated
-    assert_equal c+1, p.tags.size
-    
+    assert_difference 'p.tags.count' do
+      new_tag = Tag.create
+      new_tag.name = "another"
+      assert p.tags << new_tag # this time p.tags is updated
+    end
     # overwrite the tags
     assert p.tag_with "atag" # for some reason p.tags isn't updated at this point, but p.tag_list is
     assert_equal 1, p.tag_list.split.size
   end
   
-  def test_remove_tags
-    p = Post.find(1)
-    assert p.tags.clear
-    assert_equal 0, p.tags.length
+  test "can clear all tags" do
+    assert posts(:normal).tags.clear
+    assert_equal posts(:normal).tags.count, 0
   end
   
   def test_permalinks

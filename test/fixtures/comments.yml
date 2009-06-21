@@ -1,17 +1,31 @@
-# $Id: comments.yml 300 2007-02-01 23:01:00Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
 
-comment_1:
-  id: 1
-  post_id: 1
-  name: Manny Guy
-  email: manny@guy.com
-  url: test.com
-  subject: Great site
-  synd_title: I love...
-  body: I love this site.
-  body_raw: I love this site.
-  body_searchable: I love this site
-  ip: 123.321.123.321
+strawberry_fields:
+  post: normal
+  name: Some Commenter
+  email: some@commenter.com
+  url: http://commenter.com/some
+  subject: Strawberry Fields
+  synd_title: Strawberry Fields
+  body: Let me take you down, cause I'm going to, Strawberry fields, Nothing is real, And nothing to get hung about
+  body_raw: Let me take you down, cause I'm going to, Strawberry fields, Nothing is real, And nothing to get hung about
+  body_searchable: Let me take you down, cause I'm going to, Strawberry fields, Nothing is real, And nothing to get hung about
+  ip: 1.2.3.4
   is_approved: true
-  created_at: 2006-05-15 00:00:00
-  modified_at: 2006-05-15 00:00:00
+  created_at: <%= 5.days.ago.to_s :db %>
+  modified_at: <%= 5.days.ago.to_s :db %>
+
+not_approved:
+  post: normal
+  name: Foo Bar
+  email: foo@bar.com
+  url:
+  subject: I'm not approved
+  synd_title: I'm not approved
+  body: This comment is not approved, know what I mean?
+  body_raw: This comment is not approved, know what I mean?
+  body_searchable: This comment is not approved, know what I mean?
+  ip: 4.3.2.1
+  is_approved: false
+  created_at: <%= 15.days.ago.to_s :db %>
+  modified_at: <%= 15.days.ago.to_s :db %>

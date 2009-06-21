@@ -1,17 +1,8 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'admin/base_controller'
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class Admin::BaseController; def rescue_action(e) raise e end; end
-
-class BaseControllerTest < Test::Unit::TestCase
-  
-  fixtures :authors, :comments, :tags, :posts, :taggings
-  
+class BaseControllerTest < ActionController::TestCase
   def setup
-    @controller = Admin::BaseController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
     # let's set cookies for authentication so that we can do tests... the admin section is protected
     @request.cookies[SL_CONFIG[:USER_EMAIL_COOKIE]] = CGI::Cookie.new(SL_CONFIG[:USER_EMAIL_COOKIE], authors(:garrett).email)
     @request.cookies[SL_CONFIG[:USER_HASH_COOKIE]] = CGI::Cookie.new(SL_CONFIG[:USER_HASH_COOKIE], authors(:garrett).hashed_pass)

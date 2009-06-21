@@ -1,7 +1,10 @@
---- 
-tags_001: 
-  id: 1
-  name: pale
-tags_002: 
-  id: 2
-  name: imperial
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+
+red: 
+  name: red
+
+green: 
+  name: green
+
+violet:
+  name: violet

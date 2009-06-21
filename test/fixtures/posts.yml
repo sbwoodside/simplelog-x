@@ -1,65 +1,63 @@
-post_1:
-  id: 1
-  author_id: 1
-  created_at: '2006-05-01 00:00:00'
-  modified_at: '2006-05-01 00:00:00'
-  permalink: test_body_content
-  title: test
-  body_raw: test body content
-  body: test body content
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+
+normal:
+  author: garrett
+  created_at: <%= 30.days.ago.to_s :db %>
+  modified_at: <%= 30.days.ago.to_s :db %>
+  permalink: normal
+  title: Normal Post
+  body_raw: This is a very normal post. There is nothing odd about it at all.
+  body: This is a very normal post. There is nothing odd about it at all.
   is_active: true
   
-post_2:
-  id: 2
-  author_id: 1
-  created_at: '2006-05-01 00:00:00'
-  modified_at: '2006-05-01 00:00:00'
-  permalink: test_body_content_again
-  title: test not active
-  body_raw: test body content
-  body: test body content
+not_active:
+  author: garrett
+  created_at: <%= 29.days.ago.to_s :db %>
+  modified_at: <%= 29.days.ago.to_s :db %>
+  permalink: not_active
+  title: Not Active
+  body_raw: This post is not active... so is_active is false.
+  body: This post is not active... so is_active is false.
   is_active: false
   
-post_3:
-  id: 3
-  author_id: 1000 # doesn't exist
-  created_at: '2006-05-01 00:00:00'
-  modified_at: '2006-05-01 00:00:00'
-  permalink: test
-  title: no author
-  body_raw: test
-  body: test
+non_existent_author:
+  author: nobody
+  created_at: <%= 27.days.ago.to_s :db %>
+  modified_at: <%= 27.days.ago.to_s :db %>
+  permalink: non_existent_author
+  title: Non Existent Author
+  body_raw: The author doesn't exist. So there.
+  body: The author doesn't exist. So there.
   is_active: true
   
-post_4:
-  id: 4
-  author_id: 3
-  created_at: '2006-05-01 00:00:00'
-  modified_at: '2006-05-01 00:00:00'
-  permalink: test_one_more
-  title: another test
-  body_raw: test one more
-  body: test one more
-  is_active: true
-  
-post_5:
-  id: 5
-  author_id: 3
-  created_at: '2006-05-02 00:00:00'
-  modified_at: '2006-05-02 00:00:00'
-  permalink: more_test_posts
-  title: another test post for author 3
-  body_raw: test one more time for 3
-  body: test one more time for 3
+by_simon:
+  author: simon
+  created_at: <%= 25.days.ago.to_s :db %>
+  modified_at: <%= 25.days.ago.to_s :db %>
+  permalink: by_simon
+  title: Written by Simon
+  body_raw: Simon wrote this one...
+  body: Simon wrote this one...
   is_active: true
 
-post_6:
-  id: 6
-  author_id: 3
-  created_at: '2006-05-03 00:00:00'
-  modified_at: '2006-05-03 00:00:00'
-  permalink: more_test_posts_again
-  title: another test post for author 3 again
-  body_raw: test one more time for 3 again
-  body: test one more time for 3 again
+most_related_to_normal:
+  author: simon
+  created_at: <%= 25.days.ago.to_s :db %>
+  modified_at: <%= 25.days.ago.to_s :db %>
+  permalink: most_related_to_normal
+  title: Most Related To Normal
+  body_raw: It's got the same tags as normal.
+  body: It's got the same tags as normal.
   is_active: true
+
+canada_day:
+  author: nobody
+  created_at: 1867-07-01 01:01:01
+  modified_at: 1867-07-01 01:01:01
+  permalink: canada_day
+  title: Canada Day is July 1
+  body_raw: Today is the Day that Canada was born.
+  body: Today is the Day that Canada was born.
+  is_active: true
+
+

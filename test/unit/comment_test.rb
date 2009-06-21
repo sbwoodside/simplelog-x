@@ -1,26 +1,28 @@
-# $Id: comment_test.rb 296 2007-01-30 22:31:51Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-require File.dirname(__FILE__) + '/../test_helper'
-
-class CommentTest < Test::Unit::TestCase
-  
-  fixtures :comments, :blacklist
-
-  def test_kill_tags
+class CommentTest < ActiveSupport::TestCase
+  test "kill_tags method works" do
     str = Comment.kill_tags('<this>is<great>')
     assert_equal('is', str)
   end
   
-  def test_create
+  test "can't create comment without post" do
     c = Comment.new(:body => 'test')
     assert !c.save
+  end
+  
+  test "can't create comment with malformed email" do
     c = Comment.new(:body_raw => 'test', :post_id => '1', :email => 'ttt')
     assert !c.save
+  end
+  
+  test "can create comment" do
     c = Comment.new(:body_raw => 'test', :post_id => '1', :email => 'ttt@ttt.com')
     assert c.save
   end
   
-  def test_spam_filter
+  test "Blacklist works" do
     Blacklist.new(:item => 'ttt@ttt.com').save
     c = Comment.new(:body_raw => 'test', :post_id => '1', :email => 'ttt@ttt.com')
     assert !c.save

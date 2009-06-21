@@ -1,17 +1,8 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'admin/posts_controller'
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class Admin::PostsController; def rescue_action(e) raise e end; end
-
-class PostsControllerTest < Test::Unit::TestCase
-  
-  fixtures :authors, :posts, :tags
-  
+class Admin::PostsControllerTest < ActionController::TestCase
   def setup
-    @controller = Admin::PostsController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
     # let's set cookies for authentication so that we can do tests... the admin section is protected
     @request.cookies[SL_CONFIG[:USER_EMAIL_COOKIE]] = CGI::Cookie.new(SL_CONFIG[:USER_EMAIL_COOKIE], authors(:garrett).email)
     @request.cookies[SL_CONFIG[:USER_HASH_COOKIE]] = CGI::Cookie.new(SL_CONFIG[:USER_HASH_COOKIE], authors(:garrett).hashed_pass)
@@ -30,31 +21,35 @@ class PostsControllerTest < Test::Unit::TestCase
     assert_response :success
   end
   
-  def test_post_create
-    c = Post.count
-    post :post_create, :post => {:author_id => 1, :title => 'test post', :body_raw => 'test content'}
+  test "can create a post" do
+    assert_difference 'Post.count' do
+      post :post_create, :post => {:author_id => authors(:garrett), :title => 'test post', :body_raw => 'test content'}
+    end
     assert_redirected_to '/admin/posts'
-    assert_equal c+1, Post.count
   end
   
   def test_post_edit
-    get :post_edit, :id => 1
-    assert_template 'post_edit'
-    assert(@response.has_template_object?('post'))
-    assert(assigns('post').valid?)
+    get :post_edit, :id => posts(:normal).id
     assert_response :success
+    assert_template 'post_edit'
+    assert assigns(:post).valid?
   end
   
   def test_post_update
-    post :post_update, :id => 1
+    post :post_update, :id => posts(:normal).id
     assert_redirected_to '/admin/posts'
   end
   
-  def test_post_destroy
-    assert_not_nil Post.find(1)
-    get :post_destroy, :id => 1
+  test "can destroy a post" do
+    assert_difference 'Post.count', -1 do
+      get :post_destroy, :id => posts(:normal).id
+    end
     assert_redirected_to '/admin/posts'
-    assert_raise(ActiveRecord::RecordNotFound) { p = Post.find(1) }
   end
   
 end
+
+
+
+
+

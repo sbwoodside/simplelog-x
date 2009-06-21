@@ -1,21 +1,48 @@
---- 
-taggings_001: 
-  id: 1
-  tag_id: 1
-  taggable_id: 1
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+
+page_about_red:
+  tag_id: <%= Fixtures.identify(:red) %>
+  taggable_id: <%= Fixtures.identify(:about) %>
   taggable_type: Page
-taggings_002: 
-  id: 2
-  tag_id: 1
-  taggable_id: 2
+
+page_hello_red:
+  tag_id: <%= Fixtures.identify(:red) %>
+  taggable_id: <%= Fixtures.identify(:hello) %>
   taggable_type: Page
-taggings_003: 
+
+post_normal_red:
   id: 3
-  tag_id: 2
-  taggable_id: 1                
+  tag_id: <%= Fixtures.identify(:red) %>
+  taggable_id: <%= Fixtures.identify(:normal) %>
   taggable_type: Post
-taggings_004: 
+
+post_normal_green:
   id: 4
-  tag_id: 2
-  taggable_id: 2
+  tag_id: <%= Fixtures.identify(:green) %>
+  taggable_id: <%= Fixtures.identify(:normal) %>
+  taggable_type: Post
+
+by_simon_red:
+  id: 5
+  tag_id: <%= Fixtures.identify(:red) %>
+  taggable_id: <%= Fixtures.identify(:by_simon) %>
   taggable_type: Page
+
+by_simon_violet:
+  id: 6
+  tag_id: <%= Fixtures.identify(:violet) %>
+  taggable_id: <%= Fixtures.identify(:by_simon) %>
+  taggable_type: Page
+
+most_related_to_normal_red:
+  id: 7
+  tag_id: <%= Fixtures.identify(:red) %>
+  taggable_id: <%= Fixtures.identify(:most_related_to_normal) %>
+  taggable_type: Post
+
+most_related_to_normal_green:
+  id: 8
+  tag_id: <%= Fixtures.identify(:green) %>
+  taggable_id: <%= Fixtures.identify(:most_related_to_normal) %>
+  taggable_type: Post
+

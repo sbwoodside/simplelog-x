@@ -1,11 +1,7 @@
-# $Id: blacklist_test.rb 296 2007-01-30 22:31:51Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-require File.dirname(__FILE__) + '/../test_helper'
-
-class BlacklistTest < Test::Unit::TestCase
-  
-  fixtures :blacklist
-  
+class BlacklistTest < ActiveSupport::TestCase
   def test_add_item
     bl = Blacklist.new
     assert !bl.save

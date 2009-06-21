@@ -1,21 +1,9 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'tag_controller'
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class TagController; def rescue_action(e) raise e end; end
-
-class TagControllerTest < Test::Unit::TestCase
-  
-  fixtures :tags, :posts, :taggings
-  
-  def setup
-    @controller = TagController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-  end
-  
+class TagControllerTest < ActionController::TestCase
   def test_tag_archive
-    get :show, :tag => tags(:tags_001).name
+    get :show, :tag => tags(:red).name
     assert_response :success
     assert_template 'show'
     assert_not_nil assigns(:tags)

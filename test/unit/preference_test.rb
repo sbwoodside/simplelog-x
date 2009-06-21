@@ -1,11 +1,7 @@
-# $Id: preference_test.rb 296 2007-01-30 22:31:51Z garrett $
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-require File.dirname(__FILE__) + '/../test_helper'
-
-class PreferenceTest < Test::Unit::TestCase
-  
-  fixtures :preferences
-  
+class PreferenceTest < ActiveSupport::TestCase
   def test_nothing
     assert_equal 1, 1
   end

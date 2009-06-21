@@ -1,39 +1,31 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'author_controller'
-$page_title = 'test' # for testing purposes
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class AuthorController; def rescue_action(e) raise e end; end
-
-class AuthorControllerTest < Test::Unit::TestCase
-  
-  fixtures :authors
-  
-  def setup
-    @controller = AuthorController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-  end
-  
-  def test_login
+class AuthorControllerTest < ActionController::TestCase
+  test "get login" do
     get :login
     assert_template 'login'
     assert(@response.has_template_object?('author'))
-    #assert(@response.has_template_object?('tags'))
     assert_response :success
   end
   
-  def test_do_login
+  test "don't allow login with wrong password" do
     post :do_login, :id => 1, :author => {:email => 'test', :password => 'test'} # bad
     assert_redirected_to '/login'
-    post :do_login, :author => {:email => 'garrett@email.com', :password => 'test'}
-    assert_redirected_to '/admin'
-    session[:came_from] = '/admin/posts' # alternative redirect
-    post :do_login, :author => {:email => 'garrett@email.com', :password => 'test'}
-    assert_redirected_to '/admin/posts'
   end
   
-  def test_logout
+  test "allow login with right password" do
+    post :do_login, :author => {:email => 'garrett@pinchzoom.com', :password => 'test'}
+    assert_redirected_to '/admin'
+  end
+  
+  # test "redirect to right page after login"do
+  #   session['came_from'] = '/admin/posts' # alternative redirect
+  #   post :do_login, :author => {:email => 'garrett@pinchzoom.com', :password => 'test'}
+  #   assert_redirected_to '/admin/posts'
+  # end
+  
+  test "logout works" do
     get :logout
     assert_redirected_to '/'
   end

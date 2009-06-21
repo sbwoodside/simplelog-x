@@ -1,14 +1,11 @@
-require File.dirname(__FILE__) + '/../test_helper'
+# This software is licensed under GPL v2 or later. See doc/LICENSE for details.
+require 'test_helper'
 
-class TagTest < Test::Unit::TestCase
-  fixtures :posts, :pages  
-  def setup
+class TagTest < ActiveSupport::TestCase
+  # TODO why not use fixtures???
+  def test_to_s
     @obj = Page.find(:first)
     @obj.tag_with "pale imperial"
-  end
-
-  def test_to_s
     assert_equal "imperial pale", Page.find(:first).tags.to_s
   end
-  
 end
