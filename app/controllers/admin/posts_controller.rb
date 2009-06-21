@@ -159,16 +159,16 @@ class Admin::PostsController < Admin::BaseController
       timeframe = params[:comment_batch][:timeframe].to_i
       setting = params[:comment_batch][:setting].to_i
       if timeframe == 0
-      # all posts
+        # all posts
         posts = Post.find(:all)
       else
-      # let's build the date for the timeframe
+        # let's build the date for the timeframe
         today = Time.sl_local
         backdate = (Time.sl_local-(86400*timeframe))
         posts = Post.find(:all, :conditions => ['created_at >= ?', backdate])
       end
       for p in posts
-      # let's set the comment status appropriately
+        # let's set the comment status appropriately
         p.update_attribute('comment_status', setting)
       end
       # all done!
