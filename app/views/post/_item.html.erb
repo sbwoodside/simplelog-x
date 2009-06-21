@@ -8,6 +8,7 @@
     <%= image_tag( post.attachment.url ) if post.attachment.file? %>
     <%= auto_link(post.body) %>
     <%= Site.extended_content_link(post) %>
+    <%#=h post.related.map { |p| p.title } .inspect %>
   </div>
   <div class="item_meta">
     <% if Site.comment_system_on %><span class="item_comments">Comments: <%= Site.comment_info(post) %></span><% end %>
