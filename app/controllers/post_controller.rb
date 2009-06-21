@@ -110,7 +110,7 @@ class PostController < ApplicationController
   def feed_comments_rss
     # get recent comments for the feed
     @comments = Comment.find_for_feed
-    render :template => 'feeds/comments'
+    render :xml => 'comment/feed'
   end
   
 

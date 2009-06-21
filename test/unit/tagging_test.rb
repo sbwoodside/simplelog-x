@@ -2,10 +2,10 @@
 require 'test_helper'
 
 class TaggingTest < ActiveSupport::TestCase
-  test "post has correct tags" do
-    assert posts(:normal).tags.include? tags(:red)
-    assert posts(:normal).tags.include? tags(:green)
-    assert !( posts(:normal).tags.include? tags(:violet) )
+  test "tag fixture associations are correct" do
+    assert_equal posts(:normal).tags, [tags(:red), tags(:green)]
+    assert_equal pages(:about).tags, [tags(:red)]
+    assert_equal tags(:green).taggables, [posts(:normal), posts(:most_related_to_normal)]
   end
   
   test "can add a tag" do

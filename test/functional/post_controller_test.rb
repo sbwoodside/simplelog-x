@@ -57,6 +57,12 @@ class PostControllerTest < ActionController::TestCase
     # TODO: how do you test results from XML Builder?
   end
   
+  test "should get comments feed" do
+    get :feed_comments_rss
+    assert_response :success
+    assert assigns(:comments)
+  end
+  
   def test_search
     # TODO make this work when search is restored
     # you can only run this if you run the post_controller_test.rb file directly,

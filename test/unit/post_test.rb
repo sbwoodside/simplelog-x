@@ -3,7 +3,7 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   test "related posts works" do
-    assert_equal posts(:normal).related, [posts(:most_related_to_normal), posts(:normal)]
+    assert_equal posts(:normal).related, [posts(:most_related_to_normal)]
   end
   
   test "can create a post" do

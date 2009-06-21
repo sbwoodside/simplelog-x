@@ -365,10 +365,10 @@ class Post < ActiveRecord::Base
     # for each tag on self, add how_many most recent posts with that tag to the candidate list
     candidate_posts = self.tags.collect { |tag| tag.posts.all(:order => 'created_at DESC', :limit => how_many+1) } .flatten.uniq
     candidate_posts.delete self
-    puts "CANDIDATES = #{candidate_posts.map{|c| c.title}.inspect}"
+    #puts "CANDIDATES = #{candidate_posts.map{|c| c.title}.inspect}"
     # for each post in the list, assign score = number of tags shared with current post
     sorted = candidate_posts.sort_by { |candidate_post| (self.tags & candidate_post.tags) .size } # how many tags do original and candidate share?
-    puts "SORTED = #{sorted.map{|c| c.title}.inspect}"
+    #puts "SORTED = #{sorted.map{|c| c.title}.inspect}"
     # return the how_many highest scored posts
     return sorted[0,how_many] # first five
   end
