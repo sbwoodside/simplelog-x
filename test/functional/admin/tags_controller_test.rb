@@ -66,3 +66,6 @@ class Admin::TagsControllerTest < ActionController::TestCase
   end
   
 end
+
+
+
