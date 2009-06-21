@@ -300,8 +300,8 @@ class Post < ActiveRecord::Base
   
   # get a list of posts written on a certain day
   def self.find_by_day(d, m, y)
-    first_day = Time.parse("#{m}/#{d}/#{y}").strftime('%Y-%m-%d %H:%M:%S')
-    last_day = Time.parse((Date.parse("#{m}/#{d}/#{y}")+1).to_s).strftime('%Y-%m-%d %H:%M:%S')
+    first_day = Date.parse("#{m}/#{d}/#{y}").strftime('%Y-%m-%d %H:%M:%S')
+    last_day = Date.parse((Date.parse("#{m}/#{d}/#{y}")+1).to_s).strftime('%Y-%m-%d %H:%M:%S')
     self.find(:all, :conditions => ['is_active = ? and (created_at >= ? and created_at < ?) and created_at <= ?', true, first_day, last_day, Time.sl_local], :order => 'created_at desc')
   end
   

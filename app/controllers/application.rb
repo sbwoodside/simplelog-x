@@ -41,16 +41,12 @@ end
 
 
 class Time #:nodoc:
+  # TODO: Find a better way to do this!
   
   # extends Time to add a simplelog localtime object which uses preference-set
   # offset and the current server time to get the accurate user's time
   def self.sl_local
     return (Time.now+(Preference.get_setting('OFFSET').to_i*60*60)).getgm
-  end
-  
-  # localize a timestamp to simplelog localtime
-  def self.sl_localize(t)
-    return (t+(Preference.get_setting('OFFSET').to_i*60*60)).getgm
   end
   
   # localized time in DB format

@@ -33,7 +33,7 @@ class PostController < ApplicationController
     end
   end
   
-    # list of tags (a tag archive, if you will)
+  # list of tags (a tag archive, if you will)
   def tags_list
     $page_title = 'Tags.'
     render :template => 'archives/list_tags'
@@ -62,7 +62,7 @@ class PostController < ApplicationController
   def by_day
     @posts = Post.find_by_day(params[:day], params[:month], params[:year])
     display_404 and return unless @posts.length > 0
-    $page_title = 'Daily archive: ' + Time.parse("#{params[:month]}/#{params[:day]}/#{params[:year]}").strftime('%d %B, %Y')
+    $page_title = 'Daily archive: ' + Date.parse("#{params[:month]}/#{params[:day]}/#{params[:year]}").strftime('%d %B, %Y')
     render :template => 'post/index'
   end
   
@@ -112,11 +112,8 @@ class PostController < ApplicationController
     @comments = Comment.find_for_feed
     render :template => 'feeds/comments'
   end
-
-
-
   
-  
+
 
 end
 
