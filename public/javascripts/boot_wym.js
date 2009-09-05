@@ -1,3 +1,4 @@
 jQuery(function() {
-    jQuery(".wymeditor").wymeditor();
+  jQuery(".wymeditor").wymeditor();
 });
+jQuery.noConflict();
