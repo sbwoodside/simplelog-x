@@ -25,7 +25,7 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
     assert_difference 'Author.count' do
       post :author_create, :author => {:name => 'test', :email => 'test@test.com', :password => 'test'}
     end
-    assert_redirected_to 'admin/authors'
+    assert_redirected_to '/admin/authors'
   end
   
   test "can edit an author" do
@@ -39,7 +39,7 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
     post :author_update, :id => authors(:simon).id, :author => {:is_active => '1'}
     assert_equal Author.all(:conditions => 'is_active = true').count, 2
     post :author_update, :id => authors(:simon).id, :author => {:is_active => '0'}
-    assert_redirected_to 'admin/authors'
+    assert_redirected_to '/admin/authors'
     assert_equal Author.all(:conditions => 'is_active = true'), [authors(:garrett)]
   end
   
@@ -54,7 +54,7 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
     assert_difference 'Author.count', -1 do
       get :author_destroy, :id => authors(:simon).id
     end
-    assert_redirected_to 'admin/authors'
+    assert_redirected_to '/admin/authors'
     assert_equal Author.all.include?( authors(:simon) ), false
     assert_equal Post.all( :conditions => "author_id = #{authors(:simon).id}" ), [] # all posts should be destroyed too...?
   end
@@ -63,7 +63,7 @@ class Admin::AuthorsControllerTest < ActionController::TestCase
     assert_no_difference 'Author.count' do
       get :author_destroy, :id => authors(:garrett).id
     end
-    assert_redirected_to 'admin/authors'
+    assert_redirected_to '/admin/authors'
   end
   
 end

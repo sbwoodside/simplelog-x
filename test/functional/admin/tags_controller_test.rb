@@ -40,7 +40,7 @@ class Admin::TagsControllerTest < ActionController::TestCase
     assert_no_difference 'Tag.count' do
       post :tag_update, :id => tags(:red).id, :old_name => "red", :tag => {:name => "fuschia"}
     end
-    assert_valid Tag.find_by_name "fuschia"
+    assert Tag.find_by_name( "fuschia" ).valid?
     assert_no_difference 'Tag.count' do
       post :tag_update, :id => tags(:red).id, :old_name => "fuschia", :tag => {:name => "changed"}
     end

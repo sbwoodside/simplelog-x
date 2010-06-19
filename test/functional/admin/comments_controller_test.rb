@@ -27,7 +27,7 @@ class Admin::CommentsControllerTest < ActionController::TestCase
     assert_no_difference 'Comment.count' do
       post :comment_update, :id => comments(:strawberry_fields).id, :comment => {:is_approved => false}
     end
-    assert_redirected_to 'admin/comments'
+    assert_redirected_to '/admin/comments'
     assert_equal Comment.find( comments(:strawberry_fields).id ).is_approved, false
   end
   
@@ -35,7 +35,7 @@ class Admin::CommentsControllerTest < ActionController::TestCase
     assert_difference 'Comment.count', -1 do
       get :comment_destroy, :id => comments(:strawberry_fields).id
     end
-    assert_redirected_to 'admin/comments'
+    assert_redirected_to '/admin/comments'
     assert_raise(ActiveRecord::RecordNotFound) { Comment.find comments(:strawberry_fields).id }
   end
   

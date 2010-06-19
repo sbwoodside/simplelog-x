@@ -33,7 +33,7 @@ class Admin::PagesControllerTest < ActionController::TestCase
     assert_difference 'Page.count', -1 do
       get :page_destroy, :id => pages(:hello)
     end
-    assert_redirected_to 'admin/pages'
+    assert_redirected_to '/admin/pages'
     assert_equal Page.all.include?( pages(:hello) ), false
   end
   
