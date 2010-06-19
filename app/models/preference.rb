@@ -11,12 +11,13 @@ class Preference < ActiveRecord::Base
     # drop the case
     name = name.downcase
     # check for it
+    @@stored_prefs ||= Hash.new # create it if it's not initialized yet
     if !@@stored_prefs[name]
       #logger.warn("WE ARE HITTING DB FOR: #{name.downcase} (cache length: #{@@stored_prefs.length.to_s})")
       #logger.warn("CURRENT CACHE: #{@@stored_prefs.inspect}")
       result = Preference.find(:first, :conditions => ['name = ?', name])
       if result
-      # we found our preference, return the value
+        # we found our preference, return the value
         @@stored_prefs[name] = result.value    
         return result.value
       end
