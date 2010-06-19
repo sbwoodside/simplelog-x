@@ -1,0 +1,11 @@
+# This only affect files not already in git
+.DS_Store
+build
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.log
+test.sqlite3
+Thumbs.db
+mylib
+*.class
