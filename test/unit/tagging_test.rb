@@ -3,9 +3,9 @@ require 'test_helper'
 
 class TaggingTest < ActiveSupport::TestCase
   test "tag fixture associations are correct" do
-    assert_equal posts(:normal).tags, [tags(:red), tags(:green)]
+    assert_equal posts(:normal).tags, [tags(:green), tags(:red)]
     assert_equal pages(:about).tags, [tags(:red)]
-    assert_equal tags(:green).taggables, [posts(:normal), posts(:most_related_to_normal)]
+    assert_equal tags(:green).taggables, [posts(:most_related_to_normal), posts(:normal)]
   end
   
   test "can add a tag" do
@@ -20,7 +20,7 @@ class TaggingTest < ActiveSupport::TestCase
   end
   
   test "can find pages using tagged_with" do
-    assert_equal Page.tagged_with("red"), [pages(:hello), pages(:about)]
+    assert_equal Page.tagged_with("red"), [pages(:about), pages(:hello)]
   end
   
   test "can remove tags from post" do
