@@ -13,12 +13,15 @@ config.whiny_nils = true
 
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = true
-config.action_controller.perform_caching = false
+config.action_controller.perform_caching             = false
+config.action_view.cache_template_loading            = true
+
+# Disable request forgery protection in test environment
+config.action_controller.allow_forgery_protection    = false
 
 # Tell ActionMailer not to deliver emails to the real world.
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-require 'bluecloth/lib/bluecloth' # for markdown filtering
-require 'rubypants'               # nice quotes, dashes, etc (smartypants)
+config.log_level = :debug
