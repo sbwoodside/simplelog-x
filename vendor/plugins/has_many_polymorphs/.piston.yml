@@ -1,8 +1,0 @@
---- 
-format: 1
-handler: 
-  commit: 1661ef980f0c91222a09e3674b348a40bd897876
-  branch: master
-lock: 
-repository_class: Piston::Git::Repository
-repository_url: git://github.com/fauna/has_many_polymorphs.git
