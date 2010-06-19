@@ -3,14 +3,7 @@
 require 'preference' # used to get preferences site-wide
 
 class ApplicationController < ActionController::Base
-  
-  #
-  # i <3 you, application controller. you do all the stuff that needs to be
-  # done on the application layer (which isn't much in this case).
-  #
-  
-  # nearly everything should use the post layout, except the admin section (which we'll deal with later)
-  layout 'site' # TODO so why is this duplicated in so many other controllers?
+  layout 'site' # TODO if this is here, then why is it duplicated in so many other controllers?
   
   helper :site
   
@@ -40,7 +33,7 @@ class ApplicationController < ActionController::Base
 end
 
 
-class Time #:nodoc:
+class Time
   # TODO: Find a better way to do this!
   
   # extends Time to add a simplelog localtime object which uses preference-set
