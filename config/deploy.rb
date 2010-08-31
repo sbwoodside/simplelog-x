@@ -1,19 +1,27 @@
-# This software is licensed under GPL v2 or later. See doc/LICENSE and doc/CONTRIBUTORS for details.
+# Capistrano deploy settings for Passenger & Git
 
-require 'mongrel_cluster/recipes'
-
-# This is for capistrano
-# DEPLOY: You must change these settings for your own repository/server settings
-
+# Application
 set :application, "deployed-swc-weblog"
+set :deploy_to, "/home/simon/#{application}"
+
+# Version control
 set :repository,  "git://github.com/sbwoodside/simplelog-x.git"
 set :scm, "git"
-set :deploy_to, "/home/simon/#{application}"
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
-set :use_sudo, false
+set :git_enable_submodules, 1
 
-role :app, "simon@simonwoodside.com"
-role :web, "simon@simonwoodside.com"
-role :db,  "simon@simonwoodside.com", :primary => true
+set :user, "simon"
+set :ssh_options, { :forward_agent => true }
+role :app, "simonwoodside.com"
+role :web, "simonwoodside.com"
+role :db,  "simonwoodside.com", :primary => true
 
-ssh_options[:paranoid] = false 
+namespace :deploy do
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
+end
