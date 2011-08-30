@@ -4,7 +4,7 @@ class CommentController < ApplicationController
   helper :site
   
   def add
-    if params[:do] != '1' or (params[:human_check] and params[:human_check] != '8') or !params[:comment][:post_id]
+    if params[:do] != '23' or (params[:not_a_robot] and params[:not_a_robot] != 'realhuman') or !params[:comment][:post_id]
       logger.warn("[Human check #{Time.sl_local.strftime('%m-%d-%Y %H%:%M:%S')}]: Comment did not pass human check so it was blocked.")
       redirect_to '/' and return false
     end
