@@ -30,10 +30,10 @@
       <h3 id="post">Post a comment</h3>
       <h4>Required fields in <b>bold</b>.</h4>
       <% form_tag('/comment/add', :id => 'post_form') do %>
-        <%= hidden_field_tag 'do', '1' %>
+        <%= hidden_field_tag 'do', '23' %>
         <%# This is used to check if commenter is human by seeing if they actually input text into %>
         <%# any of the boxes and requires the additional :onclick and :onkeypress below %>
-        <%= hidden_field_tag 'human_check', '0' %>
+        <%= hidden_field_tag 'not_a_robot', '' %>
         <%= hidden_field_tag 'return_url', Post.permalink(post) %>
         <%= hidden_field_tag 'link', post.permalink %>
         <%= hidden_field 'comment', 'post_id', :value => post.id.to_s %>
@@ -61,13 +61,13 @@
             <% end %>
             <tr>
               <td class="labels"><label for="tag_name"><b>Comment:</b></label></td>
-              <td class="fields"><%= text_area 'comment', 'body_raw', :rows => 20, :cols => 45, :wrap => 'virtual', :onkeypress => "this.form.elements['human_check'].value = '8'" %></td>
+              <td class="fields"><%= text_area 'comment', 'body_raw', :rows => 20, :cols => 45, :wrap => 'virtual', :onkeypress => "this.form.elements['not_a_robot'].value += 'real'" %></td>
             </tr>
             <tr>
               <td class="labels">&nbsp;</td>
               <td class="fields">
                 <div class="submit_area">
-                  <%= submit_tag 'Submit comment', :class => 'submit', :onclick => "this.form.elements['human_check'].value = '8'" %>
+                  <%= submit_tag 'Submit comment', :class => 'submit', :onclick => "this.form.elements['not_a_robot'].value += 'human'" %>
                 </div>
               </td>
             </tr>
